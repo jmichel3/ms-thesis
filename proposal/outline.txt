@@ -1,0 +1,12 @@
+definition: agreement between you and committee that your described thesis is worth a Masters.
+
+Questions to Answer in proposal:
+- What will I do?
+- How will I evaluate how well it works?
+- When will I know I'm done?
+
+Basic outline:
+- nature of problem, motivation
+- existing work, why it doesn't address the problem I'm addressing
+- talk about my idea
+- lay out experiments, what I think they'll show

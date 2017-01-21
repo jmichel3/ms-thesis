@@ -1,0 +1,64 @@
+06macrae
+Tab-following text-parsing Java app created; numbers arguing tablature popularity
+
+08barbancho
+Attempt at audio-based guitar string classification. Not great results; the chosen features (frequency and nontonal spectral centroids, harmonic amplitude relationship, inharmonicity, harmonic decay, attack/sustain/release times) were too variable in their string-discrimination efficacy. Classification attempted using Fisher LDA classifier. Insightful content: Barbancho's attack/decay definitions (cited), pitch estimation method (cited), spectral peak removal (cited)
+Question: what did Abesser do instead to gain his success in ../barbancho-cites/abesser.pdf?
+
+08barbancho02jensen
+Hard to read, not very helpful. Barbancho didn't stick closely to it; "based off of Jensen's model"
+
+09fragoulis
+Excellent automated discrimination of guitar v. piano notes achieved from a few non-tonal (NT) spectrum features. Method to extract NT spectrum by identifying and suppressing harmonic peaks is used by Barbancho in 08, and in inharmonicity paper.
+
+10klapuri
+Multiple-f0 estimation algorithm. Iterative multiband f0 search and spectral subtraction and smoothing.
+
+11yeh
+Multiple-f0 estimation algorithm. [Wasn't being absorbed]. Joint f0 estimation with polyphony inference.
+
+12gagnon
+Determination of fret-width hand position and # of strings played achieved with neural network solution. Input to NN: scaled energy vector of frequency bands. Output of each of six NNs: 19-dim binary vector indicating hand position. Each one of the six NN's trained to recognize its index's number of strings playing. However, ambiguity of played strings is not solved.
+
+13ogrady
+Modification of a guitar with a Roland hexaphonic pickup to capture distinct strings. NMF to generate activations and piano roll.
+
+14jarvelainen
+Inharmonicity is a psychoacoustically important feature, interacting with perceived pitch. Slightly more in-depth discussion of inharmonicity physics.
+
+15godsill
+Bayesian modeling of inharmonic music signals. "Not focused for any particular application".
+
+16rauhala
+Similar inharmonicity calculation algorithm to that which Barbancho used; seeds B calculation with f1 instead of f0. Instead of fitting curve iteratively with increasing partial numbers like Barbancho, Rauhala iterates/steps the actual B value itself until the concavity/convexity of the partial deviation curve settles to 0.
+
+18radisavljevic
+Guitar scores are used to generate optimal tablatures through a state transition path search thing.
+
+19radicioni
+Graph-search formulated solution to producing, again, optimal fingering/tabs given a music score.
+
+20tuohy
+Genetic algorithm to create tabs and NN to create fingering from music score.
+
+26traube
+Plucking-point estimation by minimizing error between input magnitude spectra and bank of ideal plucked string spectra
+
+27penttinen
+Real-time plucking-point estimation for saddle-pickup guitars achieved by mainly searching ACF for negative peak (trough), which corresponds to the time taken for the oppositely-travling transverse wave to reach the guitar pickup
+
+28abesser
+Plucking and playing style classification achieved with array of feature-space manipulation and classification options. See citations for more details on those.
+
+28abesser12abesser
+
+28abesser13lukashevich
+
+29traube
+More ACF-based plucking-point estimation, built off of [27,28].
+
+31karjalainen
+Inharmonicity in acoustic guitar is perceivable, but non-critically. Most noticeable for lower strings, attack portions of notes, and for degrees higher than that naturally present in guitar playing.
+
+32fletcher
+In-depth study of piano tones' defining psychoacoustic attributes. Among them, inharmonicity of low notes' (below middle C) partials is key.
