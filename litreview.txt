@@ -62,3 +62,12 @@ Inharmonicity in acoustic guitar is perceivable, but non-critically. Most notice
 
 32fletcher
 In-depth study of piano tones' defining psychoacoustic attributes. Among them, inharmonicity of low notes' (below middle C) partials is key.
+
+
+barbancho-cites
+
+abesser
+Machine-learning approach for string-fret identification in bass and electric guitar. Most discriminative features included normalized partial deviation, inharmonicity, normalized relative partial amplitude, statistics on said features, etc.
+
+abesser24stein
+Database of isolated guitar and bass notes processed under various effects. Curated by a team that did a paper on automatic guitar effect identification. Used by Abesser in the preceding paper.
