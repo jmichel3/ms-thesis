@@ -1,3 +1,8 @@
+--------------
+barbancho-refs
+--------------
+
+
 06macrae
 Tab-following text-parsing Java app created; numbers arguing tablature popularity
 
@@ -29,7 +34,7 @@ Inharmonicity is a psychoacoustically important feature, interacting with percei
 15godsill
 Bayesian modeling of inharmonic music signals. "Not focused for any particular application".
 
-16rauhala
+17rauhala
 Similar inharmonicity calculation algorithm to that which Barbancho used; seeds B calculation with f1 instead of f0. Instead of fitting curve iteratively with increasing partial numbers like Barbancho, Rauhala iterates/steps the actual B value itself until the concavity/convexity of the partial deviation curve settles to 0.
 
 18radisavljevic
@@ -45,7 +50,7 @@ Genetic algorithm to create tabs and NN to create fingering from music score.
 Plucking-point estimation by minimizing error between input magnitude spectra and bank of ideal plucked string spectra
 
 27penttinen
-Real-time plucking-point estimation for saddle-pickup guitars achieved by mainly searching ACF for negative peak (trough), which corresponds to the time taken for the oppositely-travling transverse wave to reach the guitar pickup
+Real-time plucking-point estimation for saddle-pickup guitars achieved by mainly searching ACF for negative peak (trough), which corresponds to the time taken for the oppositely-traveling transverse wave to reach the guitar pickup
 
 28abesser
 Plucking and playing style classification achieved with array of feature-space manipulation and classification options. See citations for more details on those.
@@ -64,10 +69,35 @@ Inharmonicity in acoustic guitar is perceivable, but non-critically. Most notice
 In-depth study of piano tones' defining psychoacoustic attributes. Among them, inharmonicity of low notes' (below middle C) partials is key.
 
 
+---------------
 barbancho-cites
+---------------
+
 
 abesser
-Machine-learning approach for string-fret identification in bass and electric guitar. Most discriminative features included normalized partial deviation, inharmonicity, normalized relative partial amplitude, statistics on said features, etc.
+Supervised machine-learning approach for string-fret identification in bass and electric guitar. Onset detection defined as the sample succeeding the max of the process variance. N=256, hop=64. Frame-wise aggregation for robustness of string classification. Features obtained for every frame.  Inharmonicity is obtained from polynomial fit of frame's AR model's pole locations. Model error minimized with least-squares method, or modified covariance method. Inharmonicity, relative partial amplitudes and fitted slope, relative partial deviations, and associated statistic are dimensionally reduced with LDA then fed to a SVM. The detected f0 together with the obtained string classification is used to infer fret position. Dataset used: IDMT-SMT-GUITAR_V2.
+
+abesser17maezawa
+Audio-based violin string classification.
 
 abesser24stein
-Database of isolated guitar and bass notes processed under various effects. Curated by a team that did a paper on automatic guitar effect identification. Used by Abesser in the preceding paper.
+Database of isolated guitar and bass notes processed under various effects. Curated by a team that did a paper on automatic guitar effect identification. Used by Abesser in first barbancho-cites summary above.
+
+dittmar
+Essentially a real-time implementation of Abesser's supervised ML solution. F0 pitch extraction achieved using BHAD. IRMFSP used for feature selection, SVM for classification. Chord fingering obtained as well.
+
+kehling
+Comprehensive supervised-ML-based system for score generation from guitar audio analysis: Note events (onset/offset), multipitch tracking, plucking and expression styles classification, string number classification, and plausability filtering. Built off Dittmar and Abesser. IF magnitude spectrogram as BHAD input for multipitch estimation.
+
+yazawa
+Multi-pitch estimation using LHA, then various playability constraints on the LHA output are enforced to more closely imitate fingering configuration reality, then dynamic programming employed to search graph for optimal tabs/configuration.
+
+------------------
+kehling-techniques
+------------------
+
+kehling04dixon - spectral flux, rectified complex domain, peak picking algorithm
+
+kehling06fuentes - blind harmonic adaptive decomposition (bhad)
+
+kehling07abe - instantaneous frequency
