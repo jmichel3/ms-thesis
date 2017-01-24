@@ -12,10 +12,12 @@ for (i=1:numOfFrames)
     FFT = FFT(1:windowLength);        
     FFT = FFT / max(FFT);
     if (i>1)
-        F(i) = sum((FFT-FFTprev).^2);
+        F(i) = sum(FFT-FFTprev);
     else
         F(i) = 0;
     end
     curPos = curPos + step;
     FFTprev = FFT;
 end
+F(F<0) = 0;
+F = F./max(F);

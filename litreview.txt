@@ -89,6 +89,12 @@ Essentially a real-time implementation of Abesser's supervised ML solution. F0 p
 kehling
 Comprehensive supervised-ML-based system for score generation from guitar audio analysis: Note events (onset/offset), multipitch tracking, plucking and expression styles classification, string number classification, and plausability filtering. Built off Dittmar and Abesser. IF magnitude spectrogram as BHAD input for multipitch estimation.
 
+kehling04dixon
+Details of onset detection methods.
+
+kehling04dixon02bello
+Predecessor to Dixon, more in-depth look at peak-picking
+
 yazawa
 Multi-pitch estimation using LHA, then various playability constraints on the LHA output are enforced to more closely imitate fingering configuration reality, then dynamic programming employed to search graph for optimal tabs/configuration.
 
@@ -101,3 +107,17 @@ kehling04dixon - spectral flux, rectified complex domain, peak picking algorithm
 kehling06fuentes - blind harmonic adaptive decomposition (bhad)
 
 kehling07abe - instantaneous frequency
+
+
+---------------
+onset detection
+---------------
+
+bello2005
+Thorough introduction to onset detection. Workflow: signal --> pre-processing --> reduction / detection function --> (opt: post-processing) --> peak-picking. Pre-processing helps robustness of subsequent reduction, common processing is multi-band filtering. Post-processing helpful: mean-subtraction, normalization, LPF. Peak-picking: moving median-filter thresholding, selecting all local peaks >0. Various approaches suitable for different signal classes; spectral differences seemed most tuned for "strongly pitched transients". Tons of great references.
+
+dixon2006
+Extension of bello's paper. Dixon augments a few onset detection algorithms and examines their performance. Phase deviation, Complex Domain,. Peak-picking algorithm is better than bello's. He reports highest across-the-board performance with his rectified SF, contrary to other reports in the literature. Attributes this to his peak-picking.
+
+liang2015
+Extension of the popular SF class of ODFs. Instead of using distance between previous and current spectral vectors as the ODF, Liang proposes linearly combining multiple previous spectral frames to reconstruct the current spectral frame with minimum error -- this reconstruction error is the ODF they use. Pre-processing and peak-picking are inspired by, and compared particularly to, the SuperFlux SF algorithm by Bock. Generally outperforms SuperFlux, especially for instruments with soft-attack and vibrato. Fares worse than SuperFlux in guitar though. Abesser and Kehling's highly-specific guitar ODFs achieve near-perfect F-scores though, since they're tuning for guitar only and focusing on guitar transcription rather than broad multi-instrument onset detection
