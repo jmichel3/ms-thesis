@@ -12,12 +12,13 @@ for (i=1:numOfFrames)
     FFT = FFT(1:windowLength);        
     FFT = FFT / max(FFT);
     if (i>1)
-        F(i) = sum(FFT-FFTprev);
+        hwr = (FFT-FFTprev + abs(FFT-FFTprev))/2; % half-wave-rectification, Dixon 2006
+        F(i) = sum(hwr);
     else
         F(i) = 0;
     end
     curPos = curPos + step;
     FFTprev = FFT;
 end
-F(F<0) = 0;
+%F(F<0) = 0;
 F = F./max(F);

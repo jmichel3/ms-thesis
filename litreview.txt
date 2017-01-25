@@ -34,6 +34,9 @@ Inharmonicity is a psychoacoustically important feature, interacting with percei
 15godsill
 Bayesian modeling of inharmonic music signals. "Not focused for any particular application".
 
+16galembo
+Don't have actual paper, but when referenced for comparison in 17rauhala, we see galembo introduced an Inharmonic Comb Filter (IFC) method for inharmonicity estimation. Requires an initial inharmonicity estimate.
+
 17rauhala
 Similar inharmonicity calculation algorithm to that which Barbancho used; seeds B calculation with f1 instead of f0. Instead of fitting curve iteratively with increasing partial numbers like Barbancho, Rauhala iterates/steps the actual B value itself until the concavity/convexity of the partial deviation curve settles to 0.
 

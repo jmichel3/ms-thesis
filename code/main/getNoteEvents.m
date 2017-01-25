@@ -1,25 +1,33 @@
 function notes = getNoteEvents(x, Fs)
-% GETNOTEEVENTS(X) takes in one-dimensional audio vector x and returns a
+% GETNOTEEVENTS(X) - Apply Onset Detection Function (ODF)
+% Takes in one-dimensional audio vector x and returns a
 % matrix collection of extracted notes
 %
-% Onset criterion:
-%
-% Window length criterion:
+% Pre-processing: [none]
+% Onset criterion: Rectified Spectral Flux (Dixon 2006)
+% Post-processing: [none]
+% Peak-picking: Zero-mean & unit-variance normalization; median filtering;
+% (Dixon 2006)
+% 
  
 %% Algorithm parameters
-frame = round(512);
+frame = round(2048);
 hop = round(256);
-noteLen = 256;
+noteLen = 44100;
 
-%% Find note onsets
+%% Pre-process
 
-% Combine spectral flux and energy to obtain onset estimates
-Flux = SpectralFlux(x, frame, hop, Fs);
-[pks,locs] = findpeaks(Flux, 'MinPeakDistance', 20, 'MinPeakHeight', 0.2);
+%% Reduce/detect
+
+% Spectral flux
+Flux = spectralFlux(x, frame, hop, Fs);
+[pks,locs] = findpeaks(Flux, 'MinPeakDistance', 20, 'MinPeakHeight', 0.25);
 % for debugging:
-figure; findpeaks(Flux, 'MinPeakDistance', 20, 'MinPeakHeight', 0.2);
+figure; findpeaks(Flux, 'MinPeakDistance', 20, 'MinPeakHeight', 0.25);
 
+%% Post-process
 
+%% Peak-pick
 
 %% Extract and return notes
 num_notes = length(pks);

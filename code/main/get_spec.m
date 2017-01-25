@@ -18,6 +18,9 @@ windowed = zeros(N, num_notes);
 
 % Get window and DFT power spectrum
 for i = 1:1:num_notes
+    x(start)
+    x(start+N-1)
+    i
    windowed(:,i) = x(start:start+N-1,i).*wind;
 end
 
