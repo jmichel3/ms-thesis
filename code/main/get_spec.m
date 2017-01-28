@@ -7,23 +7,19 @@ function spec = get_spec(x, start, len_t, Fs)
 %   (where FFTsize is defined in GET_SPEC internally). Other details of the
 %   employed DFT are also defined internally.
 
-num_notes = size(x, 2);
-N = floor(Fs*(len_t/1000)); %convert window length to samples (N)
-wind = hann(N);
-FFTsize = FFTsize_const();
-
-% Init matrices
-spec = zeros(FFTsize, num_notes);
-windowed = zeros(N, num_notes);
-
-% Get window and DFT power spectrum
-for i = 1:1:num_notes
-    x(start)
-    x(start+N-1)
-    i
-   windowed(:,i) = x(start:start+N-1,i).*wind;
+if start ~= 1
+   error('argument start != 1'); 
 end
 
-spec = 20*log10(abs(fft(windowed,FFTsize)));
+numNotes = size(x, 2);
+N = floor(Fs*(len_t/1000)); %convert window length to samples (N)
+w = hann(N);
+FFTsize = FFTsize_const();
+
+x(start+N:end,:) = [];
+w = repmat(w,[1,numNotes]);
+window = x.*w;
+spec = 10*log10(abs(fft(window,FFTsize)));
+spec((end/2)+1:end,:) = [];
 
 end

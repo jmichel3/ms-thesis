@@ -78,7 +78,7 @@ barbancho-cites
 
 
 abesser
-Supervised machine-learning approach for string-fret identification in bass and electric guitar. Onset detection defined as the sample succeeding the max of the process variance. N=256, hop=64. Frame-wise aggregation for robustness of string classification. Features obtained for every frame.  Inharmonicity is obtained from polynomial fit of frame's AR model's pole locations. Model error minimized with least-squares method, or modified covariance method. Inharmonicity, relative partial amplitudes and fitted slope, relative partial deviations, and associated statistic are dimensionally reduced with LDA then fed to a SVM. The detected f0 together with the obtained string classification is used to infer fret position. Dataset used: IDMT-SMT-GUITAR_V2.
+Supervised machine-learning approach for string-fret identification in bass and electric guitar. Onset detection defined as the sample succeeding the max of the process variance. N=256, hop=64. Frame-wise aggregation for robustness of string classification. Features obtained for every frame.  Inharmonicity is obtained from polynomial fit of frame's AR model's pole locations. Model error minimized with least-squares method, or modified covariance method. Inharmonicity, relative partial amplitudes and fitted slope, relative partial deviations, and associated statistic are dimensionally reduced with LDA then fed to a SVM. The detected f0 together with the obtained string classification is used to infer fret position. Dataset used: IDMT-SMT-GUITAR_V2. Classification percentages are based on cross-validation results, not brand new evaluation data.
 
 abesser17maezawa
 Audio-based violin string classification.

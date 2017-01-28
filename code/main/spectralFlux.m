@@ -1,6 +1,11 @@
 function f = spectralFlux(x,frame,hop,Fs)
 % SPECTRALFLUX Rectified spectral flux (Dixon 2006, Bello 2005).
 %
+% Adapted from:
+% Theodoros Giannakopoulos
+% Department of Informatics and Telecommunications
+% University of Athens, Greece
+% 
 % SPECTRALFLUX(x,frame,hop,Fs)
 % x: input signal
 % frame: frame size (samples)
@@ -11,7 +16,7 @@ function f = spectralFlux(x,frame,hop,Fs)
 x = x / max(abs(x));
 L = length(x);
 numFrames = floor((L-frame)/hop) + 1;
-w = hanning(frame);
+w = hann(frame);
 
 % Initialize frame pointer, output f
 f = zeros(numFrames,1);
@@ -34,14 +39,5 @@ for (i=1:numFrames)
     FFTprev = FFT;
 end
 toc
-
-
-
-
-
-
-f = f./max(f);
-
-
 
 end

@@ -1,41 +1,57 @@
-function notes = getNoteEvents(x, Fs)
-% GETNOTEEVENTS(X) - Apply Onset Detection Function (ODF)
-% Takes in one-dimensional audio vector x and returns a
-% matrix collection of extracted notes
+function notes = getNoteEvents(x, noteLen, Fs)
+% GETNOTEEVENTS(x, noteLen, Fs) - Apply Onset Detection Function (ODF)
+% Takes in one-dimensional audio vector x sampled at Fs Hz and returns a
+% matrix collection of extracted notes of length = noteLen samples
 %
 % Pre-processing: [none]
 % Onset criterion: Rectified Spectral Flux (Dixon 2006)
-% Post-processing: [none]
-% Peak-picking: Zero-mean & unit-variance normalization; median filtering;
-% (Dixon 2006)
+% Post-processing: Zero-mean & unit-amp normalization; median filtering;
+% (Bello 2005)
+% Peak-picking: [matlab: findpeaks()]
 % 
  
 %% Algorithm parameters
 frame = round(2048);
 hop = round(256);
-noteLen = 44100;
 
 %% Pre-process
+% [none]
 
 %% Reduce/detect
 
 % Spectral flux
-Flux = spectralFlux(x, frame, hop, Fs);
-[pks,locs] = findpeaks(Flux, 'MinPeakDistance', 20, 'MinPeakHeight', 0.25);
-% for debugging:
-figure; findpeaks(Flux, 'MinPeakDistance', 20, 'MinPeakHeight', 0.25);
+f = spectralFlux(x, frame, hop, Fs);
 
 %% Post-process
+% Bello 2005
+
+% Zero-mean, unit-amplitude normalization
+f = f - mean(f);
+f = f * (1/max(abs(f)));
+
+% Median-filter thresholding
+M = 5;
+delta = 0.1;
+lambda = 1;
+temp = buffer(f,2*M,2*M-1);
+threshold = delta + lambda * median(temp);
+threshold = threshold';
+f = f(1:end-(2*M-1)) - threshold(2*M:end);
+f(f<0)=0;
 
 %% Peak-pick
 
-%% Extract and return notes
-num_notes = length(pks);
+[pks,locs] = findpeaks(f,'MinPeakDistance',100);
+% for debugging:
+% figure; findpeaks(f);
 
-for i = 1:1:num_notes
-    start_ind = locs(i)*hop;
-    if (start_ind < (length(x) - noteLen)) % avoid out of bounds access
-        notes(:,i) = x(start_ind : start_ind + noteLen - 1);
+%% Extract and return notes
+numNotes = length(pks);
+
+for i = 1:1:numNotes
+    startIdx = locs(i)*hop;
+    if (startIdx < (length(x) - noteLen)) % avoid out of bounds access
+        notes(:,i) = x(startIdx : startIdx + noteLen - 1);
     end
 end
 
