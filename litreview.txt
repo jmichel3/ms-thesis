@@ -78,7 +78,8 @@ barbancho-cites
 
 
 abesser
-Supervised machine-learning approach for string-fret identification in bass and electric guitar. Onset detection defined as the sample succeeding the max of the process variance. N=256, hop=64. Frame-wise aggregation for robustness of string classification. Features obtained for every frame.  Inharmonicity is obtained from polynomial fit of frame's AR model's pole locations. Model error minimized with least-squares method, or modified covariance method. Inharmonicity, relative partial amplitudes and fitted slope, relative partial deviations, and associated statistic are dimensionally reduced with LDA then fed to a SVM. The detected f0 together with the obtained string classification is used to infer fret position. Dataset used: IDMT-SMT-GUITAR_V2. Classification percentages are based on cross-validation results, not brand new evaluation data.
+Supervised machine-learning approach for string-fret identification in bass and electric guitar. Onset detection defined as the sample succeeding the max of the process variance. N=256, hop=64. Plausibility filter used to zero impossible strings' probabilities for the estimated f0, before SVM classificaiton. Frame-wise aggregation for robustness of string classification. Features obtained for every frame.  Inharmonicity is obtained from polynomial fit of frame's AR model's pole locations. Model error minimized with least-squares method, or modified covariance method. Inharmonicity, relative partial amplitudes and fitted slope, relative partial deviations, and associated statistic are dimensionally reduced with LDA then fed to a SVM. The detected f0 together with the obtained string classification is used to infer fret position. Dataset used: IDMT-SMT-Audio-Effects. ~1000 isolated clean guitar and bass notes.
+Experiments separated by instrument class: guitar, bass guitar. For each instrument class, they do a slew of different tests. They separate training and test sets based on instrument used (Fender, Ibanez), playing style, and pickup switch setting -- that is, they do experiments where the machine's test set exhibits a recording setting it's never seen before, having only been trained on other options of that recording setting. Unsurprisingly, results don't fare exceptionally with segregated training and test qualities. (They get remarkable improvement with the plausibility filter and frame-aggregation additions, though). Finally, they ALSO do an experiment incorporating every instance of recording setting (instrument brand, playing style, frame aggregation), and quantify their performance with 10-fold cross validation. Impressive F-measures for bass and guitar respectively: 93% and 90%.
 
 abesser17maezawa
 Audio-based violin string classification.
@@ -91,6 +92,9 @@ Essentially a real-time implementation of Abesser's supervised ML solution. F0 p
 
 kehling
 Comprehensive supervised-ML-based system for score generation from guitar audio analysis: Note events (onset/offset), multipitch tracking, plucking and expression styles classification, string number classification, and plausability filtering. Built off Dittmar and Abesser. IF magnitude spectrogram as BHAD input for multipitch estimation.
+Dataset used: IDMT-SMT-Guitar: ~a*1000 monophonic and polyphonic electric guitar notes/chords.
+Experiment: 10-fold cross-validation on whole dataset.
+Results: Onset, Offset, Pitch Estimation: >98%; string classification 82%
 
 kehling04dixon
 Details of onset detection methods.
@@ -101,13 +105,11 @@ Predecessor to Dixon, more in-depth look at peak-picking
 yazawa
 Multi-pitch estimation using LHA, then various playability constraints on the LHA output are enforced to more closely imitate fingering configuration reality, then dynamic programming employed to search graph for optimal tabs/configuration.
 
-------------------
-kehling-techniques
-------------------
+---------------------
+Multipitch estimation
+---------------------
 
-kehling04dixon - spectral flux, rectified complex domain, peak picking algorithm
-
-kehling06fuentes - blind harmonic adaptive decomposition (bhad)
+fuentes2012 - blind harmonic adaptive decomposition (bhad)
 
 kehling07abe - instantaneous frequency
 

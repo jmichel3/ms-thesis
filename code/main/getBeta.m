@@ -10,9 +10,9 @@ numNotes = size(notes,2);
 FFTsize = FFTsize_const();
 
 %% Get DFTs
-start = 1; %begin DFT at notes[start] so we get harmonic portion after attack
-len_t = 300; %extract 'len_t' ms of samples after Notes[start]
-notes_spec = get_spec(notes, start, len_t, Fs);
+start_t = 200; %begin DFT at 'start_t' ms after onset so we get harmonic portion
+len_t = 100; %extract 'len_t' ms of samples beyond that
+notes_spec = get_spec(notes, start_t, len_t, Fs);
 
 %% Get f0's
 % close all;

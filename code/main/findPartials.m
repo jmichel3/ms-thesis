@@ -5,9 +5,6 @@ function fkMeas = findPartials(f0, searchCenter, spec, Fs)
 % range searchCenter +/- (f0/2). Return fkMeas, which is the
 % k'th partial's empirical measured frequency.
 
-f0
-searchCenter
-
 FFTsize = FFTsize_const();
 
 lo = round(freq2samp(searchCenter - 3*f0/4, Fs, FFTsize));
@@ -18,10 +15,10 @@ hi = round(freq2samp(searchCenter + 3*f0/4, Fs, FFTsize));
 [val,idx] = max(spec(lo:hi));
 
 % Find all peaks above a*val, and return peak closest to searchCenter
-a = 0.65;
+a = 0.75;
 [pks,locs] = findpeaks(spec(lo:hi),'MinPeakHeight',a*val);
 % debug:
-findpeaks(spec(lo:hi),'MinPeakHeight',a*val);
+%findpeaks(spec(lo:hi),'MinPeakHeight',a*val);
 [val,idx] = min(abs(locs-freq2samp(searchCenter,Fs,FFTsize)));
 
 partialIdx = locs(idx);

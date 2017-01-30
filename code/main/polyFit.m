@@ -13,26 +13,29 @@ for k = 1:1:K
     fkIdeal = [fkIdeal; k*f0];
 end
 
-
+B
 
 % For each note...
 for i = 1:1:numNotes
-    i
+    
     % and for each partial/harmonic index...
     for k = 1:1:K
         
         % Init search centers from previous estimate of inharmonicity
+        k
+        B
+        f0(i)
         searchCenter(k,i) = k * f0(i) * sqrt(1 + B(i) * k^2);
         
         % Search window about center for actual partial locations
-        fkMeas(k,i) = findPartials(f0(i), searchCenter(k,i), notes_spec(:,i), Fs)
+        fkMeas(k,i) = findPartials(f0(i), searchCenter(k,i), notes_spec(:,i), Fs);
     
     end
     
 end
 
 % Return deviation from ideal harmonics' locations
-devs = fkIdeal - fkMeas;
+devs = fkMeas - fkIdeal;
 
 
 % Polynomial fit using least squares approx.
@@ -69,6 +72,9 @@ end
 % return B derived from best fit polynomial
 B = (2 .* d) ./ (f0 + b);
 
+if B(72) < -0.01
+   stem(devs(:,72)); 
+end
 
 
 end
