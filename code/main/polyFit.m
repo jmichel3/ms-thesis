@@ -1,4 +1,4 @@
-function [B, newcenter] = polyFit(notes_spec, f0, K, B, Fs)
+function [B, devs] = polyFit(notes_spec, f0, K, B, Fs)
 % POLYFIT(notes_spec, f0, K, B, Fs)
 
 % Initialize parameters
@@ -22,59 +22,67 @@ for i = 1:1:numNotes
     for k = 1:1:K
         
         % Init search centers from previous estimate of inharmonicity
-        k
-        B
-        f0(i)
+%         k
+%         B
+%         f0(i)
         searchCenter(k,i) = k * f0(i) * sqrt(1 + B(i) * k^2);
         
         % Search window about center for actual partial locations
         fkMeas(k,i) = findPartials(f0(i), searchCenter(k,i), notes_spec(:,i), Fs);
+        
+        %DEBUGGING
+%         figure; plot(notes_spec(1:end/8,i)); hold
+%         fkMeasSamp = freq2samp(fkMeas(k,i),Fs,FFTsize);
+%         fkIdealSamp = freq2samp(fkIdeal(k,i),Fs,FFTsize);
+%         f0samp = freq2samp(f0(i),Fs,FFTsize);
+%         
+%         meas = [fkMeasSamp, fkMeasSamp];
+%         ideal = [fkIdealSamp, fkIdealSamp];
+%         y = [max(notes_spec(:,i)), 0];
+%         plot(meas,y, 'c-.');
+%         plot(ideal,y,'r--');
+% %         xlim([searchCenter(k,i)-f0samp, searchCenter(k,i)+f0samp]);
+% %         k = waitforbuttonpress;
+%         hold off; 
+%         close;
     
     end
     
+
+%     line([fkMeasSamp fkMeasSamp], [100*ones(K,1) 0*ones(K,1)]);
+%     line([fkIdealSamp fkIdealSamp], [100*ones(K,1) 0*ones(K,1)]);
+%     k = waitforbuttonpress
 end
 
 % Return deviation from ideal harmonics' locations
 devs = fkMeas - fkIdeal;
 
 
-% Polynomial fit using least squares approx.
-% A*c = b. A is matrix of devs vs. indices. c is vector of coefficients in
-% polynomial c1*x + c2*x^3 = devs. b is vector of devs for given index. 
+% Polynomial fit using non-negative least squares approximation
 k = 1:1:K;
-A = zeros(K,2);
-A(:,1) = k';
-A(:,2) = k'.^3;
-c = zeros(2,numNotes);
+C = zeros(K,2);
+C(:,1) = ones(K,1);
+C(:,2) = k';
+% C(:,3) = k'.^3;
+d = devs;
 for i = 1:1:numNotes
-    c(:,i) = (inv(A'*A))*A'*devs(:,i);
+   x(:,i) = lsqnonneg(C, d(:,i)); 
+   poly(:,i) = x(1,i)*k + x(2,i)*k.^3;
+%    poly(:,i) = x(1,i) + x(2,i)*k + x(3,i)*k.^3;
+   B(1,i) = (2.* x(2,i)) ./ (f0(i) + x(1,i));
 end
 
-
-
-
-% Poly form: y = a + b*x + 0*x^2 + d*x^3
-
-
-for i = 1:numNotes
-    b = c(1,:);
-    d = c(2,:);
-    poly(:,i) = b(i)*k + d(i)*k.^3;
-end
-
-% figure; 
-% stem(k,devs(:,n));
-% xlabel('Partial number k');
-% ylabel('Deviation (Hz)');
-% title(['Partials Deviations for note n = ', num2str(n)]);
-% hold on; plot(k,poly)
-
-% return B derived from best fit polynomial
-B = (2 .* d) ./ (f0 + b);
-
-if B(72) < -0.01
-   stem(devs(:,72)); 
-end
-
+% Polynomial fit using least squares nonlinear with spec'd bounds
+% k = 1:1:K;
+% C = zeros(K,3);
+% C(:,1) = ones(K,1);
+% C(:,2) = k';
+% C(:,3) = k'.^3;
+% d = devs;
+% for i = 1:1:numNotes
+%    x(:,i) = lsqnonneg(@(), d(:,i));
+%    poly(:,i) = x(1,i) + x(2,i)*k + x(3,i)*k.^3;
+%    B(1,i) = (2.* x(2,i)) ./ (f0(i) + x(1,i));
+% end
 
 end
