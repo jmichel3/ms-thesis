@@ -1,4 +1,4 @@
-function fkMeas = findPartials(f0, searchCenter, spec, Fs)
+function [A,fkMeas] = findPartials(f0, searchCenter, spec, Fs)
 % fkMeas = FINDPARTIALS(f0, searchCenter, spec, Fs)
 %
 % Searches the note's magnitude spectrum, spec, for peaks in the frequency
@@ -7,16 +7,23 @@ function fkMeas = findPartials(f0, searchCenter, spec, Fs)
 
 FFTsize = FFTsize_const();
 
-lo = round(freq2samp(searchCenter - 3*f0/4, Fs, FFTsize));
-hi = round(freq2samp(searchCenter + 3*f0/4, Fs, FFTsize));
+% Try working with power spectrum
+% spec = 20*log10(spec);
+
+lo = floor(freq2samp(searchCenter - 3*f0/5, Fs, FFTsize));
+hi = floor(freq2samp(searchCenter + 3*f0/5, Fs, FFTsize));
 
 % Corresponding partial probably is closest peak to searchCenter, not
 % necessarily max peak in search window
 [val,idx] = max(spec(lo:hi));
 
-% Find all peaks above a*val, and return peak closest to searchCenter
-a = 0.75;
-[pks,locs] = findpeaks(spec(lo:hi),'MinPeakHeight',a*val);
+% Find all peaks above (val - a)dB, and return peak closest to searchCenter
+a = 0.65;
+[pks,locs] = findpeaks(spec(lo:hi),'MinPeakHeight',val*a);
+if isempty(pks)
+    figure; plot(spec(lo:hi)); xlabel('n (lo:hi)'); ylabel('Amp'); title('spec(lo:hi)')
+    disp('val*a = '); val*a
+end
 % debug:
 %findpeaks(spec(lo:hi),'MinPeakHeight',a*val);
 [val,idx] = min(abs(locs-freq2samp(searchCenter,Fs,FFTsize)));
@@ -24,12 +31,15 @@ a = 0.75;
 partialIdx = locs(idx);
 
 fkMeas = samp2freq(partialIdx+lo-1, Fs, FFTsize);
+A = pks(idx);
 
+% DEBUG
 % figure; plot(spec)
-% hold; plot([zeros(1,idx+lo-1) val],'o')
-% ideal = [zeros(1,freq2samp(f0,Fs,FFTsize)-1),val];
-% plot([ideal, ideal, ideal, ideal, ideal],'+')
-% title(['Peak: ',num2str(fkMeas), ' Hz'])
+% hold; scatter(partialIdx+lo-1,pks(idx),'o')
+% % hold; plot([zeros(1,partialIdx+lo-1) pks(idx)],'o')
+% xlim([lo hi]); grid;
+% xlabel('samp'); ylabel('power'); title(['f0 = ', num2str(f0), 'Hz, spectrum and located partial']);
+% k = waitforbuttonpress;
 % close;
 
 end

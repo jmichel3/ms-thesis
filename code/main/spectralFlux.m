@@ -1,4 +1,4 @@
-function f = spectralFlux(x,frame,hop,Fs)
+function f = spectralFlux(x,frame,hop)
 % SPECTRALFLUX Rectified spectral flux (Dixon 2006, Bello 2005).
 %
 % Adapted from:
@@ -6,11 +6,10 @@ function f = spectralFlux(x,frame,hop,Fs)
 % Department of Informatics and Telecommunications
 % University of Athens, Greece
 % 
-% SPECTRALFLUX(x,frame,hop,Fs)
+% SPECTRALFLUX(x,frame,hop)
 % x: input signal
 % frame: frame size (samples)
 % hop: hop size (samples)
-% Fs: sampling rate (Hz) 
 
 % Parameters
 x = x / max(abs(x));

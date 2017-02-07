@@ -7,6 +7,6 @@ function n = freq2samp(f, Fs, FFTsize)
 % Outputs: 
 %   n - sample no.
 
-n = f*FFTsize/Fs;
+n = f.*FFTsize/Fs;
 
 end

@@ -1,4 +1,4 @@
-function [B, devs] = polyFit(notes_spec, f0, K, B, Fs)
+function feats = polyFit(notes_spec, f0, K, B, Fs)
 % POLYFIT(notes_spec, f0, K, B, Fs)
 
 % Initialize parameters
@@ -13,8 +13,6 @@ for k = 1:1:K
     fkIdeal = [fkIdeal; k*f0];
 end
 
-B
-
 % For each note...
 for i = 1:1:numNotes
     
@@ -28,7 +26,7 @@ for i = 1:1:numNotes
         searchCenter(k,i) = k * f0(i) * sqrt(1 + B(i) * k^2);
         
         % Search window about center for actual partial locations
-        fkMeas(k,i) = findPartials(f0(i), searchCenter(k,i), notes_spec(:,i), Fs);
+        [A(k,i), fkMeas(k,i)] = findPartials(f0(i), searchCenter(k,i), notes_spec(:,i), Fs);
         
         %DEBUGGING
 %         figure; plot(notes_spec(1:end/8,i)); hold
@@ -71,6 +69,19 @@ for i = 1:1:numNotes
 %    poly(:,i) = x(1,i) + x(2,i)*k + x(3,i)*k.^3;
    B(1,i) = (2.* x(2,i)) ./ (f0(i) + x(1,i));
 end
+
+feats.devs = devs;
+feats.B = B;
+feats.A = A; % partials' relative powers (dB)
+
+samp0 = freq2samp(f0,Fs,FFTsize);
+% Af0 = []; 
+for i=1:1:length(samp0)
+    Af0(i) = notes_spec(samp0(i),i);
+end
+Af0 = repmat(Af0,[K,1]);
+feats.A = A-Af0;
+feats.A = mean(A,1);
 
 % Polynomial fit using least squares nonlinear with spec'd bounds
 % k = 1:1:K;

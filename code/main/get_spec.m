@@ -8,7 +8,7 @@ function spec = get_spec(x, start_t, len_t, Fs)
 %   employed DFT are also defined internally.
 
 if start_t ~= 0
-   disp('warning: argument start_t != 0ms'); 
+   disp('warning: get_spec start_t != 0ms'); 
 end
 
 numNotes = size(x, 2);

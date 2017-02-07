@@ -1,7 +1,8 @@
-function notes = getNoteEvents(x, noteLen, Fs)
-% GETNOTEEVENTS(x, noteLen, Fs) - Apply Onset Detection Function (ODF)
+function notes = onsetDet(x, noteLen, Fs)
+% ONSETDET(x, noteLen, Fs) - Apply Onset Detection Function (ODF)
 % Takes in one-dimensional audio vector x sampled at Fs Hz and returns a
-% matrix collection of extracted notes of length = noteLen samples
+% matrix collection of extracted notes of length = noteLen samples. Output
+% matrix is size (noteLen by [numNotes])
 %
 % Pre-processing: [none]
 % Onset criterion: Rectified Spectral Flux (Dixon 2006)
@@ -20,7 +21,7 @@ hop = round(256);
 %% Reduce/detect
 
 % Spectral flux
-f = spectralFlux(x, frame, hop);
+f = spectralFlux(x, frame, hop, Fs);
 
 %% Post-process
 % Bello 2005
