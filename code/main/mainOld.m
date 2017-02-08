@@ -6,10 +6,10 @@ RWCW03 = '/Users/jon_michelson/Projects/ms-thesis/data/RWC-MDB-I-2001-W03/';
 RWCW04 = '/Users/jon_michelson/Projects/ms-thesis/data/RWC-MDB-I-2001-W04/';
 
 % x01 = audioread([RWCW03 '091/091CGRNP.wav']);
-x02 = audioread([RWCW03 '113/113AGRPP.wav']);
+x02 = audioread([RWCW03 '113/113AGAFF.wav']);
 % x03 = audioread([RWCW04 '133/133EGLPP.wav']);
 
-x = [x02];
+x = [x02(1:round(end/2))];
 Fs = 44100;
 
 %% Onset Detection

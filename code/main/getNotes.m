@@ -1,7 +1,7 @@
 function NOTES = getNotes(X)
 % NOTES = GETNOTES(X)
-% Return NOTES, a struct containing descriptive data about and matrix
-% of the detected notes in input X, which must be a struct containing the 
+% Return NOTES, a struct containing the matrix of, and descriptive data
+% about, the detected notes in input X, which must be a struct containing the 
 % audio waveform (X.audio) and its sample rate (X.Fs). 
 
 if ~isstruct(X)
@@ -33,7 +33,7 @@ f = f * (1/max(abs(f)));
 
 % Median-filter thresholding
 M = 5;
-delta = 0.1;
+delta = 0.15;
 lambda = 1;
 temp = buffer(f,2*M,2*M-1);
 threshold = delta + lambda * median(temp);

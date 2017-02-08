@@ -31,7 +31,7 @@ f = f * (1/max(abs(f)));
 
 % Median-filter thresholding
 M = 5;
-delta = 0.1;
+delta = 0.2;
 lambda = 1;
 temp = buffer(f,2*M,2*M-1);
 threshold = delta + lambda * median(temp);

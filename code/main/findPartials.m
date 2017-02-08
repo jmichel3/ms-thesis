@@ -8,21 +8,28 @@ function [A,fkMeas] = findPartials(f0, searchCenter, spec, Fs)
 FFTsize = FFTsize_const();
 
 % Try working with power spectrum
-% spec = 20*log10(spec);
+spec = 20*log10(spec);
 
-lo = floor(freq2samp(searchCenter - 3*f0/5, Fs, FFTsize));
-hi = floor(freq2samp(searchCenter + 3*f0/5, Fs, FFTsize));
+lo = floor(freq2samp(searchCenter - 2*f0/4, Fs, FFTsize));
+hi = floor(freq2samp(searchCenter + 2*f0/4, Fs, FFTsize));
 
 % Corresponding partial probably is closest peak to searchCenter, not
-% necessarily max peak in search window
+% necessarily max val in search window
 [val,idx] = max(spec(lo:hi));
 
 % Find all peaks above (val - a)dB, and return peak closest to searchCenter
-a = 0.65;
-[pks,locs] = findpeaks(spec(lo:hi),'MinPeakHeight',val*a);
+a = 12;
+[pks,locs] = findpeaks(spec(lo:hi),'MinPeakHeight',val-a);
+
+% Return useful debug info if can't find peak
 if isempty(pks)
     figure; plot(spec(lo:hi)); xlabel('n (lo:hi)'); ylabel('Amp'); title('spec(lo:hi)')
-    disp('val*a = '); val*a
+    disp(['f0 = ', num2str(f0), 'Hz']);
+    disp(['searchCenter = ', num2str(freq2samp(searchCenter,Fs,FFTsize))]);
+    disp(['lo = ', num2str(lo), ', hi = ', num2str(hi)]);
+    disp(['val = ', num2str(val)]);
+    disp(['a = ', num2str(a)]);
+    disp(['val-a = ', num2str(val-a)]);
 end
 % debug:
 %findpeaks(spec(lo:hi),'MinPeakHeight',a*val);

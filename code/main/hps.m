@@ -28,23 +28,33 @@ losamp = round((lofreq/Fs)*FFTsize);
 hisamp = round((hifreq/Fs)*FFTsize);
 
 % obtain harmonic products
-HPS = hps1(losamp:hisamp,:) .* hps2(losamp:hisamp,:);
-HPS = HPS .* hps3(losamp:hisamp,:) .* hps4(losamp:hisamp,:);
+len = length(hps4);
+HPS = hps1(1:len,:) .* hps2(1:len,:);
+HPS = HPS .* hps3(1:len,:) .* hps4(1:len,:);
 
 % get f0
-[val, f0samp] = max(HPS,[],1);
+[val, f0samp] = max(HPS(losamp:hisamp,:),[],1);
+f0samp = (losamp-1) + (f0samp-1);
 
 % Due to inharmonic skewing, HPS' f0 isn't matching with empirical f0.
 % Use HPS' f0 to seed peak search, then returned found peak
 W = 50;
-[val, f0final] = max(SPEC(losamp+f0samp-W:losamp+f0samp+W,:), [], 1);
+for i = 1:size(SPEC,2)
+    [val2(i), f0max(i)] = max(SPEC(f0samp(i)-W:f0samp(i)+W,i), [], 1);
+    
+end
 
-f0 = ((losamp + (f0samp - W) + f0final - 1) / FFTsize) * Fs;
+f0final = (f0samp-W-1) + (f0max-1);
+f0final_samp = f0final;
+f0final_hz = samp2freq(f0final_samp,Fs,FFTsize);
 
 % DEBUG
-% f0 = f0 - 2;
+% f0 = f0 - 2;0max
 
-% figure; plot(spec);
-% hold; plot([zeros(1,losamp + (f0samp - W) + f0final - 1), 1], '+')
+n = 2;
+figure; plot(SPEC(:,n));
+hold; scatter(f0final_samp(n), val2(n), '+');
+grid minor
 
+f0 = f0final_hz;
 end

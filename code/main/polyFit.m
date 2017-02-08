@@ -18,7 +18,8 @@ for i = 1:1:numNotes
     
     % and for each partial/harmonic index...
     for k = 1:1:K
-        
+        i
+        k
         % Init search centers from previous estimate of inharmonicity
 %         k
 %         B
@@ -55,12 +56,16 @@ end
 % Return deviation from ideal harmonics' locations
 devs = fkMeas - fkIdeal;
 
+% Return deviations' ratios
+devsRatio = (fkMeas./fkIdeal).^2;
 
-% Polynomial fit using non-negative least squares approximation
+% Polynomial fit using(Abesser)
+
+% Polynomial fit using non-negative least squares approximation (barbancho)
 k = 1:1:K;
 C = zeros(K,2);
-C(:,1) = ones(K,1);
-C(:,2) = k';
+C(:,1) = k';
+C(:,2) = k'.^3;
 % C(:,3) = k'.^3;
 d = devs;
 for i = 1:1:numNotes
@@ -69,6 +74,16 @@ for i = 1:1:numNotes
 %    poly(:,i) = x(1,i) + x(2,i)*k + x(3,i)*k.^3;
    B(1,i) = (2.* x(2,i)) ./ (f0(i) + x(1,i));
 end
+
+% % Introduce y-offset?
+% k = 1:1:K;
+% C = zeros(K,2);
+% C(:,1) = ones(K,1);
+% C(:,2) = k';
+% C(:,3) = k'.^3;
+% for i = 1:1:numNotes
+%    lsqnonneg() 
+% end
 
 feats.devs = devs;
 feats.B = B;
@@ -82,6 +97,7 @@ end
 Af0 = repmat(Af0,[K,1]);
 feats.A = A-Af0;
 feats.A = mean(A,1);
+feats.fkMeas = fkMeas;
 
 % Polynomial fit using least squares nonlinear with spec'd bounds
 % k = 1:1:K;

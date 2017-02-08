@@ -32,14 +32,14 @@ midi0 = round(69 + 12*log2(f0./440));
 % # of partials, INCLUDING k=1st partial = the fundamental
 
 
-B = zeros(1,length(f0));
+feats.B = zeros(1,length(f0));
 
-K = 8;
-feats = polyFit(notes_spec, f0, K, B, Fs);
+K = 10;
+feats = polyFit(notes_spec, f0, K, feats.B, Fs);
 disp(['Completed K = ', num2str(K)]);
 % 
-K=10;
-feats = polyFit(notes_spec, f0, K, B, Fs);
+K = 12;
+feats = polyFit(notes_spec, f0, K, feats.B, Fs);
 disp(['Completed K = ', num2str(K)]);
 
 % Problems finding peaks accurately with K>10...

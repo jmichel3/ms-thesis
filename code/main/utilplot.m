@@ -12,7 +12,7 @@ for i=1:1:numStrings
 %     Arow = 2;
 %     scatter3(feats.midi0(start:finish),feats.B(start:finish),feats.A(Arow,start:finish),marker(i));
 %     xlabel('midi #'); ylabel('beta');zlabel(['A_', num2str(Arow)])
-    scatter3(feats.midi0(start:finish),feats.B(start:finish),feats.A(start:finish),marker(i));
+    scatter3(feats.midi0(start:finish),feats.beta(start:finish),feats.A(start:finish),marker(i));
     xlabel('midi #'); ylabel('\beta');zlabel(['mean(A_r_k)']);
     title(['Chromatic Scales on Diff Guitar Strings'])
 end
