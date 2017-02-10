@@ -27,10 +27,10 @@ hifreq = 700;
 losamp = round((lofreq/Fs)*FFTsize);
 hisamp = round((hifreq/Fs)*FFTsize);
 
-% obtain harmonic products
+% obtain harmonic SUMS (seems more robust than products)
 len = length(hps4);
-HPS = hps1(1:len,:) .* hps2(1:len,:);
-HPS = HPS .* hps3(1:len,:) .* hps4(1:len,:);
+HPS = hps1(1:len,:) + hps2(1:len,:);
+HPS = HPS + hps3(1:len,:) + hps4(1:len,:);
 
 % get f0
 [val, f0samp] = max(HPS(losamp:hisamp,:),[],1);
@@ -44,17 +44,17 @@ for i = 1:size(SPEC,2)
     
 end
 
-f0final = (f0samp-W-1) + (f0max-1);
+f0final = (f0samp-W) + (f0max-1);
 f0final_samp = f0final;
 f0final_hz = samp2freq(f0final_samp,Fs,FFTsize);
 
 % DEBUG
 % f0 = f0 - 2;0max
 
-n = 2;
-figure; plot(SPEC(:,n));
-hold; scatter(f0final_samp(n), val2(n), '+');
-grid minor
+% n = 2;
+% figure; plot(SPEC(:,n));
+% hold; scatter(f0final_samp(n), val2(n), '+');
+% grid minor
 
 f0 = f0final_hz;
 end

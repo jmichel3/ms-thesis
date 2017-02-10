@@ -22,7 +22,8 @@ FEATS.devs = [];
 FEATS.midi0 = [];
 FEATS.beta = [];
 FEATS.Amp = [];
-FEATS.FFTsize = 2^20;
+FEATS.mA = [];
+FEATS.FFTsize = 2^16;
 FEATS.Fs = NOTES.Fs;
 
 % Obtain spec
@@ -47,11 +48,14 @@ for i = 1:1:length(Kvals)
     oldfeats = polyFit(FEATS.spec, FEATS.f0, K, FEATS.beta, NOTES.Fs);
     FEATS.beta = oldfeats.B;
     FEATS.A = oldfeats.A;
+    FEATS.mA = oldfeats.mA;
     FEATS.fkMeas = oldfeats.fkMeas;
     FEATS.fkMeasSamp = freq2samp(FEATS.fkMeas,FEATS.Fs,FEATS.FFTsize);
     FEATS.fkIdeal = repmat((linspace(1,K,K))',[1,FEATS.noteCount]).*repmat(FEATS.f0,[K,1]);
     FEATS.fkIdealSamp = freq2samp(FEATS.fkIdeal, FEATS.Fs, FEATS.FFTsize);
+    FEATS.poly = oldfeats.poly;
     FEATS.devs = oldfeats.devs;
+    FEATS.devsNorm = oldfeats.devsNorm;
     disp(['Completed K = ', num2str(K)]);
 end
 toc

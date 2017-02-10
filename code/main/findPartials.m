@@ -11,7 +11,7 @@ FFTsize = FFTsize_const();
 spec = 20*log10(spec);
 
 lo = floor(freq2samp(searchCenter - 2*f0/4, Fs, FFTsize));
-hi = floor(freq2samp(searchCenter + 2*f0/4, Fs, FFTsize));
+hi = floor(freq2samp(searchCenter + 2*f0/4 - 1, Fs, FFTsize));
 
 % Corresponding partial probably is closest peak to searchCenter, not
 % necessarily max val in search window
@@ -31,14 +31,28 @@ if isempty(pks)
     disp(['a = ', num2str(a)]);
     disp(['val-a = ', num2str(val-a)]);
 end
+
 % debug:
 %findpeaks(spec(lo:hi),'MinPeakHeight',a*val);
-[val,idx] = min(abs(locs-freq2samp(searchCenter,Fs,FFTsize)));
+searchCenterSamp = freq2samp(searchCenter,Fs,FFTsize);
+% [val,idx] = min(abs((locs+lo-1) - searchCenterSamp));
+
+% Try distance normalization such that we don't spuriously return closer,
+% but shorter peaks (To an extent).
+dist = abs(searchCenterSamp - locs+lo-1);
+distNormVal = pks./dist;
+[val, idx] = max(distNormVal);
 
 partialIdx = locs(idx);
 
 fkMeas = samp2freq(partialIdx+lo-1, Fs, FFTsize);
 A = pks(idx);
+
+% More debugging 
+% if freq2samp(f0,Fs,FFTsize) == 1106
+%    disp('pks = '); pks
+%    disp('locs = '); locs
+% end
 
 % DEBUG
 % figure; plot(spec)

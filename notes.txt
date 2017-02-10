@@ -1,0 +1,10 @@
+Quality bottleneck: inharmonicity extraction
+
+Bug fixes:
+During findPartials, was returning peaks whose samples number RELATIVE TO SEARCHWINDOW was closest to searchCenter's sample number, which is an absolute DFT-relative sample number. Fixed this.
+
+Issues:
+Errors when finding partials' peaks in cases where peaks have conflicting amplitudes and distances from searchCenter.
+How to distill amp and dist info in peak candidates to reliably return the correct partial?
+  - enforce partial's sample must be >= last partials' sample
+  - metric combining dist and amp... confidence = (A/B) * amp/dist.... closer distances give larger confidence, as do larger amplitudes... but how to tune...?

@@ -1,23 +1,41 @@
-function checkfk(FEATS,NOTE,numK)
-% CHECKFK(feats,note,numK)
+function checkfk(FEATS, NOTE, varargin)
+% CHECKFK(FEATS, NOTE[, K])
 % Utility to test accuracy of partial (fk) detection. FEATS is your struct,
-% numK is the number of partials to sequentially check/display. NOTE is
-% your desired note (integer #, column in notes matrix) to check.
+% NOTE is your desired note (integer #, column in notes matrix) to check.
+% Optional K is the Kth partial whose plot you'd like to jump to.
 
 figure;
-for k = 1:1:numK
+if ~isempty(varargin)
+    % Plot only kth partial
+    k = varargin{1};
     plot(20*log10(FEATS.spec(:,NOTE)));
 %     fkIdeal_samp = freq2samp(k*FEATS.f0(NOTE), FEATS.Fs, FEATS.FFTsize);
 %     fkMeas_samp = freq2samp(FEATS.fkMeas(k), FEATS.Fs, FEATS.FFTsize);
-    xlim([FEATS.fkIdealSamp(k,NOTE)-1600 FEATS.fkIdealSamp(k,NOTE)+1599]);
+    xlim([FEATS.fkIdealSamp(k,NOTE)-FEATS.f0samp(NOTE)/2 FEATS.fkIdealSamp(k,NOTE)+FEATS.f0samp(NOTE)/2]);
     hold;
     plot([FEATS.fkIdealSamp(k,NOTE) FEATS.fkIdealSamp(k,NOTE)], ylim ,'r--');
     plot([FEATS.fkMeasSamp(k,NOTE) FEATS.fkMeasSamp(k,NOTE)], ylim ,'c--');
-    
+
     xlabel('samps'), ylabel('Power (dB)'); title([num2str(k),'*F0 (red) vs #', num2str(k), ' partial (cyan), of note ', num2str(NOTE)]);
     grid minor
     pause
     close;
+        
+else
+    % Else plot all partials sequentially
+    for k = 1:1:size(FEATS.fkMeas,1)
+        plot(20*log10(FEATS.spec(:,NOTE)));
+    %     fkIdeal_samp = freq2samp(k*FEATS.f0(NOTE), FEATS.Fs, FEATS.FFTsize);
+    %     fkMeas_samp = freq2samp(FEATS.fkMeas(k), FEATS.Fs, FEATS.FFTsize);
+        xlim([FEATS.fkIdealSamp(k,NOTE)-FEATS.f0samp(NOTE)/2 FEATS.fkIdealSamp(k,NOTE)+FEATS.f0samp(NOTE)/2]);
+        hold;
+        plot([FEATS.fkIdealSamp(k,NOTE) FEATS.fkIdealSamp(k,NOTE)], ylim ,'r--');
+        plot([FEATS.fkMeasSamp(k,NOTE) FEATS.fkMeasSamp(k,NOTE)], ylim ,'c--');
+
+        xlabel('samps'), ylabel('Power (dB)'); title([num2str(k),'*F0 (red) vs #', num2str(k), ' partial (cyan), of note ', num2str(NOTE)]);
+        grid minor
+        pause
+        close;
 end
 
 end

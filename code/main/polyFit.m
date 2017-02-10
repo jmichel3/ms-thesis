@@ -15,11 +15,10 @@ end
 
 % For each note...
 for i = 1:1:numNotes
-    
+    i
     % and for each partial/harmonic index...
     for k = 1:1:K
-        i
-        k
+%         k
         % Init search centers from previous estimate of inharmonicity
 %         k
 %         B
@@ -74,6 +73,7 @@ for i = 1:1:numNotes
 %    poly(:,i) = x(1,i) + x(2,i)*k + x(3,i)*k.^3;
    B(1,i) = (2.* x(2,i)) ./ (f0(i) + x(1,i));
 end
+feats.poly = poly;
 
 % % Introduce y-offset?
 % k = 1:1:K;
@@ -86,8 +86,9 @@ end
 % end
 
 feats.devs = devs;
+feats.devsNorm = devs./repmat(f0,[K,1]);
 feats.B = B;
-feats.A = A; % partials' relative powers (dB)
+feats.A = 10.^(A./20); % partials' ampltudes
 
 samp0 = freq2samp(f0,Fs,FFTsize);
 % Af0 = []; 
@@ -95,9 +96,23 @@ for i=1:1:length(samp0)
     Af0(i) = notes_spec(samp0(i),i);
 end
 Af0 = repmat(Af0,[K,1]);
-feats.A = A-Af0;
-feats.A = mean(A,1);
+feats.A = Af0./A;
+% feats.A = mean(A,1);
 feats.fkMeas = fkMeas;
+
+
+K = 1; k = 1:1:K; 
+C = []; C(:,1) = ones(K,1); C(:,2) = k;
+% x = zeros(2,numNotes);
+ord = 1;
+x = linspace(1,K,K)';
+for i = 1:1:numNotes
+    P(i,:) = polyfit(x, feats.A(K,i), ord);
+%     x(:,i) = lsqnonneg(C,-feats.A(1:K,i));
+end
+% feats.mA = x(2,:); % get only slope
+P = P';
+feats.mA = (P(ord+1,:));
 
 % Polynomial fit using least squares nonlinear with spec'd bounds
 % k = 1:1:K;
