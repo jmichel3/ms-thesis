@@ -23,7 +23,7 @@ else if isequal(ALG, 'spectral')
     
     %Form affinity matrix
     A = [zeros(numData,numData)];
-    sigmasq = 1;
+    sigmasq = 2;
     for i = 1:numData
         for j = 1:numData
             if i == j

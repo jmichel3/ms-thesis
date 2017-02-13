@@ -113,6 +113,7 @@ end
 % feats.mA = x(2,:); % get only slope
 P = P';
 feats.mA = (P(ord+1,:));
+feats.searchCenter = searchCenter;
 
 % Polynomial fit using least squares nonlinear with spec'd bounds
 % k = 1:1:K;

@@ -4,6 +4,7 @@ clear all; clc; close all
 RWCW03 = '/Users/jon_michelson/Projects/ms-thesis/data/RWC-MDB-I-2001-W03/';
 RWCW04 = '/Users/jon_michelson/Projects/ms-thesis/data/RWC-MDB-I-2001-W04/';
 
+% [x.audio, x.Fs] = audioread([RWCW03 '111/111AGAFF.wav']);
 [x.audio, x.Fs] = audioread([RWCW04 '133/133EGLFF.wav']);
 % x.audio = x.audio(1:round(end/2));
 

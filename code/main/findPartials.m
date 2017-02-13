@@ -6,9 +6,10 @@ function [A,fkMeas] = findPartials(f0, searchCenter, spec, Fs)
 % k'th partial's empirical measured frequency.
 
 FFTsize = FFTsize_const();
+f0samp = freq2samp(f0,Fs,FFTsize);
 
 % Try working with power spectrum
-spec = 20*log10(spec);
+% spec = 20*log10(spec);
 
 lo = floor(freq2samp(searchCenter - 2*f0/4, Fs, FFTsize));
 hi = floor(freq2samp(searchCenter + 2*f0/4 - 1, Fs, FFTsize));
@@ -18,8 +19,8 @@ hi = floor(freq2samp(searchCenter + 2*f0/4 - 1, Fs, FFTsize));
 [val,idx] = max(spec(lo:hi));
 
 % Find all peaks above (val - a)dB, and return peak closest to searchCenter
-a = 12;
-[pks,locs] = findpeaks(spec(lo:hi),'MinPeakHeight',val-a);
+a = .125;
+[pks,locs] = findpeaks(spec(lo:hi),'MinPeakHeight',val*a);
 
 % Return useful debug info if can't find peak
 if isempty(pks)
@@ -29,7 +30,7 @@ if isempty(pks)
     disp(['lo = ', num2str(lo), ', hi = ', num2str(hi)]);
     disp(['val = ', num2str(val)]);
     disp(['a = ', num2str(a)]);
-    disp(['val-a = ', num2str(val-a)]);
+    disp(['val*a = ', num2str(val*a)]);
 end
 
 % debug:
@@ -37,10 +38,9 @@ end
 searchCenterSamp = freq2samp(searchCenter,Fs,FFTsize);
 % [val,idx] = min(abs((locs+lo-1) - searchCenterSamp));
 
-% Try distance normalization such that we don't spuriously return closer,
-% but shorter peaks (To an extent).
-dist = abs(searchCenterSamp - locs+lo-1);
-distNormVal = pks./dist;
+% Try to offset distance with amplitude penalty
+dist = abs(searchCenterSamp - (locs+lo-1)); %norm by f0 also??
+distNormVal = pks./(dist./2);
 [val, idx] = max(distNormVal);
 
 partialIdx = locs(idx);
@@ -49,10 +49,15 @@ fkMeas = samp2freq(partialIdx+lo-1, Fs, FFTsize);
 A = pks(idx);
 
 % More debugging 
-% if freq2samp(f0,Fs,FFTsize) == 1106
-%    disp('pks = '); pks
-%    disp('locs = '); locs
-% end
+if round(searchCenterSamp) == 9985
+    disp(['[lo: ',num2str(lo),'; searchCenterSamp = ', num2str(searchCenterSamp),'; hi = ', num2str(hi)]);
+   disp('pks = '); pks 
+   disp('relative locs = '); locs
+   disp('locs+lo-1'); locs+lo-1
+   disp('abs(round(searchCenterSamp) - (locs+lo-1))'); abs(round(searchCenterSamp) - (locs+lo-1))
+   disp('dist = '); dist
+   disp('distNormVal = '); distNormVal
+end
 
 % DEBUG
 % figure; plot(spec)

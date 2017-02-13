@@ -6,20 +6,22 @@ function checkfk(FEATS, NOTE, varargin)
 
 figure;
 if ~isempty(varargin)
-    % Plot only kth partial
-    k = varargin{1};
-    plot(20*log10(FEATS.spec(:,NOTE)));
-%     fkIdeal_samp = freq2samp(k*FEATS.f0(NOTE), FEATS.Fs, FEATS.FFTsize);
-%     fkMeas_samp = freq2samp(FEATS.fkMeas(k), FEATS.Fs, FEATS.FFTsize);
-    xlim([FEATS.fkIdealSamp(k,NOTE)-FEATS.f0samp(NOTE)/2 FEATS.fkIdealSamp(k,NOTE)+FEATS.f0samp(NOTE)/2]);
-    hold;
-    plot([FEATS.fkIdealSamp(k,NOTE) FEATS.fkIdealSamp(k,NOTE)], ylim ,'r--');
-    plot([FEATS.fkMeasSamp(k,NOTE) FEATS.fkMeasSamp(k,NOTE)], ylim ,'c--');
+    % Plot only partials from k to end
+    for k = varargin{1}:1:size(FEATS.fkMeas,1)
+        plot(20*log10(FEATS.spec(:,NOTE)));
+    %     fkIdeal_samp = freq2samp(k*FEATS.f0(NOTE), FEATS.Fs, FEATS.FFTsize);
+    %     fkMeas_samp = freq2samp(FEATS.fkMeas(k), FEATS.Fs, FEATS.FFTsize);
+        xlim([FEATS.fkIdealSamp(k,NOTE)-FEATS.f0samp(NOTE)/2 FEATS.fkIdealSamp(k,NOTE)+FEATS.f0samp(NOTE)/2]);
+        hold;
+        plot([FEATS.fkIdealSamp(k,NOTE) FEATS.fkIdealSamp(k,NOTE)], ylim ,'r--');
+        plot([FEATS.fkMeasSamp(k,NOTE) FEATS.fkMeasSamp(k,NOTE)], ylim ,'c--');
+        plot([FEATS.searchCenterSamp(k,NOTE) FEATS.searchCenterSamp(k,NOTE)], ylim, 'k:');
 
-    xlabel('samps'), ylabel('Power (dB)'); title([num2str(k),'*F0 (red) vs #', num2str(k), ' partial (cyan), of note ', num2str(NOTE)]);
-    grid minor
-    pause
-    close;
+        xlabel('samps'), ylabel('Power (dB)'); title([num2str(k),'*F0 (red) vs #', num2str(k), ' partial (cyan), of note ', num2str(NOTE)]);
+        grid minor
+        pause
+        close;
+    end
         
 else
     % Else plot all partials sequentially
@@ -31,11 +33,13 @@ else
         hold;
         plot([FEATS.fkIdealSamp(k,NOTE) FEATS.fkIdealSamp(k,NOTE)], ylim ,'r--');
         plot([FEATS.fkMeasSamp(k,NOTE) FEATS.fkMeasSamp(k,NOTE)], ylim ,'c--');
+        plot([FEATS.searchCenterSamp(k,NOTE) FEATS.searchCenterSamp(k,NOTE)], ylim, 'k:');
 
         xlabel('samps'), ylabel('Power (dB)'); title([num2str(k),'*F0 (red) vs #', num2str(k), ' partial (cyan), of note ', num2str(NOTE)]);
         grid minor
         pause
         close;
+    end
 end
 
 end

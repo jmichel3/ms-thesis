@@ -9,8 +9,8 @@ dim1 = feats.midi0;
 unit1 = 'midi #';
 dim2 = feats.beta;
 unit2 = '\beta';
-dim3 = feats.devsNorm(9,:);
-unit3 = 'normalized dev, k=9'
+dim3 = feats.devsNorm(15,:);
+unit3 = 'normalized dev, k=15'
 
 figure; hold; grid
 for i=1:1:numStrings
