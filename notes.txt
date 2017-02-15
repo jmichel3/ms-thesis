@@ -13,3 +13,9 @@ Improvements:
 Added multi-frame spectral averaging in whimsical "maybe-this'll work since Barbancho and Abesser did this", which suppressed LOTS of noise, unsurprisingly and amazingly.
 
 Robustness of inharmonicity extraction heavily dependent on fine-tuning of parameters (min peak height, search window width, probably spectral averaging frame/hop/start size) with suspected different optimal values for different instruments
+
+Techniques:
+EM is a framework for finding the best descriptor of your data (min error, max likelihood) via iteratively
+  (1) calculating the p.d.f., or expectation function, of your hidden variables using the current parameters (E-step), then
+  (2) updating those parameters their MLE's to maximize the data probability (M-step)
+  (3) repeat until convergence
