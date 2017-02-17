@@ -28,7 +28,7 @@ FEATS.Fs = NOTES.Fs;
 
 % Obtain spec
 FEATS.spec = zeros(FEATS.FFTsize/2, FEATS.noteCount);
-STARTms = [0,50,100,150,200]; %ms
+STARTms = [0,75,150,225,300]; %ms
 for i = 1:1:length(STARTms)
     LENms = 100;
     FEATS.spec = FEATS.spec + getSpec(NOTES.out, STARTms(i), LENms, NOTES.Fs);

@@ -1,5 +1,5 @@
-function h = emAlg(LINES)
-% EMALG()
+function H = em(LINES)
+% H = EM(LINES)
 % Take in initial values of parameters. Return maximized expectation of
 % those parameters given the data.
 
@@ -12,8 +12,12 @@ N = size(x,1);
 x = [ones(N,1) x];
 
 % What we're guessing. Begin with random init estimate
-slope = 2*rand([count,1]);
-yInt = 2*rand([count, 1])-5;
+mHi = 1e-5;
+intHi = -4e-4;
+% slope = mHi * rand([count,1]);
+slope = mHi * ones(count,1) + (mHi * rand([count,1]) - mHi/2)
+% yInt = intHi * rand([count, 1]) - intHi/2;
+yInt = intHi * ones(count,1);
 beta = [yInt slope];
 
 % Our hidden variables: z, label of mixture from which it came
@@ -30,7 +34,7 @@ slopeOld = zeros(count,1);
 iter = 1;
 % while(abs((mean(slope)-mean(slopeOld))/mean(slopeOld)) > 0.01)
 while(1)
-    slopeOld = slope;
+    betaOld = beta;
     
     % e-step
     % Calculate expectation of hidden variable (mixture label) for each data point
@@ -40,19 +44,21 @@ while(1)
     % for each data point
     for i = 1:1:N
        for j = 1:1:count % for each line class
-           z(i,j) = normpdf(y(i,j), beta(j,:)*x(i,:)', var(j));
+           z(i,j) = normpdf(y(i), beta(j,:)*x(i,:)', var(j))
        end
        zDenom(i) = sum(z(i,:));
     end
     zDenom = repmat(zDenom,[1,count]);
-    z = z./zDenom;
+    z = z./zDenom
 
     % m-step
     % Update our hypotheses to the most likely ones using expectations in prev
     % step
     for j = 1:1:count
-        W = diag(z(:,j));
-        beta(j,:) = (inv(x'*W*x)*x'*W*y(:,j))./sum(z(:,j)); 
+        W = diag(z(:,j))
+%         beta(j,:) = ((x'*W*x)\x'*W*y(:,j))./sum(z(:,j));
+        beta(j,:) = ((x'*W*x)\x'*W*y); 
+%         beta(j,:) = lsqnonneg(x',y);
     end
     
     beta
@@ -67,11 +73,11 @@ while(1)
     iter = iter + 1;
 end
 
-h.hHat = slope;
-h.beta = beta;
-h.W = W;
-h.z = z;
-h.x = LINES.x;
-h.y = LINES.y;
-h.iter = iter;
+H.hHat = slope;
+H.beta = beta;
+H.W = W;
+H.z = z;
+H.x = LINES.x;
+H.y = LINES.y;
+H.iter = iter;
 end
