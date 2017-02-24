@@ -28,7 +28,7 @@ FEATS.Fs = NOTES.Fs;
 
 % Obtain spec
 FEATS.spec = zeros(FEATS.FFTsize/2, FEATS.noteCount);
-STARTms = [0,75,150,225,300]; %ms
+STARTms = [0,50,100,150,200]; %ms
 for i = 1:1:length(STARTms)
     LENms = 100;
     FEATS.spec = FEATS.spec + getSpec(NOTES.out, STARTms(i), LENms, NOTES.Fs);
@@ -45,6 +45,9 @@ FEATS.midi0 = round(69 + 12*log2((FEATS.f0)./440));
 tic
 FEATS.beta = zeros(1,length(FEATS.f0));
 
+% Obtain 15th partial normalized deviation
+FEATS.normDevs = getNormDev(FEATS)
+
 Kvals = [5, 10, 15]
 for i = 1:1:length(Kvals)
     K = Kvals(i);
@@ -58,7 +61,7 @@ for i = 1:1:length(Kvals)
     FEATS.fkIdealSamp = freq2samp(FEATS.fkIdeal, FEATS.Fs, FEATS.FFTsize);
     FEATS.poly = oldfeats.poly;
     FEATS.devs = oldfeats.devs;
-    FEATS.devsNorm = oldfeats.devsNorm;
+    FEATS.devsNorm = oldfeats.devsNorm; %old
     FEATS.searchCenter = oldfeats.searchCenter;
     FEATS.searchCenterSamp = freq2samp(FEATS.searchCenter,FEATS.Fs,FEATS.FFTsize)
     disp(['Completed K = ', num2str(K)]);
