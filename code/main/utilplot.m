@@ -10,18 +10,27 @@ unit1 = 'midi #';
 dim2 = feats.beta;
 unit2 = '\beta';
 k = 15;
-dim3 = feats.devsNorm(k,:);
-unit3 = ['normalized dev, k =', num2str(k)]
+if isfield(feats, 'devsNorm')
+    dim3 = feats.devsNorm(k,:);
+    unit3 = ['normalized dev, k =', num2str(k)]
+end
 
 figure; hold; grid
 for i=1:1:numStrings
-    start = 1+13*(i-1);
-    finish = 13+13*(i-1);
+    
 %     Arow = 2;
 %     scatter3(feats.midi0(start:finish),feats.B(start:finish),feats.A(Arow,start:finish),marker(i));
 %     xlabel('midi #'); ylabel('beta');zlabel(['A_', num2str(Arow)])
-    scatter3(dim1(start:finish), dim2(start:finish), dim3(start:finish), marker(i));
-    xlabel(unit1); ylabel(unit2);zlabel(unit3);
+    if isfield(feats,'devsNorm')
+        start = 1+13*(i-1);
+        finish = 13+13*(i-1);
+        scatter3(dim1(start:finish), dim2(start:finish), dim3(start:finish), marker(i));
+        xlabel(unit1); ylabel(unit2);zlabel(unit3);
+    else
+        scatter(dim1, dim2,'o');
+        xlabel(unit1); ylabel(unit2);
+    end
+    
     title(['Chromatic Scales on Diff Guitar Strings'])
 end
 

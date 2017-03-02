@@ -18,7 +18,7 @@ grid minor;
 if ~isempty(varargin)
    hold
    for i = 1:1:LINES.count
-       plot(LINES.x, varargin{1}(i,1)*1-1 + varargin{1}(i,2)*LINES.x)
+       plot(LINES.x, varargin{1}(i,1)*1 + varargin{1}(i,2)*LINES.x)
    end
    hold
 end

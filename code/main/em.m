@@ -9,7 +9,6 @@ function H = em(LINES)
 % Read vals
 count = LINES.count;
 % var = LINES.var;
-var = 0.5*ones(count,1)
 y = LINES.y;
 x = LINES.x;
 N = size(x,1);
@@ -18,14 +17,23 @@ x = [ones(N,1) x];
 P = 1;
 
 % What we're guessing. Begin with random init estimate
-mHi = 5;
-intHi = 5;
-slope = ones([count,1])+[0;2;4];
-% slope = mHi * ones(count,1) + .000004*[0;1]
-yInt = intHi * rand([count, 1]) - intHi/2;
-% yInt = 0 * ones(count,1);
+% mHi = 5;
+% intHi = 5;
+% slope = ones([countet,1])+[0;2;4];
+% % slope = mHi * ones(count,1) + .000004*[0;1]
+% yInt = intHi * rand([count, 1]) - intHi/2;
+% % yInt = 0 * ones(count,1);
+% beta = [yInt slope];
+% pMix = (1/count)*ones(count,1)
+% var = 0.5*ones(count,1)
+
+% OR... begin with reasonable string estimates based on data
+xInt = [35; 42; 45; 57; 47; 63]
+slope = [.3e-4; .2e-4; .1e-4; .15e-4; .05e-4; .08e-4];
+yInt = -slope.*xInt;
 beta = [yInt slope];
 pMix = (1/count)*ones(count,1)
+var = .5e-04*ones(count,1)
 
 % Our hidden variables: z, label of mixture from which it came
 z = zeros(N,count);
@@ -65,17 +73,17 @@ while(norm(beta(pickJ,:) - betaOld(pickJ,:))/norm(betaOld(pickJ,:)) > 0.05)
     % Update our hypotheses to the most likely ones using expectations in prev
     % step
     for j = 1:1:count
-        pMix(j) = sum(z(:,j))/N
+        pMix(j) = sum(z(:,j))/N;
         W = diag(z(:,j));
 %         beta(j,:) = ((x'*W*x)\x'*W*y(:,j))./sum(z(:,j));
         beta(j,:) = ((x'*W*x)\x'*W*y) 
-%         beta(j,:) = lsqnonneg(W'*x,y);
+%         beta(j,:) = lsqnonneg(W*x,y)
 
         var(j) = (z(:,j)'*(y - x*beta(j,:)').^2)/sum(z(:,j))
         
     end
     
-    norm(beta(pickJ,:) - betaOld(pickJ,:))/norm(betaOld(pickJ,:))
+    norm(beta(pickJ,:) - betaOld(pickJ,:))/norm(betaOld(pickJ,:));
     
     % Debug plotting
     plotLines(LINES, beta);

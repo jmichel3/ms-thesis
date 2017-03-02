@@ -26,7 +26,19 @@ for i = 1:1:numNotes
         searchCenter(k,i) = k * f0(i) * sqrt(1 + B(i) * k^2);
         
         % Search window about center for actual partial locations
-        [A(k,i), fkMeas(k,i)] = findPartials(f0(i), searchCenter(k,i), notes_spec(:,i), Fs);
+        if k == 1
+            fkMeasPrev = f0(i);
+        else
+            fkMeasPrev = fkMeas(k-1,i);
+        end
+        
+        if i == 1
+            f0Prev = f0(i)
+        else
+            f0Prev = f0(i-1);
+        end
+        
+        [A(k,i), fkMeas(k,i)] = findPartials(f0(i), searchCenter(k,i), notes_spec(:,i), Fs, fkMeasPrev, f0Prev);
         
         %DEBUGGING
 %         figure; plot(notes_spec(1:end/8,i)); hold
