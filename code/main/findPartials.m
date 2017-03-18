@@ -51,7 +51,13 @@ searchCenterSamp = freq2samp(searchCenter,Fs,FFTsize);
 % Try to offset distance with amplitude penalty
 dist = abs(searchCenterSamp - (locs+lo-1)); %norm by f0 also??
 distNormVal = pks./(dist./2);
+% distNormVal = pks; % Bypassing any distance normalization, for debug
 
+% Try weight that penalizes lower freqs and rewards higher freqs
+% motivation: inharmonicity monotonically increases
+w = linspace(0, 2, hi-lo).^3;
+pkWeight = w(locs);
+distNormVal = distNormVal.*pkWeight';
 
 
 [val, idx] = max(distNormVal);
