@@ -81,7 +81,7 @@
 \begin{center}
     \em
     Submitted in partial fulfillment of the requirements \\
-    for the degree of Master of Science.
+    for the degree of Master of Science in Music and Technology
 \end{center}
 
 

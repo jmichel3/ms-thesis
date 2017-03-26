@@ -1,0 +1,5 @@
+latex cmuthesis_template
+bibtex cmuthesis_template
+latex cmuthesis_template
+pdflatex cmuthesis_template
+pdflatex cmuthesis_template
