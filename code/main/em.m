@@ -16,6 +16,10 @@ x = [ones(N,1) x];
 % P = LINES.dim;
 P = 1;
 
+% Convenience vars
+xlimlo = 39; xlimhi = 76;
+ylimlo = 0; ylimhi = 7e-4;
+
 % What we're guessing. Begin with random init estimate
 % mHi = 5;
 % intHi = 5;
@@ -33,7 +37,7 @@ slope = [.3e-4; .2e-4; .1e-4; .15e-4; .05e-4; .08e-4];
 yInt = -slope.*xInt;
 beta = [yInt slope];
 pMix = (1/count)*ones(count,1)
-var = .5e-04*ones(count,1)
+var = 1e-05*ones(count,1)
 
 % Our hidden variables: z, label of mixture from which it came
 z = zeros(N,count);
@@ -41,6 +45,7 @@ z = zeros(N,count);
 % Initial state of estimates
 plotLines(LINES, beta);
 title('Initial state')
+xlim([xlimlo xlimhi]); ylim([ylimlo, ylimhi]);
 pause;
 close;
 
@@ -79,7 +84,11 @@ while(norm(beta(pickJ,:) - betaOld(pickJ,:))/norm(betaOld(pickJ,:)) > 0.05)
         beta(j,:) = ((x'*W*x)\x'*W*y) 
 %         beta(j,:) = lsqnonneg(W*x,y)
 
-        var(j) = (z(:,j)'*(y - x*beta(j,:)').^2)/sum(z(:,j))
+%         var(j) = (z(:,j)'*(y - x*beta(j,:)').^2)/sum(z(:,j))
+        
+        % Restrict components to share common variance
+%         var(j) = (z(:,j)'*(y - x*beta(j,:)').^2)/sum(z(:,j))
+        var(j)
         
     end
     
@@ -88,6 +97,7 @@ while(norm(beta(pickJ,:) - betaOld(pickJ,:))/norm(betaOld(pickJ,:)) > 0.05)
     % Debug plotting
     plotLines(LINES, beta);
     title(['Iteration #', num2str(iter)]);
+    xlim([xlimlo xlimhi]); ylim([ylimlo, ylimhi]);
     pause;
     close;
     
@@ -98,11 +108,10 @@ end
 
 plotLines(LINES, beta);
 title(['CONVERGED at iter=', num2str(iter)]);
+xlim([xlimlo xlimhi]); ylim([ylimlo, ylimhi]);
 pause;
 close;
     
-    
-H.hHat = slope;
 H.beta = beta;
 H.W = W;
 H.z = z;
