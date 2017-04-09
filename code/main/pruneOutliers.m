@@ -38,8 +38,18 @@ THRESHOLD = abs(MULT * MEASURE)
 RECTFEAT = abs(FEAT); % Rectified features
 PRUNED(RECTFEAT > THRESHOLD) = 0;
 
+%%%%%%%%%%%%%
+% Different return options:
+%%%%%%%%%%%%%
+
 % Substitute outliers in FEAT with MEASURE values as to not affect
 % post-prune statistics nor dimension
-PRUNED(RECTFEAT > THRESHOLD) = MEASURE;
+% PRUNED(RECTFEAT > THRESHOLD) = MEASURE;
+
+% OR
+
+% Discard outliers, if you'd like to re-estimate some parameters of FEAT
+% without their influence
+PRUNED(RECTFEAT > THRESHOLD) = [];
 
 end

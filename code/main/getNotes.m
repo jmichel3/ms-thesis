@@ -9,7 +9,7 @@ if ~isstruct(X)
 end
 
 % Init NOTES data fields
-NOTES.len = 44100; % in samples (customize)
+NOTES.len = X.Fs; % in samples (customize)
 NOTES.out = [];
 NOTES.Fs = X.Fs;
 NOTES.count = [];

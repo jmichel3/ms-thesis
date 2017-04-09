@@ -1,3 +1,4 @@
+
 function FEATSaug = polyFit(FEATS)
 % FEATSaug = POLYFIT(FEATS)
 % Augments the features struct FEATS with inharmonicity estimates obtained
@@ -32,15 +33,28 @@ for i = 1:1:numNotes
    poly(:,i) = x(1,i)*k + x(2,i)*k.^3;
 %    poly(:,i) = x(1,i) + x(2,i)*k + x(3,i)*k.^3;
    B(1,i) = (2.* x(2,i)) ./ (f0(i) + x(1,i));
-   
-   % Prune outliers in measured peak devs, and refine polynomial fit
-    devsPruned(:,i) = pruneOutliers(d(:,i)-poly(:,i),'mean', 2);
-    devsPruned(:,i) = devsPruned(:,i) + poly(:,i);
-    x(:,i) = lsqnonneg(C, devsPruned(:,i));
-    polyPruned(:,i) = x(1,i)*k + x(2,i)*k.^3;
-    BPruned(1,i) = (2.* x(2,i)) ./ (f0(i) + x(1,i));
     
     
+end
+
+
+% For each notes' deviations, prune outliers and update inharmonicity est
+for i = 1:1:numNotes
+    devsPruned{i} = pruneOutliers(d(:,i)-poly(:,i),'mean', 3);
+    lenPruned = length(devsPruned{i});
+    
+    % Re-estimate inharmonicity
+    k = 1:1:lenPruned;
+    C = zeros(lenPruned,2);
+    C(:,1) = k';
+    C(:,2) = k'.^3;
+    lsq = lsqnonneg(C, devsPruned{i}); % WAIT... devsPruned hasn't been restored to polynomial, it's flat line still
+    xPruned{i} = lsq;
+    polyPruned{i} = xPruned{i}(1)*k + xPruned{i}(2)*k.^3;
+    
+    devsPruned{i} = devsPruned{i} + polyPruned{i}';
+
+    BPruned(1,i) = (2.* xPruned{i}(2)) ./ (f0(i) + xPruned{i}(1)); % AND Wait... we've gotta ensure unpruned indices retain pre-pruning index
 end
 
 % Copy input struct to output struct

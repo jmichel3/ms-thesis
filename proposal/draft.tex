@@ -128,10 +128,10 @@ Professor Tom Sullivan \\
 \textbf{Previous Work} - String separation for violin audio recordings is discussed in~\cite{maezawa2009}. Guitar tablature transcription with a hexaphonic pickup is presented in~\cite{ogrady2009}. Signal processing-based solutions for guitar string transcription can be found in ~\cite{barbanchoa2012,barbanchoi2012}. Machine learning approaches~\cite{barbancho2009, abesser2012, kehling2014} show success.
 
 \noindent
-\textbf{Missing Science} - The previous work generally focused on solutions which required prior or typically unavailable information. In~\cite{ogrady2009}, access to an uncommon and potentially hindering hexaphonic pickup is required. In signal processing approaches like ~\cite{barbanchoi2012}, "seeding" the system with known open strings is necessary. In supervised machine learning approaches like ~\cite{abesser2012, kehling2014}, the classifier must be trained with labeled guitar notes. This has the additional drawback of restricting success to guitars tuned identically to those of the test set. In other ML approaches~\cite{barbancho2009}, the guitar audio is generated from only standard chord positions. 
+\textbf{Missing Science} - Some of the previous work, like O'Grady ~\cite{ogrady2009}, assumes access to an uncommon and potentially hindering hexaphonic pickup is required. In signal processing approaches like ~\cite{barbanchoi2012}, "seeding" the system with known open strings is necessary. In supervised machine learning approaches like ~\cite{abesser2012, kehling2014}, it's unclear how the system will classify guitars in non-stndard tuning, as opposed to the standard-tuning guitars on which it was trained. In other ML approaches~\cite{barbancho2009}, the guitar audio is generated from only standard chord positions. 
 
 \noindent
-\textbf{Proposed Solution} -  We estimate clean, isolated, monophonic, electric guitar notes' inharmonicities, plot them vs $f_0$, and fit them with a linear regression mixture model~\cite{faria2010}. We assign clusters (string identities) based on the converged mixture model. This doesn't require prior information like string tuning or labeled training instances. However if tuning information is supplied by the user, we can trivially infer the tablature (string-fret labels) of each note.
+\textbf{Proposed Solution} -  We estimate clean, isolated, monophonic, electric guitar notes' inharmonicities, plot them vs $f_0$, and fit them with a linear regression mixture model~\cite{faria2010}. We assign clusters (string identities) based on the converged mixture model. This has the benefit of being tuning-invariant (DO WORK TO SUPPORT THIS)...We'll evaluate the extent to which this unsupervsied string approach is successful at the string separation / transcription task.
 
 \noindent
 \textbf{Pilot Results} - Figure \ref{fig:beta} shows best-case results for inharmonicity estimation and plotting. In Figure \ref{fig:em}, current best-case results for linear regression estimation are shown. Classification F-scores by string are $[1.0, 1.0, 0.89, 0.8, 0.57, 1.0]$. Average F-score $ = 0.88$.
@@ -151,7 +151,9 @@ Professor Tom Sullivan \\
 \end{figure}
 
 \noindent
-\textbf{Work to be Done} - Our EM implementation still needs to: (1) estimate the optimal number of mixtures $J$ on its own; (2) initialize mixture centers (regression weight vectors) on its own; (3) address a singularity bug (variance goes to 0, likelihood goes to $\infty$); (4) incorporate a formal classification step. We also need to (5) conduct experiments over full electric guitar dataset.
+\textbf{Work to be Done} - Inharmonicity estimation needs to be more robust. See figures. Our EM implementation still needs to: (1) estimate the optimal number of mixtures $J$ on its own; (2) initialize mixture centers (regression weight vectors) on its own; (3) address a singularity bug (variance goes to 0, likelihood goes to $\infty$); (4) incorporate a formal classification step. We also need to (5) conduct experiments over full electric guitar dataset.
+
+
 
 \noindent
 \textbf{Evaluation Criteria}

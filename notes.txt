@@ -19,3 +19,17 @@ EM is a framework for finding the best descriptor of your data (min error, max l
   (1) calculating the p.d.f., or expectation function, of your hidden variables using the current parameters (E-step), then
   (2) updating those parameters their MLE's to maximize the data probability (M-step)
   (3) repeat until convergence
+
+
+======================================
+Operational Pipeline (as of 2017/04/09)
+=======================================
+getFeatures
+
+C = spectralClustering(feats)
+
+lines = initEM(C)
+
+h = em(lines)
+
+[a,ll] = getClustersEM(feats,h)

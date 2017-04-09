@@ -17,7 +17,14 @@ if isequal(ALG,'kmeans')
 
 else if isequal(ALG, 'spectral')
     K = 6;
-    data = [dim1' dim2' dim3'];
+    dimensionality = 2;
+    
+    if dimensionality == 3
+        data = [dim1' dim2' dim3'];
+    else if dimensionality == 2
+            data = [dim1' dim2'];
+        end
+    end
 %     data = data * data';
     numData = size(data,1);
     
@@ -27,7 +34,7 @@ else if isequal(ALG, 'spectral')
     for i = 1:numData
         for j = 1:numData
             if i == j
-                A(i,j) = 0;
+                A(i,j) = 1;
             else
                 A(i,j) = exp(-norm(data(i,:)-data(j,:))/(2*sigmasq));
             end
@@ -35,6 +42,7 @@ else if isequal(ALG, 'spectral')
             
         end
     end
+    
     
     % Define D, construct L
     numRows = size(A,1);

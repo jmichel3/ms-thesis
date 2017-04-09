@@ -6,6 +6,7 @@ function LINES = feats2lines(FEATS, count)
 LINES.x = FEATS.midi0; 
 LINES.y = FEATS.beta;
 LINES.count = count;
+LINES.W = [];
 
 % Enforce column vectors
 if size(LINES.x,1) == 1

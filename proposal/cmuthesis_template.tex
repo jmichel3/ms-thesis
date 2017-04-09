@@ -34,6 +34,7 @@
 ]{hyperref}
 \usepackage{setspace}
 \usepackage{subfigure}
+\usepackage{titlesec}
 
 % Approximately 1" margins, more space on binding side
 %\usepackage[letterpaper,twoside,vscale=.8,hscale=.75,nomarginpar]{geometry}
@@ -120,42 +121,78 @@ My advisor is cool.
 
 \chapter{Introduction}
 \doublespacing
+
+\section{The Guitar: anatomy and physics}
 The guitar is a widely popular musical instrument. Part of its appeal is the ease with which beginners can learn
 Sound is created by pressing strings onto the neck, or fretboard, with one hand and vibrating combinations of strings over the body with the other hand. . Types: classical, acoustic, electric. Usually six strings. Open pitches, fretting them decreases vibration length and increases pitch. Different material construction, diameter, tension.
 
 Because the pitch ranges of a guitar's adjacent strings overlap, a given musical phrase can usually be realized in a few different ways. Conventional music scores represent passages as notes and chords, and therefore leave fretboard position ambiguous; standard scores don't have a unique mapping to fretboard [see figure]. This can be problematic if one desires to capture the other important aspects of a guitar performance.
 
+\section{Tablature}
 Tablature: What is it? Why is it useful?
 Guitar tablature is an alternative music notation for guitarists that.... It uses ASCII characters to crudely depict the string and fret number in a musical phrase. Reasons for popularity: no musical background necessary, nice visual correspondence with actual guitar, portable and lightweight (just text). It eliminates ambiguity in the recording of a guitar passage. Largest inconveniences: typically created manually by experienced guitarist, and ground truth tabs for difficult songs are often hard to come by.
 
 Automated tablature transcription provides a solution to tedious tab annotation, It can be used in music education for novice guitarists. It could also be used to uncover the fretboard positions of legendary guitar pieces, about whose tablature identities we can only speculate. In the literature, there are two main variants of transcription: a general version (in which goal is simply generation of a feasible tab), and transcription (in which goal is ascertainment of exact string-fret combos that produced audio).
 
 What's the nature of the auto tab transcription problem? Existing approaches to the transcription problem focus on solutions that require prior knowledge, though in many cases this is unfeasible or undesirable. If
+\section{Inharmonicity}
 
+\section{Overview of Proposed Solution}
 What I intend to do (briefly): Introduce one unsupervised solution to the transcription problem. Specifically, we take inharmonicities and plot them, cluster them with expectation maximization for linear regression mixtures, allowing us to classify strings. Then with tuning information provided by the user, we can infer the tablature.
 
 Outline of remaining sections: Discuss existing/related work in the generation and transcription field, detailed discussion of my idea, lay out experients, what i think they'll show, introduce evaluation crtieria: how well and when done.
 
 \singlespacing
 
+
 \chapter{Previous Work}
+\doublespacing
 This section introduces previous work on automated string classification or tablature transcription from strictly audio recordings. For visual, audio-visual, and instrument enhancement approaches to tablature transcription, the reader is referred to~\cite{ogrady2009, hrybyk2010}. ~\cite{abesser2012}. We intentionally omit discussion of score-generation or transcription, though much work has been done in that area and we refer the reader to [----] for more on that. \cite{barbanchoa2012,barbanchoi2012}
 \cite{barbancho2009}
 
-
+\singlespacing
 
 \chapter{Proposed Solution}
-The implemented system can be decomposed into the following high-level blocks: pre-processing, inharmonicity extraction, and classification. Each block is presented in detail below.
+\doublespacing
+Our implemented system can be decomposed into the following high-level blocks: pre-processing, inharmonicity extraction, and classification. Each block is presented in detail below.
 
 \section{Pre-processing}
-In the pre-processing stage, onset detection and pitch estimation are used to extract guitar notes from the audio files and estimate their fundamentals, respectively. The proposed system operates only on monophonic guitar recordings in isolation. For pitch detection, harmonic sum spectrum~\cite{noll1969} worked well. Rectified spectral flux with pre-processing~\cite{bello2005,dixon2006}
+In the pre-processing stage, onset detection and pitch estimation are used to extract guitar notes from the audio files and estimate their fundamentals, respectively. The proposed system operates only on monophonic isolated guitar recordings. Pitch detection in this setting is fairly trivial, and we found that harmonic sum spectrum~\cite{noll1969} was straightforward and effective. In this technique, a signal's magnitude spectrum is repeatedly downsampled and summed, producing a composite spectrum that emphasizes harmonically-aligned peaks. Then the most prominent composite peak is usually selected as the $f_0$ candidate. In a variation known as harmonic product spectrum, the operation after downsampling is multiplication, which has the additional effect of de-emphasizing inharmonic spectral regions. equations.
+
+Our solution Rectified spectral flux with pre-processing~\cite{bello2005,dixon2006}
 
 \section{Inharmonicity Extraction}
-When a guitar string is displaced by a pluck, its rigidness contributes to the restoring force so as to skew its harmonics upward in frequency~\cite{fletcher1998}. This phenomenon, known as inharmonicity, depends on the material properties of the displaced string. The $k$th harmonic $f_k$ is related to the fundamental $f_0$ by \[f_{k} = kf_{0}\sqrt{1+\beta k^{2}}\] where \[\beta = \frac{\pi^{3}Qd^{4}}{64Tl^{2}}\] is the amount of inharmonicity, $Q$ is Young's modulus, $d$ is its diameter, $T$ is its tension, and $l$ is its vibrating length. Interestingly, this phenomenon is perceptible in the acoustic guitar in some cases (Karjalainene [cite]), but more importantly is key in the task of string discrimination. 
+\subsection{Theory}
+When a guitar string is displaced by a pluck, its rigidness contributes to the restoring force so as to skew its harmonics upward in frequency~\cite{fletcher1998} according to
+\begin{equation}
+f_{k} = kf_{0}\sqrt{1+\beta k^{2}},
+\end{equation} 
+where $f_0$ is its fundamental frequency, $f_k$ is its $k$th harmonic, and $\beta$ is the amount of inharmonicity, given by
+\begin{equation}
+\beta = \frac{\pi^{3}Qd^{4}}{64Tl^{2}}
+\end{equation}
+As can be seen, the inharmonicity is a function of the material properties of the string: $Q$ is Young's modulus, $d$ is its diameter, $T$ is its tension, and $l$ is its vibrating length. Note that in equation 3.1 when $\beta = 0$, the $k$th harmonic's frequency reduces to the ideal relationship $f_{k} = kf_{0}$ since zero inharmonicity is present. Interestingly, this phenomenon is perceptible in the acoustic guitar in some cases (Karjalainene [cite]), but more importantly is key in the task of string discrimination. 
 
-To motivate inharmonicity's discrimiantve power, consider equation (). If we make the simplifying assumption that, for any given string, terms $Q$, $d$, and $T$ are constant during a performance, then the inharmonicities $\beta$ of each note produced by that string are simply a function of $l^{-2}$, the inverse of the square of each notes' vibrating lengths. But note that for the guitar, length and fret number, or equivalently pitch, are interchangeable, so .......... Inharmonicities for each string are therefore restricted to a quadratic function of pitch specified by the string's unique material constants. When we plot inharmonicities versus MIDI note number, we see that the notes naturally segregate into semi-linear clusters indicative of the strings on which they were played. The semi-linearness comes from the logarithm used when transforming pitches that are harmonically exponential to a harmonically linear scale, i.e. MIDI note numbers. This is the basis for our proposed solution in the next section.
+To understand inharmonicity's discriminative potential, consider equation 3.2. If we make the simplifying assumption that terms $Q$, $d$, and $T$ are constant for a given guitar string during a performance, then the inharmonicities $\beta$ of each note produced by that string are simply a function of $l^{-2}$, the inverse of the square of each notes' vibrating lengths. But note that for the guitar, length and fret number, or equivalently pitch, are interchangeable, so .......... 
 
-To extract the inharmonicity of a note, we follow Barbancho et. al.'s method in~\cite{barbanchoi2012}. After a note onset is detected, we take three consecutive Hanning-windowed 100-ms frames and spectrally average their DFT magnitudes. Then we search the note's magnitude spectrum for peaks close to integer multiples of the note's fundamental. We next compute a deviation vector, where each component is the amount by which these located peaks deviate from their corresponding ideal harmonics. A ---th order polynomial is fit to the deviation curve, according to: (eqn). ITERATION. The --- coefficient is now our inharmonicity estimate of this --th note. 
+Inharmonicities for each string's notes are therefore restricted to a quadratic function of pitch specified by the string's unique material constants. When we plot inharmonicities versus MIDI note number, we see that the notes naturally segregate into semi-linear clusters indicative of the strings on which they were played. The semi-linearness comes from the logarithm used when transforming pitches that are harmonically exponential to a harmonically linear scale, i.e. MIDI note numbers. This is the basis for our proposed solution in the next section.
+
+To estimate the inharmonicity of a note, we follow a combination of Barbancho's~\cite{barbanchoi2012} and Abesser's~\cite{abesser2012} methods. We first note that we can rearrange equation (3.1) as
+\begin{equation}
+(\frac{f_k}{f_0})^2 = k^2 + \beta k^4,
+\end{equation}
+which expresses the partial-to-fundamental ratio in terms of the inharmonicity $\beta$. We can approximate this as a 4th-order polynomial
+\begin{equation}
+(\frac{f_k}{f_0})^2 \approx \sum_{i=0}^{4}{p_{i}k^i},
+\end{equation}
+which allows us to reasonably estimate $\beta$ as
+\begin{equation}
+\beta \approx p_{4},
+\end{equation}
+the coefficient on the 4th order term in the partial-fundamental ratios' polynomial fit.
+
+\subsection{Extraction}
+ ACTUAL INHARMONICITY EXTRACTION ROUTINE: After a note onset is detected, we take three consecutive Hanning-windowed 100-ms frames and spectrally average their DFT magnitudes. Then we search the note's magnitude spectrum for $K$ peaks close to integer multiples of the note's fundamental. We compute each of the $K$ peaks' deviations from their corresponding ideal locations, and save them in a deviation vector $\bf{d}$, where each component $\bf{d_{k}}$ is the amount by which the $k$th located peak deviates from the ideal $k$th harmonic $f_k = kf_0$. Next, a 4th order polynomial is fit to the deviation curve according to the estimation discussion above.
 
 
 
@@ -163,9 +200,11 @@ To extract the inharmonicity of a note, we follow Barbancho et. al.'s method in~
 
 \section{Classification}
 
-Once refined inharmonicity estimates of all note are obtained, we plot our note collection's pitches versus inharmonicities. (figure). We see that notes played on the same string cluster in semi-linear groups, consistent with the simplifying assumptions made above. in the polynomial funciton of frequnecy or length..... The data is amenable to a linear regression mixture model, in which one optimizes the parameters of ${k}$ linear regressions to maximize the likelihoood..... ~\cite{faria2010}
+After refined inharmonicity estimates of all notes are obtained, we plot them with respect to their fundamental frequencies. Doing so reveals that notes played on the same string cluster in semi-linear groups, consistent with the simplifying assumptions made in the theory discussion above. The data is amenable to a linear regression mixture model, in which one optimizes the parameters of ${k}$ linear regressions to maximize the likelihoood..... ~\cite{faria2010}
 
 Details on EM here.....
+
+\singlespacing
 
 \chapter{Preliminary Results}
 The proposed solution was evaluated on the RWC dataset~\cite{goto2003}. 

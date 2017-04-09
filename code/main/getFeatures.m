@@ -23,12 +23,12 @@ FEATS.midi0 = [];
 FEATS.beta = [];
 FEATS.Amp = [];
 FEATS.mA = [];
-FEATS.FFTsize = 2^16;
+FEATS.FFTsize = 2^18;
 FEATS.Fs = NOTES.Fs;
 
 % Get spectra
 FEATS.spec = zeros(FEATS.FFTsize/2, FEATS.noteCount);
-STARTms = [0,50,100]; %ms
+STARTms = [0,100,200]; %ms
 for i = 1:1:length(STARTms)
     LENms = 100;
     FEATS.spec = FEATS.spec + getSpec(NOTES.out, STARTms(i), LENms, NOTES.Fs);
@@ -43,7 +43,7 @@ FEATS.midi0 = round(69 + 12*log2((FEATS.f0)./440));
 
 
 % Get 15th partial normalized deviation
-FEATS.normDevs = getNormDev(FEATS);
+% FEATS.normDevs = getNormDev(FEATS);
 
 
 % Get betas (Inharmonicity Coefficients) and As (relative ampl stats)
@@ -85,6 +85,15 @@ for i = 1:1:length(Kvals)
     FEATS.searchCenterSamp = freq2samp(FEATS.searchCenter,FEATS.Fs,FEATS.FFTsize)
     disp(['Completed K = ', num2str(K)]);
 end
+
+% Extract kth partials' normalized deviations, calcualted from AR/LPC
+% for n=1:1:FEATS.noteCount
+%     ORD = 100;
+%     ARfeats = testAR(FEATS, n, ORD);
+%     FEATS.ARdevsNorm(n) = ARfeats.devsNorm;
+%     disp(['finished ', num2str(n)])
+% end
+
 toc
 
 end

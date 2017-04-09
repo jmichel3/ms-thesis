@@ -31,7 +31,10 @@ for i=1:1:numStrings
         xlabel(unit1); ylabel(unit2);
     end
     
-    title(['Chromatic Scales on Diff Guitar Strings'])
+%     scatter(dim1, dim2,'o');
+%         xlabel(unit1); ylabel(unit2);
+    
+    title(['Chromatic Scales on ', feats.file])
 end
 
 hold off;

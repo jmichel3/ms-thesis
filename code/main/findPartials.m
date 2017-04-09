@@ -12,8 +12,8 @@ f0PrevSamp = freq2samp(f0Prev,Fs,FFTsize);
 % Try working with power spectrum
 % spec = 20*log10(spec);
 
-lo = floor(freq2samp(searchCenter - 2*f0/4, Fs, FFTsize));
-hi = floor(freq2samp(searchCenter + 2*f0/4 - 1, Fs, FFTsize));
+lo = floor(freq2samp(searchCenter - 3*f0/4, Fs, FFTsize));
+hi = floor(freq2samp(searchCenter + 3*f0/4 - 1, Fs, FFTsize));
 fkMeasPrev = floor(freq2samp(fkMeasPrev, Fs, FFTsize));
 
 % Corresponding partial probably is closest peak to searchCenter, not
@@ -21,7 +21,7 @@ fkMeasPrev = floor(freq2samp(fkMeasPrev, Fs, FFTsize));
 [val,idx] = max(spec(lo:hi));
 
 % Find all peaks above (val - a)dB, and return peak closest to searchCenter
-a = .125;
+a = .0625;
 [pks,locs] = findpeaks(spec(lo:hi),'MinPeakHeight',val*a);
 
 % Return useful debug info if can't find peak
@@ -50,13 +50,14 @@ searchCenterSamp = freq2samp(searchCenter,Fs,FFTsize);
 
 % Try to offset distance with amplitude penalty
 dist = abs(searchCenterSamp - (locs+lo-1)); %norm by f0 also??
-distNormVal = pks./(dist./2);
-% distNormVal = pks; % Bypassing any distance normalization, for debug
+% distNormVal = pks./(dist./2);
+distNormVal = pks; % Bypassing any distance normalization, for debug
 
 % Try weight that penalizes lower freqs and rewards higher freqs
 % motivation: inharmonicity monotonically increases
 w = linspace(0, 2, hi-lo).^3;
-pkWeight = w(locs);
+% pkWeight = w(locs);
+pkWeight = 1; % Bypassing peak weight, for debug
 distNormVal = distNormVal.*pkWeight';
 
 
