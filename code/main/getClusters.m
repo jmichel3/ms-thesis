@@ -1,80 +1,46 @@
-function LABELS = getClusters(FEATS, ALG)
-% LABELS = GETCLUSTERS(FEATS, ALG)
-% Define number of clusters, K, and number of trials internally.
-
-dim1 = FEATS.midi0;
-dim2 = FEATS.beta;
-dim3 = FEATS.devsNorm(9,:);
+function [A,U] = getClusters(X, K, ALG)
+% [A,U] = GETCLUSTERS(X, K, ALG)
+% Perform the specified clustering algorithm ALG on data specified by
+% design matrix X, which is N x P. Vector of length N is returned, each of
+% whose elements is an integer corresponding to which of the K clusters it
+% was assigned.
+%
+% ALG must be one of the following strings: {'kmeans', 'spectral'}
+%
+% U is your data projected onto the K eigenvectors.
+%
+% Number of trials, if relevant, is defined internally.
 
 if isequal(ALG,'kmeans')
-    data = [dim1' dim2' dim3'];
-    K = 6;
-    numTrials = 10;
+    numTrials = 1;
     for i = 1:1:numTrials
-        LABELS(:,i) = kmeans(data,6);
+        A(:,i) = kmeans(X,K);
         disp(['Completed trial ', num2str(i), ' of ', num2str(numTrials)]);
     end
+    U = [];
 
-else if isequal(ALG, 'spectral')
-    K = 6;
-    dimensionality = 2;
+else if isequal(ALG,'spectral')
+    % Get affinity matrix
+    var = 1;
+    W = SimGraph_Full(X',var);
     
-    if dimensionality == 3
-        data = [dim1' dim2' dim3'];
-    else if dimensionality == 2
-            data = [dim1' dim2'];
-        end
-    end
-%     data = data * data';
-    numData = size(data,1);
+    % Perform spectral clustering
+    type = 3;
+    [C,L,U] = SpectralClustering(W,K,type);
     
-    %Form affinity matrix
-    A = [zeros(numData,numData)];
-    sigmasq = 2;
-    for i = 1:numData
-        for j = 1:numData
-            if i == j
-                A(i,j) = 1;
-            else
-                A(i,j) = exp(-norm(data(i,:)-data(j,:))/(2*sigmasq));
-            end
-%             A(i,j) = ()
-            
-        end
-    end
+    % Format sparse matrix C into vector of integers and return
+    [~,A] = max(C,[],2);
     
-    
-    % Define D, construct L
-    numRows = size(A,1);
-    D = [zeros(numRows,numRows)];
-    for i = 1:numRows
-        D(i,i) = sum(A(i,:));
-    end
-    L = (D^-1/2)*(A)*(D^-1/2);
-    
-    % Get eigenvectors of L, place in cols of X
-    [eVecs,eVals] = eig(L);
-    X = [zeros(size(eVecs,1),K)];
-    for i = 1:K
-       X(:,i) = eVecs(:,i);
-    end
-
-    % Normalize
-    Y = [zeros(size(X))];
-    for i = 1:size(X,1)
-       for j = 1:size(X,2)
-          Y(i,j) = X(i,j)/norm(X(i,:));
-       end
-    end
-    
-    % kmeans in new Eigen-space
-    numTrials = 10;
-    for i = 1:1:numTrials
-        LABELS(:,i) = kmeans(Y,6);
-        disp(['Completed trial ', num2str(i), ' of ', num2str(numTrials)]);
-    end
-    
-    end % alg = 'spectral'
+    % Note: for evaluating spectral clustering later, I expect output
+    % should be a single vector that doesn't accomodate multiple trials in
+    % columns. I.e. leave this code single-use, and parametrize different
+    % trials outside of here.
 end
+
+end
+
+
+
+
 
 end

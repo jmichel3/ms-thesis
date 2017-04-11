@@ -28,6 +28,8 @@ getFeatures
 
 C = spectralClustering(feats)
 
+// evaluate C, return best one
+
 lines = initEM(C)
 
 h = em(lines)
