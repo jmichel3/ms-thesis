@@ -28,11 +28,12 @@ FEATS.Fs = NOTES.Fs;
 
 % Get spectra
 FEATS.spec = zeros(FEATS.FFTsize/2, FEATS.noteCount);
-STARTms = [0,100,200]; %ms
+STARTms = [300,400,500]; %ms
 for i = 1:1:length(STARTms)
     LENms = 100;
     FEATS.spec = FEATS.spec + getSpec(NOTES.out, STARTms(i), LENms, NOTES.Fs);
 end
+FEATS.spec = FEATS.spec./length(STARTms);
 
 % Get f0s
 [FEATS.hps, FEATS.f0] = hps(FEATS.spec, NOTES.Fs, FEATS.FFTsize);
@@ -67,23 +68,24 @@ for i = 1:1:length(Kvals)
     
     % Assign calculated and remaining features to output
     FEATS.beta = oldfeats.B;
-    FEATS.betaPruned = oldfeats.BPruned;
+%     FEATS.betaPruned = oldfeats.BPruned;
     FEATS.A = oldfeats.A;
     FEATS.mA = oldfeats.mA;
     FEATS.fkMeas = oldfeats.fkMeas;
-    FEATS.fkMeasPruned = oldfeats.fkMeasPruned;
+%     FEATS.fkMeasPruned = oldfeats.fkMeasPruned;
     FEATS.fkMeasSamp = freq2samp(FEATS.fkMeas,FEATS.Fs,FEATS.FFTsize);
     FEATS.fkIdeal = repmat((linspace(1,K,K))',[1,FEATS.noteCount]).*repmat(FEATS.f0,[K,1]);
     FEATS.fkIdealSamp = freq2samp(FEATS.fkIdeal, FEATS.Fs, FEATS.FFTsize);
     FEATS.poly = oldfeats.poly;
-    FEATS.polyPruned = oldfeats.polyPruned;
+%     FEATS.polyPruned = oldfeats.polyPruned;
     FEATS.devs = oldfeats.devs;
-    FEATS.devsPruned = oldfeats.devsPruned;
+%     FEATS.devsPruned = oldfeats.devsPruned;
     FEATS.devsNorm = oldfeats.devsNorm; %old
     FEATS.searchCenter = oldfeats.searchCenter;
-    FEATS.searchCenterPruned = oldfeats.searchCenterPruned;
-    FEATS.searchCenterSamp = freq2samp(FEATS.searchCenter,FEATS.Fs,FEATS.FFTsize)
+%     FEATS.searchCenterPruned = oldfeats.searchCenterPruned;
+    FEATS.searchCenterSamp = freq2samp(FEATS.searchCenter,FEATS.Fs,FEATS.FFTsize);
     disp(['Completed K = ', num2str(K)]);
+    
 end
 
 % Extract kth partials' normalized deviations, calcualted from AR/LPC

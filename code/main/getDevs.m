@@ -42,46 +42,46 @@ for i = 1:1:numNotes
         end
         
         if i == 1
-            f0Prev = f0(i)
+            f0Prev = f0(i);
         else
             f0Prev = f0(i-1);
         end
         
-        [A(k,i), fkMeas(k,i)] = findPartials(f0(i), searchCenter(k,i), notes_spec(:,i), Fs, fkMeasPrev, f0Prev);
+        [A(k,i), fkMeas(k,i)] = findPartials_simple(f0(i), searchCenter(k,i), notes_spec(:,i), Fs, fkMeasPrev, f0Prev);
         
     end
     
 end
 
 
-% PRUNED VERSION
-% For each note...
-for i = 1:1:numNotes
-%     i
-    % and for each partial/harmonic index...
-    for k = 1:1:K
-
-        % Init search centers from previous estimate of inharmonicity
-        searchCenterPruned(k,i) = k * f0(i) * sqrt(1 + BPruned(i) * k^2);
-        
-        % Search window about center for actual partial locations
-        if k == 1
-            fkMeasPrev = f0(i);
-        else
-            fkMeasPrev = fkMeas(k-1,i);
-        end
-        
-        if i == 1
-            f0Prev = f0(i)
-        else
-            f0Prev = f0(i-1);
-        end
-        
-        [APruned(k,i), fkMeasPruned(k,i)] = findPartials(f0(i), searchCenterPruned(k,i), notes_spec(:,i), Fs, fkMeasPrev, f0Prev);
-        
-    end
-    
-end
+% % PRUNED VERSION
+% % For each note...
+% for i = 1:1:numNotes
+% %     i
+%     % and for each partial/harmonic index...
+%     for k = 1:1:K
+% 
+%         % Init search centers from previous estimate of inharmonicity
+%         searchCenterPruned(k,i) = k * f0(i) * sqrt(1 + BPruned(i) * k^2);
+%         
+%         % Search window about center for actual partial locations
+%         if k == 1
+%             fkMeasPrev = f0(i);
+%         else
+%             fkMeasPrev = fkMeas(k-1,i);
+%         end
+%         
+%         if i == 1
+%             f0Prev = f0(i);
+%         else
+%             f0Prev = f0(i-1);
+%         end
+%         
+%         [APruned(k,i), fkMeasPruned(k,i)] = findPartials_simple(f0(i), searchCenterPruned(k,i), notes_spec(:,i), Fs, fkMeasPrev, f0Prev);
+%         
+%     end
+%     
+% end
 
 
 % Calc deviation from ideal harmonics' locations
@@ -107,8 +107,8 @@ FEATSaug.devsRatio = devsRatio;
 FEATSaug.A = 10.^(A./20); % partials' ampltudes
 FEATSaug.searchCenter = searchCenter;
 
-FEATSaug.fkMeasPruned = fkMeasPruned;
-FEATSaug.searchCenterPruned = searchCenterPruned;
+% FEATSaug.fkMeasPruned = fkMeasPruned;
+% FEATSaug.searchCenterPruned = searchCenterPruned;
 
 
 end

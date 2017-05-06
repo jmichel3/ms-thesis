@@ -1,4 +1,3 @@
-
 function FEATSaug = polyFit(FEATS)
 % FEATSaug = POLYFIT(FEATS)
 % Augments the features struct FEATS with inharmonicity estimates obtained
@@ -20,6 +19,13 @@ FFTsize = FFTsize_const();
 
 
 % Polynomial fit using(Abesser)
+% x = (1:1:K)';
+% y = FEATS.devs;
+% N = 4;
+% for i = 1:numNotes
+%     poly(:,i) = polyfit(x,y(:,i),N);
+%     B(i) = poly(1,i);
+% end
 
 % Polynomial fit using non-negative least squares approximation (barbancho)
 k = 1:1:K;
@@ -39,32 +45,32 @@ end
 
 
 % For each notes' deviations, prune outliers and update inharmonicity est
-for i = 1:1:numNotes
-    devsPruned{i} = pruneOutliers(d(:,i)-poly(:,i),'mean', 3);
-    lenPruned = length(devsPruned{i});
-    
-    % Re-estimate inharmonicity
-    k = 1:1:lenPruned;
-    C = zeros(lenPruned,2);
-    C(:,1) = k';
-    C(:,2) = k'.^3;
-    lsq = lsqnonneg(C, devsPruned{i}); % WAIT... devsPruned hasn't been restored to polynomial, it's flat line still
-    xPruned{i} = lsq;
-    polyPruned{i} = xPruned{i}(1)*k + xPruned{i}(2)*k.^3;
-    
-    devsPruned{i} = devsPruned{i} + polyPruned{i}';
-
-    BPruned(1,i) = (2.* xPruned{i}(2)) ./ (f0(i) + xPruned{i}(1)); % AND Wait... we've gotta ensure unpruned indices retain pre-pruning index
-end
+% for i = 1:1:numNotes
+%     devsPruned{i} = pruneOutliers(d(:,i)-poly(:,i),'mean', 3);
+%     lenPruned = length(devsPruned{i});
+%     
+%     % Re-estimate inharmonicity
+%     k = 1:1:lenPruned;
+%     C = zeros(lenPruned,2);
+%     C(:,1) = k';
+%     C(:,2) = k'.^3;
+%     lsq = lsqnonneg(C, devsPruned{i}); % WAIT... devsPruned hasn't been restored to polynomial, it's flat line still
+%     xPruned{i} = lsq;
+%     polyPruned{i} = xPruned{i}(1)*k + xPruned{i}(2)*k.^3;
+%     
+%     devsPruned{i} = devsPruned{i} + polyPruned{i}';
+% 
+%     BPruned(1,i) = (2.* xPruned{i}(2)) ./ (f0(i) + xPruned{i}(1)); % AND Wait... we've gotta ensure unpruned indices retain pre-pruning index
+% end
 
 % Copy input struct to output struct
 FEATSaug = FEATS;
 
 % Augment with features just calculated
 FEATSaug.poly = poly;
-FEATSaug.polyPruned = polyPruned;
-FEATSaug.BPruned = BPruned;
-FEATSaug.devsPruned = devsPruned;
+% FEATSaug.polyPruned = polyPruned;
+% FEATSaug.BPruned = BPruned;
+% FEATSaug.devsPruned = devsPruned;
 FEATSaug.devs = devs;
 FEATSaug.devsNorm = devs./repmat(f0,[K,1]);
 FEATSaug.B = B;

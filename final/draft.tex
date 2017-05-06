@@ -1,0 +1,254 @@
+%for a more compact document, add the option openany to avoid
+%starting all chapters on odd numbered pages
+\documentclass[12pt]{cmuthesis}
+
+% This is a template for a CMU thesis.  It is 18 pages without any content :-)
+% The source for this is pulled from a variety of sources and people.
+% Here's a partial list of people who may or may have not contributed:
+%
+%        bnoble   = Brian Noble
+%        caruana  = Rich Caruana
+%        colohan  = Chris Colohan
+%        jab      = Justin Boyan
+%        josullvn = Joseph O'Sullivan
+%        jrs      = Jonathan Shewchuk
+%        kosak    = Corey Kosak
+%        mjz      = Matt Zekauskas (mattz@cs)
+%        pdinda   = Peter Dinda
+%        pfr      = Patrick Riley
+%        dkoes = David Koes (me)
+
+% My main contribution is putting everything into a single class files and small
+% template since I prefer this to some complicated sprawling directory tree with
+% makefiles.
+
+% some useful packages
+\usepackage{times}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{cite}
+\usepackage[numbers,sort]{natbib}
+\usepackage[pageanchor=true,plainpages=false, pdfpagelabels, bookmarks,bookmarksnumbered,
+%pdfborder=0 0 0,  %removes outlines around hyper links in online display
+]{hyperref}
+\usepackage{setspace}
+\usepackage{subfigure}
+\usepackage{titlesec}
+\titleformat{\chapter}[hang] 
+{\normalfont\LARGE\bfseries}{\chaptertitlename\ \thechapter:}{1em}{}
+
+% Approximately 1" margins, more space on binding side
+%\usepackage[letterpaper,twoside,vscale=.8,hscale=.75,nomarginpar]{geometry}
+%for general printing (not binding)
+\usepackage[letterpaper,twoside,vscale=.8,hscale=.75,nomarginpar,hmarginratio=1:1]{geometry}
+
+% Provides a draft mark at the top of the document. 
+\draftstamp{\today}{DRAFT}
+
+\begin {document} 
+\frontmatter
+
+%initialize page style, so contents come out right (see bot) -mjz
+\pagestyle{empty}
+
+\title{ %% {\it \huge Thesis Proposal}\\
+{\bf Unsupervised Guitar String Classification for Tablature Transcription}}
+\author{Jonathan Michelson}
+\date{April 2017}
+\Year{2017}
+\trnumber{}
+
+\committee{
+Richard Stern \\
+}
+
+\support{}
+\disclaimer{}
+
+% copyright notice generated automatically from Year and author.
+% permission added if \permission{} given.
+
+\keywords{Stuff, More Stuff}
+
+\maketitle
+
+\begin{dedication}
+For my dog
+\end{dedication}
+
+\pagestyle{plain} % for toc, was empty
+
+%% Obviously, it's probably a good idea to break the various sections of your thesis
+%% into different files and input them into this file...
+
+\doublespacing
+\begin{abstract}
+Guitar tablature transcription (brief explanation) is a commonly used music notation standard that could benefit from automation. Previous work solves this task in a framework that requires prior information about the guitar. Here, an unsupervised offline solution is introduced. Inharmonicity estimates extracted from isolated guitar notes naturally segregate into semi-linear formations determined by its sourced string. The inharmonicities are modeled with a linear regression mixture, and optimized with expectation maximization. 
+\end{abstract}
+\singlespacing
+
+\begin{acknowledgments}
+My advisor is cool.
+\end{acknowledgments}
+
+
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\mainmatter
+
+%% Double space document for easy review:
+%\renewcommand{\baselinestretch}{1.66}\normalsize
+
+% The other requirements Catherine has:
+%
+%  - avoid large margins.  She wants the thesis to use fewer pages, 
+%    especially if it requires colour printing.
+%
+%  - The thesis should be formatted for double-sided printing.  This
+%    means that all chapters, acknowledgements, table of contents, etc.
+%    should start on odd numbered (right facing) pages.
+%
+%  - You need to use the department standard tech report title page.  I
+%    have tried to ensure that the title page here conforms to this
+%    standard.
+%
+%  - Use a nice serif font, such as Times Roman.  Sans serif looks bad.
+%
+% Other than that, just make it look good...
+
+
+\chapter{Introduction}
+\doublespacing
+
+The guitar is a widely popular musical instrument whose players run the gamut of expertise. Its most common types are classical, acoustic, and electric, which have different characteristic qualities such as body dimensions, fretboard dimensions, amplification medium, and string material. Its six strings' open tunings are usually $E2 \approx 82$Hz, $A2 \approx 110$Hz, $D3 \approx 147$Hz, $G3 \approx196$Hz,$ B3 \approx 247$Hz, and $E4 \approx 330$Hz, though the tuning and number of strings can vary. Sound is created by pressing strings onto the fretboard with one hand, and perturbing combinations of pressed and open strings with the other hand. Each fret increases the played string's pitch by one semitone, and fretboards are commonly inlaid with greater than twenty frets. Note that this extends each strings' pitch range well beyond its open-tuned neighbor.
+
+Because the pitch ranges of a guitar's adjacent strings overlap, a given musical phrase can usually be realized in a few different ways. Conventional music scores represent passages as notes and chords, and therefore leave fretboard position ambiguous [see figure]. This can be problematic if one desires to uncover a virtuoso's intentional string-fret selections.
+
+Tablature is an alternative music notation for guitarists that doesn't suffer from the one-to-many mapping of scores. Strings and fret positions throughout the piece are mapped pictorially to an ASCII representation of the guitar's six strings. (see figure). Because of its intuition lies in correspondence with the guitar's form rather than music theory, tablature is popular with self-taught students who have no prior musical training. And since simple text is the encoding mechanism, tablature is a lightweight portable medium. These features help explain why tablature is more popular than standard music notation (cite). A downside is its tedious creation process; tab creation usually means manual annotation of a guitar piece.
+
+Automated tablature transcription provides a solution to tedious tab annotation, It can be used in music education for novice guitarists. It could also be used to uncover the fretboard positions of legendary guitar pieces, about whose tablature identities we can only speculate. In the literature, there are two main variants of transcription: a general version (in which goal is simply generation of a feasible tab), and transcription (in which goal is ascertainment of exact string-fret combos that produced audio).
+
+What I intend to do (briefly): Introduce one unsupervised solution to the transcription problem. Specifically, we take inharmonicities and plot them, cluster them with expectation maximization for linear regression mixtures, allowing us to classify strings. Then with tuning information provided by the user, we can infer the tablature.
+
+Outline of remaining sections: Discuss existing/related work in the generation and transcription field, detailed discussion of my idea, lay out experients, what i think they'll show, introduce evaluation crtieria: how well and when done.
+
+\singlespacing
+
+
+\chapter{Previous Work}
+\doublespacing
+This section introduces previous work on automated string classification or tablature transcription from strictly audio recordings. For visual, audio-visual, and instrument enhancement approaches to tablature transcription, the reader is referred to~\cite{ogrady2009, hrybyk2010}. ~\cite{abesser2012}. We intentionally omit discussion of score-generation or transcription, though much work has been done in that area and we refer the reader to [----] for more on that. \cite{barbanchoa2012,barbanchoi2012}
+\cite{barbancho2009}
+
+\singlespacing
+
+\chapter{Proposed Solution}
+\doublespacing
+Our implemented system can be decomposed into the following high-level blocks: pre-processing, inharmonicity extraction, and classification. Each block is presented in detail below.
+
+\section{Pre-processing}
+In the pre-processing stage, onset detection and pitch estimation are used to extract guitar notes from the audio files and estimate their fundamentals, respectively. The proposed system operates only on monophonic isolated guitar recordings. Pitch detection in this setting is fairly trivial, and we found that harmonic sum spectrum~\cite{noll1969} was straightforward and effective. In this technique, a signal's magnitude spectrum is repeatedly downsampled and summed, producing a composite spectrum that emphasizes harmonically-aligned peaks. Then the most prominent composite peak is usually selected as the $f_0$ candidate. In a variation known as harmonic product spectrum, the operation after downsampling is multiplication, which has the additional effect of de-emphasizing inharmonic spectral regions. equations.
+
+Our solution Rectified spectral flux with pre-processing~\cite{bello2005,dixon2006}
+
+\section{Inharmonicity Estimation}
+\subsection{Theory}
+When a guitar string is displaced by a pluck, its rigidness contributes to the restoring force so as to skew its harmonics upward in frequency~\cite{fletcher1998} according to
+\begin{equation}
+f_{k} = kf_{0}\sqrt{1+\beta k^{2}},
+\end{equation} 
+where $f_0$ is its fundamental frequency, $f_k$ is its $k$th harmonic, and $\beta$ is the amount of inharmonicity, given by
+\begin{equation}
+\beta = \frac{\pi^{3}Qd^{4}}{64Tl^{2}}
+\end{equation}
+As can be seen, the inharmonicity is a function of the material properties of the string: $Q$ is Young's modulus, $d$ is its diameter, $T$ is its tension, and $l$ is its vibrating length. Note that in equation 3.1 when $\beta = 0$, the $k$th harmonic's frequency reduces to the ideal relationship $f_{k} = kf_{0}$ since zero inharmonicity is present. Interestingly, this phenomenon is perceptible in the acoustic guitar in some cases (Karjalainene [cite]), but more importantly is key in the task of string discrimination. 
+
+To understand inharmonicity's discriminative potential, consider equation 3.2. If we make the simplifying assumption that terms $Q$, $d$, and $T$ are constant for a given guitar string during a performance, then the inharmonicities $\beta$ of each note produced by that string are simply a function of $l^{-2}$, the inverse of the square of each notes' vibrating lengths. But note that for the guitar, length and fret number, or equivalently pitch, are interchangeable, so .......... 
+
+Inharmonicities for each string's notes are therefore restricted to a quadratic function of pitch specified by the string's unique material constants. When we plot inharmonicities versus MIDI note number, we see that the notes naturally segregate into semi-linear clusters indicative of the strings on which they were played. The semi-linearness comes from the logarithm used when transforming pitches that are harmonically exponential to a harmonically linear scale, i.e. MIDI note numbers. This is the basis for our proposed solution in the next section.
+
+To estimate the inharmonicity of a note, we follow a combination of Barbancho's~\cite{barbanchoi2012} and Abesser's~\cite{abesser2012} methods. We first note that we can rearrange equation (3.1) as
+\begin{equation}
+(\frac{f_k}{f_0})^2 = k^2 + \beta k^4,
+\end{equation}
+which expresses the partial-to-fundamental ratio in terms of the inharmonicity $\beta$. We can approximate this as a 4th-order polynomial
+\begin{equation}
+(\frac{f_k}{f_0})^2 \approx \sum_{i=0}^{4}{p_{i}k^i},
+\end{equation}
+which allows us to reasonably estimate $\beta$ as
+\begin{equation}
+\beta \approx p_{4},
+\end{equation}
+the coefficient on the 4th order term in the partial-fundamental ratios' polynomial fit.
+
+
+We follow Barbancho's iterative inharmonicity estimation method~\cite{barbanchoi2012}. After a guitar note onset is detected,
+\begin{enumerate}
+\item Take three consecutive Hanning-windowed 100-ms frames and average their DFT magnitudes.
+\item Estimate its $f_0$. 
+\item Initialize inharmonicity estimate $\beta = 0$ and list of number of partials to locate $K$, e.g. $K = \{10, 20, 40\}$.
+\item Search the note's magnitude spectrum for the $k = \{1, 2,...K\}$ inharmonic partials, whose locations we expect to be $f_{k} = kf_{0}\sqrt{1+\beta k^{2}}$.
+\item Compute deviation vector $\mathbf{d}$, whose $k$th component $d_k$ is the $k$th inharmonic partial's deviation from its corresponding ideal harmonic $kf_0$.
+\item Fit polynomial $d = ak^3 + bk + c$ to deviations measured in previous step. Update estimate of the inharmonicity coefficient: $\beta \longleftarrow \frac{2a}{f_0+b}$.
+\item Repeat steps 4 - 6 for each $K$ value.
+\item Return final estimate of the inharmonicity coefficient $\beta$.
+\end{enumerate}
+
+\subsection{Estimation}
+ ACTUAL INHARMONICITY EXTRACTION ROUTINE: After a note onset is detected, we take three consecutive Hanning-windowed 100-ms frames and spectrally average their DFT magnitudes. Then we search the note's magnitude spectrum for $K$ peaks close to integer multiples of the note's fundamental. We compute each of the $K$ peaks' deviations from their corresponding ideal locations, and save them in a deviation vector $\bf{d}$, where each component $\bf{d_{k}}$ is the amount by which the $k$th located peak deviates from the ideal $k$th harmonic $f_k = kf_0$. Next, a 4th order polynomial is fit to the deviation curve according to the estimation discussion above.
+
+
+
+
+
+\section{Classification}
+
+After refined inharmonicity estimates of all notes are obtained, we plot them with respect to their fundamental frequencies. Doing so reveals that notes played on the same string cluster in semi-linear groups, consistent with the simplifying assumptions made in the theory discussion above. The data is amenable to a linear regression mixture model, in which one optimizes the parameters of ${k}$ linear regressions to maximize the likelihoood..... ~\cite{faria2010}
+\subsection{Linear Regression Mixture Models}
+\subsection{Expectation Maximization}
+
+
+\begin{equation}
+y_i = \mathbf{w_{j}^{T}}\mathbf{x_{i}} + \epsilon_{i,j}, \pi_{j}
+\end{equation}
+$i$ is the observation index such that $\mathbf{x_i}$ is the $i$th guitar note and $y_i$ is its inharmonicity, $j$ is the $j$th latent linear regression mixture, $\mathbf{w_j}$ is the $j$th linear regression's weights, and $\epsilon_{i,j}$ is the Gaussian noise term such that $\epsilon_{i,j}\sim \mathcal{N}(0,\sigma_{j}^2)$. $\pi_j$ is the mixing probability of mixture $j$.
+
+The parameters we iteratively update according to the EM framework are $\mathbf{w_j}, \sigma_{j}^2$, and $\pi_j$ for each mixture $j$. These are found using: (EM equations here).
+
+
+\singlespacing
+
+\chapter{Preliminary Results}
+\doublespacing
+
+\section{Dataset}
+The proposed solution was evaluated on the RWC dataset~\cite{goto2003}. 
+
+\section{Experiments}
+
+\section{Evaluation}
+
+\singlespacing
+
+\chapter{Conclusion}
+
+%\appendix
+%\include{appendix}
+
+\backmatter
+
+%\renewcommand{\baselinestretch}{1.0}\normalsize
+
+% By default \bibsection is \chapter*, but we really want this to show
+% up in the table of contents and pdf bookmarks.
+\renewcommand{\bibsection}{\chapter{\bibname}}
+%\newcommand{\bibpreamble}{This text goes between the ``Bibliography'' header and the actual list of references}
+\bibliography{mybib} %your bib file
+\bibliographystyle{plainnat}
+
+
+\end{document}

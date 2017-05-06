@@ -1,17 +1,14 @@
-function NOTES = getNotes(X)
-% NOTES = GETNOTES(X)
-% Return NOTES, a struct containing the matrix of, and descriptive data
-% about, the detected notes in input X, which must be a struct containing the 
-% audio waveform (X.audio) and its sample rate (X.Fs). 
+function NOTES = getNotes(x, Fs)
+% NOTES = GETNOTES(X, FS)
+% Return NOTES, a struct containing the matrix of the detected notes in 
+% input sample vector x. Fs is the sampling rate.
 
-if ~isstruct(X)
-   error('x must be a struct with x.1 = waveform, x.2 = Fs') 
-end
+assert(isfloat(x),'Input x must be audio sample vector of floats');
 
 % Init NOTES data fields
-NOTES.len = X.Fs; % in samples (customize)
+NOTES.len = Fs; % in samples (customize)
 NOTES.out = [];
-NOTES.Fs = X.Fs;
+NOTES.Fs = Fs;
 NOTES.count = [];
 
 % === Onset Detection ===
@@ -25,7 +22,7 @@ frame = round(2048);
 hop = round(256);
 
 % Spectral flux
-f = spectralFlux(X.audio, frame, hop);
+f = spectralFlux(x, frame, hop);
 
 % Zero-mean, unit-amplitude normalization
 f = f - mean(f);
@@ -46,8 +43,8 @@ f(f<0)=0;
 NOTES.count = length(pks);
 for i = 1:1:NOTES.count
     startIdx = locs(i)*hop;
-    if (startIdx < (length(X.audio) - NOTES.len)) % avoid out of bounds access
-        NOTES.out(:,i) = X.audio(startIdx : startIdx + NOTES.len - 1);
+    if (startIdx < (length(x) - NOTES.len)) % avoid out of bounds access
+        NOTES.out(:,i) = x(startIdx : startIdx + NOTES.len - 1);
     end
 end
 
