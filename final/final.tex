@@ -33,6 +33,7 @@
 \usepackage[pageanchor=true,plainpages=false, pdfpagelabels, bookmarks,bookmarksnumbered,
 %pdfborder=0 0 0,  %removes outlines around hyper links in online display
 ]{hyperref}
+\usepackage{rotating}
 \usepackage{setspace}
 \usepackage{subfigure}
 \usepackage{titlesec}
@@ -56,7 +57,7 @@
 \pagestyle{empty}
 
 \title{ %% {\it \huge Thesis Proposal}\\
-{\bf Characterizing Guitar Strings as Inharmonicity Trajectories and Regressions for Automatic Tablature Transcription}}
+{\bf Characterizing Guitar Strings as Inharmonicity Trajectories for Automatic Tablature Transcription}}
 \author{Jonathan Michelson}
 \date{May 2017}
 \Year{2017}
@@ -145,50 +146,32 @@ Tablature, on the other hand, is an alternative music notation that doesn't suff
 
 Tablature (tabs for short) is widely popular for a number of likely reasons. Its accessibility and intuition are attractive to those without formal musical training; learning from a pictorial representation of one's instrument must seem more attractive to beginners than learning musical theory foundations and decoding scores. And because tabs are easily encodable and interpretable with simple ASCII characters, authoring them isn't limited to those with knowledge of any sort of tab-specific generation program, unlike with scores.~\cite{macrae2010}.
 
-Accurate tablature transcription is a fairly tedious task, however. Dependable tabs containing few errors typically require a seasoned musician's careful listening to an audio recording, and possibly video recordings if available too. Reliable automation of this transcription task would benefit the guitar student community by expediting quality tab generation and unearthing fretboard positions of guitar riffs in songs for which accurate tabs don't yet exist. Recent technologies proposed to encourage proliferation of accessible tab transcription systems, such as web framework Robotaba~\cite{burlet2013}, demonstrate a desire among MIR researchers to see this theoretically mature but practically nascent field mature into student-benefitting applications. Closely related to tab transcription is the task of string classification: producing the correct tablature is straightforward if the guitar's tuning is known and the correct string labels are identified. In chapter~\ref{lit-review}, we present much of the work that's been done in these fields.
+Accurate tablature transcription is a fairly tedious task, however. Dependable tabs containing few errors typically require a seasoned musician's careful listening to an audio recording, and possibly video recordings if available too. Reliable automation of this transcription task would benefit the guitar student community by expediting quality tab generation and unearthing fretboard positions of guitar riffs in songs for which accurate tabs don't yet exist. Recent technologies proposed to encourage proliferation of accessible tab transcription systems, such as web framework Robotaba~\cite{burlet2013}, demonstrate a desire among MIR researchers to see this theoretically mature but practically nascent field mature into student-benefitting applications. Closely related to tab transcription is the task of string classification: producing the correct tablature is straightforward if the guitar's tuning is known and the correct string labels are identified. 
 
-\section{Inharmonicity} 
-
-\noindent
-\chapter{Literature Review} \label{lit-review}
-\section{Automatic Tablature Transcription}
-\subsection{Score-based Methods}
-\subsection{Misc. Modality Methods}
-\subsection{Audio-based Methods}
-[After introducing Barbancho, talk about inharmonicity is field in its own right, next section covers inharmonicity methods.]
-%A subtle distinction is worth noting between methods that focus on tablature generation versus tablature transcription. In the former task, the goal is generally production of a plausible tablature which is optimal in some sense. Performance metrics could be amount of agreement with human-generated tabs (with no guarantee on their correctness), or heuristic cost functions that characterize the quality of the tab (e.g. predicted mechanical difficulty, spatial compactness, etc.). In the latter task, the goal is exact recovery of the original tablature that produced the observed audio. In this case, the performance metrics are classification accuracies derived from the predicted vs. true string and fret labels of annotated guitar recordings.
-
-%A number of authors have worked with tablature generation from music scores. Radisavljevic~\cite{radisav2004} and Radicioni~\cite{radicioni} create directed acyclic graphs that model a score's candidate fretboard positions, and return the final transcription as the most optimal path. Their cost functions incorporate combinations of the tablature's mechanical difficulty and musicality. Tuohy~\cite{asdf} employs neural nets and genetic algorithms to transform score into tablature. 
-
-%Audio-based transcription systems are numerous as well. Yaezawa~\cite{yaezawa} extracted pitch and melody information from guitar recordings, and computed an optimal fingering based on plausible multipitch estimation results. Gagnon~\cite{gagnon2003} proposed using neural networks to deduce general fretboard region position and number of strings playing. Sayegh~\cite{sayegh} introduced the Viterbi graph search as a solution to the stringed-instrument transcription problem for monophonic musical passages. Burlet~\cite{burlet} extended this to polyphonic passages.  
-
-%The tablature transcription task is also well studied. Ogrady -- hexaphonic pickup.
-%Gagnon\cite{2003} trained neural networks to detect general hand position along the neck and number of played strings for a given recording.
-%In Barbancho et al. ~\cite{barbancho2009}, the authors attempt guitar string classification using features such as nontonal spectrum, etc., but achieve discouraging results.
-%Barbancho et al. ~\cite{barbanchoi2012}
-%Estimation typically involves searching a note's spectrum for peaks in the vicinity of multiples of the fundamental, then cataloguing located peaks' deviations from their ideal locations, and fitting a polynomial -- one of whose coefficients corresponds to a good estimate of the inharmonicity -- to the deviations curve. Barbancho~\cite{barbanchoi2012} achieves good tablature transcription using open-strings' inharmonicities and checking unknown notes' inharmonicities against those of string candidates. In various supervised classification approaches~\cite{abesser2012, kehling2014, dittmar2013}, the authors achieve good string transcription after training on standard-tuning guitar audio and using inharmonicity as one of their features.
-
-\section{Inharmonicity Estimation}
-Estimation of inharmonicity using pitch extraction techniques was first attempted by Galembo in 1979 and 1986~\cite{galembo1979,galembo1987}. Several additional methods have been proposed since then. In 1994, Galembo~\cite{galembo1994} hypothesized a connection between partials-based fundamental pitch estimates and the degree of inharmonicity in a spectrum. They specifically investigated cepstral analysis and a variant of the harmonic product spectrum method applied to both synthetic tones and recorded piano notes. They found that, because these two techniques leverage periodicity in the frequency domain to produce their pitch estimates, inharmonicity influenced the quality of their estimates in a deterministic manner: more inharmonicity produced wider, less focused pitch estimates lobes, and from quantifying this relation an inharmonicity could be obtained.
- 
- The same authors in~\cite{galembo1999} introduced another method in 1999, dubbed the inharmonic comb filter (ICF) method. To estimate a note's inharmonicity, they first applied sets of comb filters to the note's spectrum. The locations of the comb filters' notches were parametrized with a range of inharmonicity values that sufficiently sampled the note's expected inharmonicity range. The ICF whose inharmonicity best matched that of the note would produce the output with lowest spectral energy, since its notches best aligned with the inharmonic note partials. The inharmonicity parameter associated with this output-minimizing ICF was thus selected as the estimate.
- 
-Rauhala~\cite{rauhala2007} introduced an efficient procedure in 2007 that iteratively catalogued estimates of the partial frequencies' deviations and returned increasingly better estimates of the inharmonicity. The algorithm, aptly referenced as the partial frequency deviations (PDF) method, is initialized with a reasonable first estimate of inharmonicity, and then the note's spectrum is searched for partial peaks. Differences are measured between the locations of these discovered peaks and those of the expected peaks, and the aggregate deviation trend is used to refine the inharmonicity estimate -- a majority of positive differences implies the inharmonicity should be reduced, and a majority of negative differences implies the opposite.
-
-In 2009, Hodgkinson~\cite{hodgkinson2009} proposed a yet more efficient and accurate algorithm, named median-adjustive trajectories (MAT). Their routine exploits the fact that inharmonicity can be estimated with any two partials and their corresponding indices in the harmonic series. Pairs of low-index partials are first considered, since they're minimally affected by inharmonic skew and therefore have high location reliability. With these initial inharmonicity estimates, additional partials are collected and used to refine the previous inharmonicity estimates, with which more partials are located, so on and so forth. MAT was the inharmonicity estimation routine employed in this work, and is discussed at length in Chapter~\ref{experiments}.
-
-Three years later, Barbancho~\cite{barbanchoi2012} introduced another PFD-based approach as part of a guitar tablature transcription system. They started by cataloguing the first 10 partials' deviations, then fitting a polynomial to the PFD curve. They derived the relation between the polynomial's coefficients and the inharmonicity, and returned an initial inharmonicity estimate according to this derivation. Then using this inharmonicity to aid in their search for higher-index partials, they catalogued a larger number of partials' deviations than that of the first iteration, and performed the same polynomial fit and inharmonicity derivation routine. This would refine the inharmonicity estimate, allowing for increasing numbers of partials for which to search.
-
-Also in 2012, Abesser~\cite{abesser2012} used parametric spectral modeling, again in the context of a guitar tablature transcription system. To estimate the inharmonicity of a plucked guitar note, they modeled each audio frame with the autoregressive (AR) filter that best approximated its spectral content. They obtained the poles' locations and the ideal harmonics' locations, and like Barnbancho~\cite{barbanchoi2012} fit the PFD curve with a polynomial from whose coefficients an inharmonicity estimate could be derived.
-
-
+In the next chapter, we survey previous work in the field of automatic tablature transcription, and highlight the feature known as inharmonicity. Then in Chapter~\ref{method}, we motivate inharmonicity's suitability for the string discrimination task, looking at Barbancho's work as an example. We transition to discussing the novel approach of our system. Chapter~\ref{experiments} contains descriptions and results of our experiments, and the discussion Chapter~\ref{discussion} regards an anlaysis of the results, shortcomings, and remaining work. We summarize this work in our final chapter.
 
 \noindent
-\chapter{Inharmonicity Regression against Pitch}
-\section{Motivation}
+\chapter{Background}
+\section{Previous Tablature Transcription Work}
+\subsection{Graph Search Methods}
+A popular framework for the stringed-instrument transcription task, introduced by Sayegh~\cite{sayegh} for both transcription and fingering problems, is that of weighted directed graphs that capture all plausible sequences of fretboard positions for a given musical passage. Edge weights in the graph are typically informed by mechanical or musical desirability of the fretboard sequences implied by the vertex transitions. Radicioni~\cite{radicioni} used this graph paradigm to obtain optimal tablatures from music scores. Yaezawa~\cite{yaezawa} extracted pitch and melody information from guitar recordings, and computed an optimal fingering based on plausible multipitch estimation results. Burlet~\cite{burlet} developed a polyphonic extension to monophonic optimal search algorithms. Radisavljevic~\cite{radisav2004} proposed a method to learn the optimal weights on the graph given optimal tablature.
+
+\subsection{Machine Learning Solutions}
+A number of teams have used machine learning techniques to ascertain fretboard position or related parameters. Gagnon~\cite{gagnon2003} proposed using neural networks on scores to deduce general fretboard region position and number of strings playing, while Tuohy~\cite{asdf} used a genetic algorithm on scores to obtain tablature. Barbancho et al. ~\cite{barbancho2009} attempted guitar string classification with a Fisher linear discriminant using a multitude of time and frequency-domain features. Abesser~\cite{abesser2012}, Dittmar~\cite{dittmar2013}, and Kehling~\cite{kehling2014} achieve good string transcription performance after training an SVM on standard-tuning guitar audio and using a slew of partials-related features. Burlet~\cite{} developed a deep belief network that achieved fretboard transcription from audio.
+
+\subsection{Multimedia Approaches}
+Some researchers have explored usage of media other than audio or musical information (i.e., scores). Ogrady~\cite{} exploited hexaphonic pickups and matrix factorization of their output to record fretboard positions. Paleari~\cite{}, Burns~\cite{}, and Kerdvibulvich~\cite{} extract tablature from video recordings using image processing and computer vision techniques.
+
+\subsection{The Partial Coincidence Tally (PCT) Method}
+One system in particular served as inspiration for this work. Barbancho~\cite{barbanchoi2012} realized the discriminative potential of a singular feature known as inharmonicity, and devised an algorithm that exclusively used inharmonicity to achieve impressive transcription results using only audio. We discuss inharmonicity in detail and methods for its estimation in the next two sections. Barbancho's method, which we refer to as the "partial coincidence tally" method, is also given a more thorough treatment later in Chapter~\ref{method}.
+
+We were particularly interested in the PCT method for a number of reasons. Firstly, its input is audio. This is important because other media are less -------; scores are inaccessible to novices, while video recordings somewhat nullify the need for tablature ascertainment in the first place. Among the most interesting use cases for an automatic tab transcription system are certainly direct audio-to-tab capability. Other inputs, like scores or video footage of the guitar neck, are already levels of transcription that detracts from the novelty of such a system. Secondly, PCT is rooted in physics which allows for potential transcription of theoretically any fretboard position. Lastly, their method exclusively uses inharmonicity. Other systems that use inharmonicity~\cite{barbancho2009,abesser2012,dittmar2013,kehling2014} exploit additional features that are, in light of~\cite{barbanchoi2012}, superfluous regarding the discriminative information they contribute. 
+
+\section{Inharmonicity Motivation}
 To understand the motivation for this work, we first need to address the motivation behind inharmonicity as a feature itself. Inharmonicity is key in many string discrimination systems~\cite{barbanchoi2012,abesser2012,dittmar2013,kehling2014}. When an ideal string fixed at both ends is displaced, the restoring force that causes it to oscillate is its tension. However, for a real string with stiffness, its elasticity contributes to this restoring force~\cite{fletcher1962} which causes the frequencies of the modes of vibration to no longer be integer multiples of the fundamental. Instead, they're skewed upward according to: 
 \begin{equation}
-f_k = kf_{0}\sqrt{1+\beta k^2} \label{eq:fk}
+\label{eq:fk}
+f_k = kf_{0}\sqrt{1+\beta k^2}
 \end{equation}
 where $f_k$ is the $k$th harmonic of fundamental $f_0$ and $\beta$ is the string's inharmonicity, defined by
 \begin{equation}
@@ -203,10 +186,27 @@ In words, the inharmonicity $\beta$ of a vibrating string is a dimensionless qua
 \caption{Power spectrum of note D2 plucked on an electric guitar at string 5 and fret 5. Red dashed lines are drawn at integer multiples of the fundamental. Note the rightward skew of the measured partial peaks.}
 \end{figure}
 
-%This phenomenon is audible in lower pitch registers because of the necessity of thicker longer strings, and is therefore important for increased realism of synthesized instrument sounds~\cite{jarvalainen2003,fletcher}. Interestingly, not critically audible for acoustic guitar sounds though~\cite{karjalainen}. 
-
 Inharmonicity's suitability for the string discrimination task can be understood through equation~(\ref{eq:beta}). The six strings of any guitar necessarily exhibit different combinations of $Q$, $d$, and $T$ due to varying thicknesses, material, and tuning. Each string therefore has an "inharmonic signature" which presumably distinguishes it from the others. Capturing the pattern of a string's inharmonicity variation along its frets should thus reveal sufficiently identifying information.
 
+\section{Previous Inharmonicity Estimation Work}
+Empirical estimation of inharmonicity is itself a topic of research which merits a brief review. Using pitch extraction techniques to perform estimation was first attempted by Galembo in 1979 and 1986~\cite{galembo1979,galembo1987}. Several additional methods have been proposed since then. In 1994, Galembo~\cite{galembo1994} hypothesized a connection between partials-based fundamental pitch estimates and the degree of inharmonicity in a spectrum. They specifically investigated cepstral analysis and a variant of the harmonic product spectrum method applied to both synthetic tones and recorded piano notes. They found that, because these two techniques leverage periodicity in the frequency domain to produce their pitch estimates, inharmonicity influenced the quality of their estimates in a deterministic manner: more inharmonicity produced wider, less focused pitch estimates lobes, and from quantifying this relation an inharmonicity could be obtained.
+ 
+ The same authors in~\cite{galembo1999} introduced another method in 1999, dubbed the inharmonic comb filter (ICF) method. To estimate a note's inharmonicity, they first applied sets of comb filters to the note's spectrum. The locations of the comb filters' notches were parametrized with a range of inharmonicity values that sufficiently sampled the note's expected inharmonicity range. The ICF whose inharmonicity best matched that of the note would produce the output with lowest spectral energy, since its notches best aligned with the inharmonic note partials. The inharmonicity parameter associated with this output-minimizing ICF was thus selected as the estimate.
+ 
+Rauhala~\cite{rauhala2007} introduced an efficient procedure in 2007 that iteratively catalogued estimates of the partial frequencies' deviations and returned increasingly better estimates of the inharmonicity. The algorithm, aptly referenced as the partial frequency deviations (PDF) method, is initialized with a reasonable first estimate of inharmonicity, and then the note's spectrum is searched for partial peaks. Differences are measured between the locations of these discovered peaks and those of the expected peaks, and the aggregate deviation trend is used to refine the inharmonicity estimate -- a majority of positive differences implies the inharmonicity should be reduced, and a majority of negative differences implies the opposite.
+
+In 2009, Hodgkinson~\cite{hodgkinson2009} proposed a yet more efficient and accurate algorithm, named median-adjustive trajectories (MAT). Their routine exploits the fact that inharmonicity can be estimated with any two partials and their corresponding indices in the harmonic series. Pairs of low-index partials are first considered, since they're minimally affected by inharmonic skew and therefore have high location reliability. With these initial inharmonicity estimates, additional partials are collected and used to refine the previous inharmonicity estimates, with which more partials are located, so on and so forth. MAT was the inharmonicity estimation routine employed in this work, and is discussed at length in Chapter~\ref{experiments}.
+
+Three years later, Barbancho~\cite{barbanchoi2012} introduced another PFD-based approach as part of a guitar tablature transcription system. They started by cataloguing the first 10 partials' deviations, then fitting a polynomial to the PFD curve. They derived the relation between the polynomial's coefficients and the inharmonicity, and returned an initial inharmonicity estimate according to this derivation. Then using this inharmonicity to aid in their search for higher-index partials, they catalogued a larger number of partials' deviations than that of the first iteration, and performed the same polynomial fit and inharmonicity derivation routine. This would refine the inharmonicity estimate, allowing for increasing numbers of partials for which to search.
+
+Also in 2012, Abesser~\cite{abesser2012} used parametric spectral modeling, again in the context of a guitar tablature transcription system. To estimate the inharmonicity of a plucked guitar note, they modeled each audio frame with the autoregressive (AR) filter that best approximated its spectral content. They obtained the poles' locations and the ideal harmonics' locations, and like Barnbancho~\cite{barbanchoi2012} fit the PFD curve with a polynomial from whose coefficients an inharmonicity estimate could be derived.
+
+
+
+\noindent
+\chapter{Characterizing Strings as Inharmonicity Trajectories}
+In this chapter, we present our automatic tablature transcription system in detail. We begin with the motivation for our approach, then present its various building blocks: transforming inharmonicity to log-inharmonicity, compensating for arbitrary tuning with our compensation feature, the specific inharmonicity estimation algorithm used, the string classification procedure we adopted, and the final tablature conversion and refinement process.
+\section{Motivation}
 Barbancho~\cite{barbanchoi2012} derived that inharmonicity varies in a deterministic manner with respect to fret positions along a given string. Specifically, they showed that the inharmonicity $\beta(s,n)$ of a note produced by string $s$ at fret number $n$ could be expressed in terms of the inharmonicity of the open-string note $\beta(s,0)$ according to:
 \begin{equation} 
 \label{eq:beta-traj}
@@ -221,9 +221,14 @@ In other words, the variation in inharmonicity along a given string can be expre
 \caption{Example inharmonicity trajectories of acoustic guitar strings. Only frets 0 (open-string) through 3 are shown. Observe the restriction to the exponential trajectory defined by equation~\eqref{eq:beta-traj}.}
 \end{figure}
 
-Recognizing this, they were able to successfully transcribe string and fret number of an unknown guitar note. Their system's essential mechanism was a similarity-determination routine $A(X(f),\beta_s)$ that quantified the resemblance between an unknown note's estimated inharmonicity $\hat{\beta}$ and the expected inharmonicities $\beta_s$ of candidate strings $s$ from which the note could have originated. First, to estimate an open-note's inharmonicity they followed the procedure described in Chapter~\ref{lit-review} in which they estimated its fundamental, then catalogued its partials' deviations from their ideal harmonic locations, and fit to them a polynomial from whose coefficients they derived the inharmonicity estimate. Next, they inferred the corresponding fret on which the note could be played for each candidate string, and used these string-fret candidate numbers in equation~\eqref{eq:beta-traj} to obtain expected inharmonicity values of the unknown note for each candidate string. In other words, they followed each candidate string's inharmonicity trajectory to arrive at an expected inharmonicity at the appropriate fret. Lastly, they applied their similarity determination algorithm $A(X(f),\beta_s)$, which went as follows. For each candidate fretboard position, they obtained the expected frequency locations at which to find the inharmonic peaks, and searched the note's spectrum for them using search windows centered at those expected locations. They performed this search for a set number of peaks, all the while cataloguing their deviation from the search window center. Their motivation was that the expected inharmonicity of the true fretboard position would produce a spectrum with inharmonic peaks that were measurably more coincident with that of the unknown note than any of the imposter strings. They found that, indeed, the inharmonicity of the fretboard position on which the note was truly plucked yielded the largest number of located peaks inside the spectral search window bounds. Their work demonstrated the sufficiency of inharmonicity as a discriminating feature.
+Recognizing this, they were able to successfully transcribe string and fret number of an unknown guitar note. Their system's essential mechanism was a similarity-determination routine $A(X(f),\beta_s)$ that quantified the resemblance between an unknown note's estimated inharmonicity $\beta$ and the expected inharmonicities $\hat\beta_s$ of candidate strings $s$ from which the note could have originated. First, to estimate an open-note's inharmonicity they followed the procedure described in Chapter~\ref{lit-review} in which they estimated its fundamental, then catalogued its partials' deviations from their ideal harmonic locations, and fit to them a polynomial from whose coefficients they derived the inharmonicity estimate. Next, they inferred the corresponding fret on which the note could be played for each candidate string, and used these string-fret candidate numbers in equation~\eqref{eq:beta-traj} to obtain expected inharmonicity values of the unknown note for each candidate string. In other words, they followed each candidate string's inharmonicity trajectory to arrive at an expected inharmonicity value at the appropriate fret. Lastly, they applied their similarity determination algorithm $A(X(f),\beta_s)$, which went as follows. For each candidate fretboard position, they obtained the expected frequency locations at which to find the inharmonic peaks, and searched the note's spectrum for them using search windows centered at those expected locations. They performed this search for a set number of peaks, all the while cataloguing their deviation from the search window centers. Their motivation was that the expected inharmonicity of the true fretboard position would produce a spectrum with inharmonic peaks that were measurably more coincident with the inharmonic peaks of the unknown note than were any of the imposter strings. They found that, indeed, the inharmonicity of the fretboard position on which the note was truly plucked yielded the largest number of located peaks inside the spectral search window bounds. Their work demonstrated the sufficiency of inharmonicity as a discriminating feature.
 
-This work capitalizes further on their trajectory realization. If we reconsider equation~\eqref{eq:beta-traj} in terms of MIDI pitch number $m$ instead of fret number $n$, we obtain
+This work capitalizes further on their trajectory realization. Rather than zooming into fretboard positions' spectra to evaluate their candidacy, we propose characterizing each candidate string by its inharmonicity trend and classifying a note as belonging to the string whose inharmonicity trajectory or regression evaluated at the note's fundamental approximates the note's inharmonicity with least error. In other words, our similarity routine is simply some error calculation $E(\beta,\hat{\beta})$, discussed in detail the next sections, between the note's inharmonicity $\beta$ and each candidate fretboard positions' expected inharmonicity $\hat{\beta}$ for the note. This is an algorithmically simple approach, requiring merely inharmonicity estimation of the unknown note, inharmonicity trends of training guitars' strings, and an error measure. Additionally, this method is governed by the intuitive spatial constraint of inharmonicity trajectory: notes played on a given string can exhibit only a set of inharmonicities, so classifying based on a spatial metric like minimal residual from a regression makes physical sense.
+
+In the remaining sections we discuss the facets of our system, starting with the use of log-inharmonicities to allow for linear characterizations instead of exponential ones. Next we discuss the specific inharmonicity estimation algorithm we employed, namely the MAT method~\cite{hodgkinson2009}. Then we detail the mechanics of classifying an unknown note. Following that, we discuss the process of converting string classifications to tablature notation. We end with a derivation of the effect of alternate-tuning on log-inharmonicity, and share how it's implemented into our system.
+
+\section{Log-inharmonicity}
+If we reconsider equation~\eqref{eq:beta-traj} in terms of MIDI pitch number $m$ instead of fret number $n$, we obtain
 \begin{equation}
 \beta(s,m) = \beta(s,m_{os})2^{\frac{m-m_{os}}{6}},
 \end{equation}
@@ -253,23 +258,47 @@ where string $s$ has been dropped from the notation since we're looking only at 
 \end{equation}
 showing us that the log-inharmonicity trajectory of a given string varies linearly with respect to MIDI pitch. See Figure~\ref{fig:log-beta-v-midi}. This relationship also holds for fret number, but fundamental pitch is a more likely and generic feature to have been estimated, and consequently is more relevant to consider here.
 
-\begin{figure}[h] 
+With log-inharmonicity, 
+
+\begin{figure}[!htbp] 
 \label{fig:log-beta-v-midi}
 \centering
 \includegraphics[scale=0.7]{log-beta-v-midi}
 \caption{Log-inharmonicity estimates for same frets, strings, and guitar as Fig.~\ref{fig:beta-v-midi}}
 \end{figure}
 
-Rather than zooming into fretboard positions' spectra to evaluate their candidacy, our similarity metric $B(\hat{\beta},\beta)$ exploits this spatial trajectory constraint at a high level. We propose characterizing each candidate string by its log-inharmonicity trajectory against MIDI pitch, and classifying a note as belonging to the string whose trajectory or regression approximates the note's log-inharmonicity with least error. In other words, our similarity routine is simply $B(\hat{\beta},\beta_s) = d(m....., y_s(m))$, where $m$ is the note's MIDI pitch number, $s$, and $d(y_1,y_2)$ is some distance metric between inputs $y_1$ and $y_2$. Details on our definition of this sense are given in Chapter~\ref{experiments}. This is an algorithmically simple approach, requiring simply a linear regression and a distance metric for classification. Additionally, this method is governed by the intuitive spatial constraint of inharmonicity trajectory: notes played on a given string can exhibit only a set of inharmonicities, so classifying based on spatial metrics like minimal residual from a regression or Euclidean distance makes physical sense as well. 
-
-%so a note with inharmonicity closest to that set likely belongs to that string. %Barbancho's assessment of inharmonicity agreement, but, in tallying a note's and candidate strings' shared peaks, does so in a slightly more ad-hoc way. (refine this...)
-
-%Barbancho~\cite{barbanchoi2012} also assessed transcription performance when using averages of open-string inharmonicites across the guitars in their dataset. By doing this, they effectively approximated their transcription performance on guitars the system has never before seen. Though their accuracy degraded slightly, a good demonstration of solely inharmonicity-based string classification for unseen guitars was still demonstrated. We're interested in how much, if at all, the robustness of our regression approach differs from that of Barbancho's~\cite{barbanchoi2012} and other researchers' systems.
-
 \section{Inharmonicity Estimation}
-Here, we discuss the algorithm we median adjustive trajectories (MAT) algorithm~\cite{hodgkinson2010} we employed for inharmonicity estimation. If we consider equation~eqref\
+The inharmonicity estimation algorithm we employed was the median adjustive trajectories (MAT) method~\cite{hodgkinson2009} proposed by Hodgkinson in 2009. At the core of this method is a recasting of the definition of inharmonicity in terms of any two partials and their indices. We can rearrange equation~\eqref{eq:fk} to express the fundamental $f_0$ in terms of the frequency $f_m$ of the $m$th partial and its index $m$ as
+\begin{equation}
+\label{mat6}
+f_0 = \frac{f_m}{m\sqrt{1+\beta m^2}}.
+\end{equation}
+Next, we can substitute~\eqref{mat6} back into $f_0$ in equation~\eqref{eq:fk} to obtain
+\begin{equation}
+\label{mat7}
+f_k = \frac{kf_m}{m\sqrt{1+\beta m^2}}\sqrt{1+\beta k^2}.
+\end{equation}
+Solving for $\beta$ yields
+\begin{equation}
+\label{mat8}
+\beta = \frac{(f_k\frac{m}{k})^2-f_m^2}{k^2f_m^2-m^2(f_k\frac{m}{k})^2},
+\end{equation}
+which defines the inharmonicity of a note in terms of an arbitrary two partials $k$ and $m$ and their corresponding frequencies $f_k$ and $f_m$.
+
+The MAT algorithm begins by locating partials 1 and 2 based on a user-input estimate of the fundamental. Searching for these partials is straightforward, since the skew effect of inharmonicity is low for small indices. From these locations,~\eqref{mat8} is used for every combination of the located partials (which for this first iteration, is only one) to obtain an array of $\beta$ estimates. The median of the $\beta$ array is returned as the composite $\beta$ estimate of this iteration, and this median together with the partials' locations are used in~\eqref{mat6} to obtain an array of revised $f_0$ estimates that contains as many elements as partials under consideration. Finally, the median of this $f_0$ array and the median of the $\beta$ array are used in equation~\eqref{eq:fk} to predict the frequency of the next partial for which to search, which is the third in this case. At succeeding iterations, the lengths of these $f_0$ and $\beta$ arrays grow longer (since both the number of partials, and therefore the number of combinations of partials pairs, increases), and the estimates which they contain grow increasingly more accurate. The algorithm is summarized in the flowchart in Figure~\ref{fig:mat-flowchart}, taken from ~\cite{hodgkinson2009}. MAT determines the ideal number of partials for which to search by finding the highest partial index that lies above the average level of the magnitude spectrum, and terminates once this partial index is reached. The result is an efficient and accurate inharmonicity estimation routine. 
+\begin{figure}[!htbp] 
+\label{fig:mat-flowchart}
+\centering
+\includegraphics[scale=0.9]{mat-flowchart}
+\caption{Median-adjustive-trajectory (MAT) method flowchart.}
+\end{figure}
 
 \section{String Classification}
+There are various different ways one could approach string classification. 
+Euclidean.
+Residual.
+Probabilistic "soft" classificaiton.
+We ended up going with residual.
 To classify an unknown note, we simply assign it to the trajectory or regression that approximates it with least error. We take the $n$th note in our test set, characterized by tuple $(m^{(n)},\beta^{(n)})$ where $m^{(n)}$ is its MIDI pitch number and $\beta^{(n)}$ is its inharmonicity. We'd like to transform this into another tuple $(s^{(n)},f^{(n)})$ corresponding to the appropriate string and fret to which this unknown note should be assigned. We straightforwardly assign to $s^{(n)}$ the index $j$ of the linear coefficients $\mathbf{w}_j$ whose predicted inharmonicity $\hat\beta_j$ approximates the measured inharmonicity $\beta^{(n)}$ with least error. More formally, we solve 
 \begin{equation}
 \label{eq:classify}
@@ -434,7 +463,7 @@ Overall EG: & 0.9667 & 0.8036 & 0.8493 & 0.7500 & 0.7858 & 0.7858\\
 \end{table}
 
 \section{Tuning Compensation}
-For the next experiment, we learned inharmonicity regressions from the standard-tuned RWC electric guitar recordings (and our standard-tuned personal recording), and made predictions on our alternate-tuned personal recordings. We evaluated string-wise F1-score performance both with and without the tuning compensation factor in our system discussed in the previous chapter. Tuning compensation results are denoted by the "comp." column, and original results without compensation are denoted by the "orig." column. See Table~\ref{tab:resultsTune}.
+For the next experiment, we learned inharmonicity regressions from the standard-tuned RWC electric guitar recordings (and our standard-tuned personal recording), and made predictions on our alternate-tuned personal recordings. We evaluated string-wise F1-score performance both with and without the tuning compensation factor in our system discussed in the previous chapter. Tuning compensation results are denoted by the "comp." column, and original results without compensation are denoted by the "orig." column. See Table~\ref{tab:resultsTune}. In standard tuning, strings 6 through 1 are tuned to E2, A2, D3, G3, B3, and E4. In so-called "dadgad" tuning, the open-string pitches are made to be D2, A2, D3, G3, A3, and D4 as these open pitches concatenated together form its name. Whole-step up and whole-step down are tunings in which each of the standard-tuned strings are respectively incremented or decremented by two semitones. For whole-step down, this results in D2, G2, C3, F3, A3, and D4. For whole-step up, we have F\#2, B2, E3, A3, C\#4, and F\#4.
 
 \begin{table}
 \begin{center}
@@ -468,7 +497,6 @@ Overall: & 0.86 & 0.74 & 0.76 & 0.65 & 0.73 & 0.67 & 0.71\\
 
 \noindent
 \chapter{Discussion}
-\section{Analysis}
 The results are... 
 less variance among our evaluations.
 regressions slightly worse than trajectories.
@@ -476,6 +504,15 @@ regressions slightly worse than trajectories.
 Barbancho's impressive CG performance.
 
 Abesser's impressive EG performance.
+
+Overall, transcription results using log-inharmonicity trajectories and regressions are promising. The results in table~\ref{tab:overall-results-RWC} suggest that Barbancho's method~\cite{barbanchoi2012} is superior when precise inharmonicity estimates of the test guitar's open-strings can be ascertained, but for cases when no labels are available our method is desirable. A 
+
+
+
+\section{Analysis}
+
+
+Worst case transcriptions occurred for strings whose trajectories and regressions were closer together. See confusion matrices.
 
 It's unclear why performance for electric guitars is invariably worse than for classicals and acoustics. To investigate, we visually compared the string-wise inharmonicity regressions of all guitars in each guitar class. As can be seen in Figures~\ref{fig:traj-compare-cg},~\ref{fig:traj-compare-ag}, and~\ref{fig:traj-compare-eg}, the classical and acoustic guitars' inharmonicity regressions remain fairly stable from guitar to guitar, whereas those of the electric guitars clearly exhibit more variability. EG regressions belonging to strings 3 and 4 overlap considerably, which is similar to what we see in the classicals (strings 1 and 4, 2 and 5, 3 and 6) and acoustics (strings 2 and 3) with some strings. But due to the large spread of the electrics' regressions, this overlap behavior causes frequent transcription errors. Indeed, the EG confusion matrices support this, and one which highlights this error trend is shown in Table~\ref{tab:cf-eg}. Example confusion matrices for the CGs and AGs are also shown. This overlapping error doesn't seem to affect the CGs and AGs nearly as much, since their regression variability is much smaller.
 
@@ -545,15 +582,29 @@ Speculating why this might be the case, we wondered if the transduction of the E
 \end{figure} 
 We expected that variability would increase with dynamics, but unfortunately the data didn't support this hypothesis. Interquartile ranges didn't exhibit any clear trend with respect to performance intensity, nor was the magnitude of their variation noteworthy. The cause of the inharmonicity unreliability is therefore probably linked to some spectral characteristic of the electric guitars, e.g. considerably more non-tonal peaks which the MAT algorithm erroneously selects as partials, or some aspect of the pickup's frequency response that's throwing off the MAT algorithm, etc.
 
-A potential area for run-time performance enhancement for tablature transcription systems is the use of musical context. Musical passages on the guitar should exhibit continuity in some fashion; it's usually the case that a riff is played in a localized area of the fretboard, for example, instead of jumping around the length of the guitar neck. It's empirically more natural for a performer to be motion conservative in this sense, as it's easier to play more notes quicker. Transcription systems could apply these performance-borne simplifications to their output to potentially improve accuracy, say, when a stray note is transcribed twelve frets away from the rest of those in the riff.
 
-Necessary to do this, though, is a measure of objective confidence in the transcription. Without this, there'd be no way to determine whether it was the stray note or the majority of the riff which was correctly transcribed. We investigated the amenability of our log-inharmonicity regression classification to reliable confidence measurements, and reassuringly found encouraging results.
+
+
 
 \section{Threats to Validity}
-Our system makes many simplifying assumptio
+It's important to highlight factors that potentially undermine the claims of this work. Our system currently operates only on clean (i.e. no effects processing), isolated, monophonic guitar recordings, which are obviously not representative of the majority of guitar audio. Multiple layers of effects processing are commonly used by performers of the instrument to achieve distinctive, creative sounds. Guitarists often play in concert with other musicians, and frequently aren't the focal point of the song, buried in their companion's soundscapes. Moreover, guitar passages are rarely in their entirety strictly monophonic. It should be noted that these are large obstacles that separate our RWC subset from actual guitar performances, and thus the implications of our transcription results should be considerably tempered. Noteworthy though, is the extent to which other teams have overcome some of these factors. Barbancho, Abesser, Kehling, and Dittmar have implemented polyphonic capabilities into their systems with good success, so polyphony is perhaps a smaller barrier than the others. Maezawa's system achieved modest performance on RWC recordings that featured guitar passages combined with backing tracks.
 
-Overall, transcription results using log-inharmonicity trajectories and regressions are promising. The results in table~\ref{tab:overall-results-RWC} suggest that Barbancho's method~\cite{barbanchoi2012} is superior when precise inharmonicity estimates of the test guitar's open-strings can be ascertained, but for cases when no labels are available our method is desirable. A 
+Additionally, the MAT inharmonicity estimation routine we used was different from Barbancho's. The credibility of the comparison between our results and theirs is thus somewhat compromised. It's quite possible that any performance gains observed in our implementation are due in part to potentially superior inharmonicity extraction. This is, unfortunately, a factor we didn't control for, and if time had allowed we should have replicated Barbancho's system and substituted their inharmonicity estimation step with MAT to produce results that were as comparable as possible.
+
+
+exponential regressions.
+
+
 \section{Future Work}
+A potential area for run-time performance enhancement for tablature transcription systems is the use of musical context. Musical passages on the guitar tend to exhibit continuity; it's usually the case that a riff is played in a localized area of the fretboard, for example, instead of jumping around the length of the guitar neck. It's empirically more natural for a performer to be motion conservative in this sense, as it's easier to play more notes quicker and it the piece sounds more uniform. Transcription systems could apply these performance-borne simplifications to their output to potentially improve accuracy, say, when a stray note is transcribed a plausible twelve frets away from the rest of those in the riff.
+
+Necessary to do this, though, is a measure of objective confidence in the transcription. Without this, there'd be no way to determine whether it was the stray note or the majority of the riff which was correctly transcribed. We investigated the amenability of our log-inharmonicity residual-minimizing classification scheme to reliable confidence measurements, and reassuringly found encouraging results. Figure~\ref{fig:p-correct-res} displays the probability, for each of the nine RWC guitars, of our system producing a correct fretboard transcription given increasingly wide windows in which we consider a note's inharmonicity estimate to have fallen. The inverse trend between residual window width and correctness probability shows that we can reliably infer some degree of confidence in a note's transcription. This can be leveraged in a post-processing stage to further refine tablature with isolated erroneous, yet plausible, transcriptions.
+\begin{figure}[!htbp] 
+\label{fig:p-correct-res}
+\centering
+\includegraphics[angle=90,scale=0.65]{p-correct-res}
+\caption{Solid black lines: probability of correctly transcribing a note given the residual width under which the note's log-inharmonicity falls, measured by the left-hand-side vertical axes. Dashed orange lines: CDF of the log-inharmonicity residuals, measured by the right-hand-side vertical axis.}
+\end{figure} 
 
 %The basic transcription results obtained in the previous chapter are modest; we achieved overall transcription accuracies of 43\%, 71\%, and 62\% for the RWC classical, acoustic, and electric guitars respectively. These accuracies don't tell the whole story, though. Closer inspection of Tables~\ref{tab:resultsRWC} and~\ref{tab:resultsTune} reveals that performance is heavily string-dependent. We can achieve a 0.93 F1-measure for string 6 (the electric guitar), but our worst-case F1-measure for string 3 is a disappointing 0.07 (also for the electric guitar). This is likely due to the somewhat overlapping inharmonicity trajectories of the inner strings, i.e. string 3 through 5 mainly, which is discussed further below when we consider factors that may have weakened system quality. This disparity between string-wise F1-scores suggests that in its current state, our system is more appropriate for tablature transcription of the "outer" strings, i.e. mainly strings 1, 2, and 6.
 
@@ -575,7 +626,7 @@ After reiterating one of Barbancho's key realizations -- that inharmonicity alon
 
 Next, we introduced our experimental datasets -- a subset of the RWC music instruments database and a couple personal guitar recordings -- and outlined the experiments we conducted. We first performed benchmark comparisons against Barbancho's similar inharmonicity-based method, and then we assessed our tuning compensation feature's transcription performance for alternately-tuned guitars. Both evaluation areas were promising; our RWC tab transcription performance rivaled that of Barbancho's at 0.92, 0.94, and 0.79 for the classical, acoustic, and electric guitars respectively, while our average system accuracy on alternate-tuned guitars improved by 7\% compared to performance with no tuning compensation.
 
-We wrapped up with a more detailed discussion of our experiment results, and an analysis of some of its less encouraging portions. A cursory investigation of the cause for the poorer electric guitar transcription performance revealed that it couldn't be the electric guitars' pickups that were responsible for impeding reliable inharmonicity estimation; it must rather be spectral nuances that confuse the inharmonicity estimation algorithm. We closed with limitations and future scope.
+We wrapped up with a more detailed discussion of our experiment results, and an analysis of some of its less encouraging portions. A cursory investigation of the cause for the poorer electric guitar transcription performance revealed that it couldn't be the electric guitars' pickups that were responsible for impeding reliable inharmonicity estimation; it must rather be spectral nuances that confuse the inharmonicity estimation algorithm. We closed with limitations and future scope. More work should be done for a thorough appraisal of our system's merit, but results obtained thus far support the promise of our novel automatic tablature transcription approach.
 
 %We introduced an additional inharmonicity-based approach to guitar string classification and tablature transcription, based on characterizing guitar strings' inharmonicity trajectories with linear regressions against pitch. Classification is performed by assigning to an unknown note the index of the trajectory which best explains the note's inharmonicity. We reported transcription F1-score performance of $0.43$, $0.71$, and $0.62$ for classical, acoustic, and electric guitars in the RWC dataset. 
 
