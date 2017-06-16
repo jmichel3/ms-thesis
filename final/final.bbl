@@ -1,0 +1,120 @@
+\begin{thebibliography}{19}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[gag()]{gagnon2003}
+
+
+\bibitem[gal({\natexlab{a}})]{galembo1994}
+{\natexlab{a}}.
+
+\bibitem[gal({\natexlab{b}})]{galembo1999}
+{\natexlab{b}}.
+
+\bibitem[Abe{\ss}er(2012)]{abesser2012}
+J.~Abe{\ss}er.
+\newblock Automatic string detection for bass guitar and electric guitar.
+\newblock In \emph{From Sounds to Music and Emotions - 9th International
+  Symposium, CMMR 2012}, pages 333--352, London, UK, June 2012.
+
+\bibitem[Barbancho et~al.(2009)Barbancho, Barbancho, Tard{\'o}n, and
+  Sammartino]{barbancho2009}
+I.~Barbancho, A.~Barbancho, L.~Tard{\'o}n, and S.~Sammartino.
+\newblock Pitch and played string estimation in classic and acoustic guitars.
+\newblock In \emph{Proceedings of the 126th Audio Engineering Society (AES)
+  Convention}, Munich, Germany, 2009.
+
+\bibitem[Barbancho et~al.(2012)Barbancho, Tard{\'o}n, Sammartino, and
+  Barbancho]{barbanchoi2012}
+I.~Barbancho, L~Tard{\'o}n, S.~Sammartino, and A.~Barbancho.
+\newblock Inharmonicity-based method for the automatic generation of guitar
+  tablature.
+\newblock In \emph{Proceedings of the IEEE Transactions on Audio, Speech, and
+  Language Processing}, pages 1857--1868, August 2012.
+
+\bibitem[Bello et~al.(2005)Bello, Daudet, Abdallah, Duxbury, Davies, and
+  Sandler]{bello2005}
+J.~Bello, L.~Daudet, S.~Abdallah, C.~Duxbury, M.~Davies, and M.~Sandler.
+\newblock A tutorial on onset detection in music signals.
+\newblock \emph{IEEE Transactions on Speech and Audio Processing}, 13\penalty0
+  (5):\penalty0 1035--1047, 2005.
+
+\bibitem[Burlet and Fujinaga(2013)]{burlet2013}
+G.~Burlet and I.~Fujinaga.
+\newblock Robotaba guitar tablature transcription framework.
+\newblock In \emph{Proceedings of the IEEE Transactions on Speech and Language
+  Processing}, Curitiba, Brazil, November 2013.
+
+\bibitem[Dittmar et~al.(2013)Dittmar, M{\"a}anchen, and
+  Abe{\ss}er]{dittmar2013}
+C.~Dittmar, A.~M{\"a}anchen, and J.~Abe{\ss}er.
+\newblock Real-time guitar string detection for music education software.
+\newblock In \emph{Proceedings of the 14th International Workshop on Image
+  Analysis for Multimedia Interactive Services (WIAMIS)}, pages 1--4, 2013.
+
+\bibitem[Dixon(2006)]{dixon2006}
+S.~Dixon.
+\newblock Onset detection revisited.
+\newblock In \emph{Proceedings of the 9th International Conference on Digital
+  Audio Effects (DAFx-06)}, Montreal, Canada, September 2006.
+
+\bibitem[Fletcher et~al.(1962)Fletcher, Blackham, and Stratton]{fletcher1962}
+H.~Fletcher, E.~Blackham, and R.~Stratton.
+\newblock Quality of piano tones.
+\newblock \emph{Journal of the Acoustical Society of America}, 34\penalty0
+  (6):\penalty0 749--761, 1962.
+
+\bibitem[Galembo(1979)]{galembo1979}
+A.~Galembo.
+\newblock Method for objective evaluation of the sound quality in piano trebles
+  (in russian).
+\newblock In \emph{Proc. of 18th Acoust. Conf. of Czechoslovakia}, 1979.
+
+\bibitem[Galembo(1987)]{galembo1987}
+A.~Galembo.
+\newblock \emph{The quality of piano tones (in Russian)}.
+\newblock Legkaya Industria Press, Moscow, 1987.
+
+\bibitem[Goto et~al.(2003)Goto, Hashiguchi, Nishimura, and Oka]{goto2003}
+M.~Goto, H.~Hashiguchi, T.~Nishimura, and R.~Oka.
+\newblock R{W}{C} music database: Music genre database and musical instrument
+  sound database.
+\newblock In \emph{Proceedings of the 4th International Conference on Music
+  Information Retrieval (ISMIR 2003)}, pages 229--230, October 2003.
+
+\bibitem[Hodgkinson et~al.(2009)Hodgkinson, Wang, Timoney, and
+  Lazzarini]{hodgkinson2009}
+M.~Hodgkinson, J.~Wang, J.~Timoney, and V.~Lazzarini.
+\newblock Handling inharmonic series with median-adjustive trajectories.
+\newblock In \emph{Proc. of the 12th Int. Conference on Digital Audio Effects
+  (DAFx-09)}, Como, Italy, September 2009.
+
+\bibitem[Kehling et~al.(2014)Kehling, Abe{\ss}er, Dittmar, and
+  Schuller]{kehling2014}
+C.~Kehling, J.~Abe{\ss}er, C.~Dittmar, and G.~Schuller.
+\newblock Automatic tablature transcription of electric guitar recordings by
+  estimation of score- and instrument-related parameters.
+\newblock In \emph{Proc. of the 17th Int. Conference on Digital Audio Effects
+  (DAFx-14)}, Erlangen, Germany, September 2014.
+
+\bibitem[Macrae and Dixon(2010)]{macrae2010}
+R.~Macrae and S.~Dixon.
+\newblock A guitar tablature score follower.
+\newblock In \emph{Proc. Int. Conf. Multimedia Expo}, pages 725--726, 2010.
+
+\bibitem[Radisavljevic and Driessen(2004)]{radisav2004}
+A.~Radisavljevic and P.~Driessen.
+\newblock Path difference learning for guitar fingering problem.
+\newblock In \emph{Proc. Int. Comput. Music Conf. (ICMC04)}, 2004.
+
+\bibitem[Rauhala et~al.(2007)Rauhala, Lehtonen, and
+  V{\"a}lim{\"a}ki]{rauhala2007}
+J.~Rauhala, H.~M. Lehtonen, and V.~V{\"a}lim{\"a}ki.
+\newblock Fast automatic inharmonicity estimation algorithm.
+\newblock \emph{Journal of the Acoustical Society of America}, 121\penalty0
+  (5):\penalty0 184--189, 2007.
+
+\end{thebibliography}

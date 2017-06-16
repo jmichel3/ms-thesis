@@ -1,0 +1,11 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces .}}{32}{table.4.1}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Comparison of transcription accuracies between Barbancho's partial frequency tally (PFT) method and our log-inharmonicity trajectory method.}}{32}{table.4.2}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Best string-wise F1-scores for our Fender Telecaster at various tunings. Regressions trained on all three RWC electric guitars. WSU: whole-step up (from standard); WSD: whole-step down (from standard); orig.: no tuning compensation used in this trial; comp.: tuning compensation used in this trial. The "Overall" row displays average F1-score of each column.}}{33}{table.4.3}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Confusion matrix for one classification trial with EG131. Strings 3 and 4, as they are here, were frequently misclassified because of their regressions' poor discriminability.}}{36}{table.5.1}
+\addvspace {10\p@ }
+\addvspace {10\p@ }

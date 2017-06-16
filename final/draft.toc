@@ -1,0 +1,16 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}Previous Work}{3}{chapter.2}
+\contentsline {chapter}{\numberline {3}Proposed Solution}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Pre-processing}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}Inharmonicity Estimation}{6}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Theory}{6}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Estimation}{8}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}Classification}{8}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Linear Regression Mixture Models}{9}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Expectation Maximization}{9}{subsection.3.3.2}
+\contentsline {chapter}{\numberline {4}Preliminary Results}{11}{chapter.4}
+\contentsline {section}{\numberline {4.1}Dataset}{11}{section.4.1}
+\contentsline {section}{\numberline {4.2}Experiments}{11}{section.4.2}
+\contentsline {section}{\numberline {4.3}Evaluation}{11}{section.4.3}
+\contentsline {chapter}{\numberline {5}Conclusion}{13}{chapter.5}
+\contentsline {chapter}{Bibliography}{15}{chapter*.4}

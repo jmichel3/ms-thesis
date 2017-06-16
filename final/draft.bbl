@@ -1,0 +1,87 @@
+\begin{thebibliography}{12}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Abe{\ss}er(2012)]{abesser2012}
+J.~Abe{\ss}er.
+\newblock Automatic string detection for bass guitar and electric guitar.
+\newblock In \emph{From Sounds to Music and Emotions - 9th International
+  Symposium, CMMR 2012}, pages 333--352, London, UK, June 2012.
+
+\bibitem[Barbancho et~al.(2012{\natexlab{a}})Barbancho, Klapuri, Tard{\'o}n,
+  and Barbancho]{barbanchoa2012}
+A.~Barbancho, A.~Klapuri, L.~Tard{\'o}n, and Isabel Barbancho.
+\newblock Automatic transcription of guitar chords and fingering from audio.
+\newblock In \emph{Proceedings of the IEEE Transactions on Speech and Language
+  Processing}, pages 915--921, March 2012{\natexlab{a}}.
+
+\bibitem[Barbancho et~al.(2009)Barbancho, Barbancho, Tard{\'o}n, and
+  Sammartino]{barbancho2009}
+I.~Barbancho, A.~Barbancho, L.~Tard{\'o}n, and S.~Sammartino.
+\newblock Pitch and played string estimation in classic and acoustic guitars.
+\newblock In \emph{Proceedings of the 126th Audio Engineering Society (AES)
+  Convention}, Munich, Germany, 2009.
+
+\bibitem[Barbancho et~al.(2012{\natexlab{b}})Barbancho, Tard{\'o}n, Sammartino,
+  and Barbancho]{barbanchoi2012}
+I.~Barbancho, L~Tard{\'o}n, S.~Sammartino, and A.~Barbancho.
+\newblock Inharmonicity-based method for the automatic generation of guitar
+  tablature.
+\newblock In \emph{Proceedings of the IEEE Transactions on Audio, Speech, and
+  Language Processing}, pages 1857--1868, August 2012{\natexlab{b}}.
+
+\bibitem[Bello et~al.(2005)Bello, Daudet, Abdallah, Duxbury, Davies, and
+  Sandler]{bello2005}
+J.~Bello, L.~Daudet, S.~Abdallah, C.~Duxbury, M.~Davies, and M.~Sandler.
+\newblock A tutorial on onset detection in music signals.
+\newblock \emph{IEEE Transactions on Speech and Audio Processing}, 13\penalty0
+  (5):\penalty0 1035--1047, 2005.
+
+\bibitem[Dixon(2006)]{dixon2006}
+S.~Dixon.
+\newblock Onset detection revisited.
+\newblock In \emph{Proceedings of the 9th International Conference on Digital
+  Audio Effects (DAFx-06)}, Montreal, Canada, September 2006.
+
+\bibitem[Faria and Soromenho(2010)]{faria2010}
+S.~Faria and G.~Soromenho.
+\newblock Fitting mixtures of linear regressions.
+\newblock \emph{Journal of Statistical Computation and Simulation}, 80\penalty0
+  (2):\penalty0 201--225, February 2010.
+
+\bibitem[Fletcher and Rossing(1998)]{fletcher1998}
+N.~Fletcher and T.~Rossing.
+\newblock \emph{The Physics of Musical Instruments}.
+\newblock Springer-Verlag, 1998.
+
+\bibitem[Goto et~al.(2003)Goto, Hashiguchi, Nishimura, and Oka]{goto2003}
+M.~Goto, H.~Hashiguchi, T.~Nishimura, and R.~Oka.
+\newblock R{W}{C} music database: Music genre database and musical instrument
+  sound database.
+\newblock In \emph{Proceedings of the 4th International Conference on Music
+  Information Retrieval (ISMIR 2003)}, pages 229--230, October 2003.
+
+\bibitem[Hrybyk and Kim(2010)]{hrybyk2010}
+A.~Hrybyk and Y.~Kim.
+\newblock Combined audio and video for guitar chord identification.
+\newblock In \emph{Proc. of the 11th International Society for Music
+  Information Retrieval (ISMIR)}, pages 159--164, Utrecht, Netherlands, 2010.
+
+\bibitem[Noll(1969)]{noll1969}
+A.~Noll.
+\newblock Pitch determination of human speech by the harmonic product spectrum,
+  the harmonic sum spectrum, and a maximum likelihood estimate.
+\newblock In \emph{Computer Processing in Communications Proceedings}, pages
+  779--797, New York, N.Y., April 1969.
+
+\bibitem[O'Grady and Rickard()]{ogrady2009}
+P.~O'Grady and S.~Rickard.
+\newblock Automatic hexaphonic guitar transcription using non-negative
+  constraints.
+\newblock In \emph{Proc. IET Irish Signals Syst. Conf. (ISSC 2009)}, pages
+  1--6, Dublin, Ireland.
+
+\end{thebibliography}
