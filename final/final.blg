@@ -47,45 +47,45 @@ Warning--empty author in galembo1999
 Warning--empty title in galembo1999
 Warning--empty journal in galembo1999
 Warning--empty year in galembo1999
-You've used 19 entries,
+You've used 20 entries,
             2773 wiz_defined-function locations,
-            696 strings with 7780 characters,
-and the built_in function-call counts, 8651 in all, are:
-= -- 734
-> -- 445
-< -- 12
-+ -- 155
-- -- 135
-* -- 683
-:= -- 1225
-add.period$ -- 51
-call.type$ -- 19
-change.case$ -- 98
-chr.to.int$ -- 18
-cite$ -- 57
-duplicate$ -- 468
-empty$ -- 801
-format.name$ -- 157
-if$ -- 1890
+            701 strings with 8045 characters,
+and the built_in function-call counts, 9363 in all, are:
+= -- 795
+> -- 493
+< -- 13
++ -- 171
+- -- 150
+* -- 740
+:= -- 1325
+add.period$ -- 54
+call.type$ -- 20
+change.case$ -- 106
+chr.to.int$ -- 19
+cite$ -- 59
+duplicate$ -- 501
+empty$ -- 855
+format.name$ -- 173
+if$ -- 2049
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 20
-newline$ -- 97
-num.names$ -- 64
-pop$ -- 281
+missing$ -- 21
+newline$ -- 102
+num.names$ -- 68
+pop$ -- 300
 preamble$ -- 1
-purify$ -- 83
+purify$ -- 90
 quote$ -- 0
-skip$ -- 317
+skip$ -- 347
 stack$ -- 0
-substring$ -- 242
-swap$ -- 75
-text.length$ -- 5
+substring$ -- 272
+swap$ -- 86
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 204
+type$ -- 215
 warning$ -- 16
-while$ -- 61
+while$ -- 66
 width$ -- 0
-write$ -- 234
+write$ -- 247
 (There were 4 error messages)

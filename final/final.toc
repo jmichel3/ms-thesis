@@ -11,17 +11,17 @@
 \contentsline {section}{\numberline {3.1}Motivation}{11}{section.3.1}
 \contentsline {section}{\numberline {3.2}Inharmonicity Estimation}{14}{section.3.2}
 \contentsline {section}{\numberline {3.3}Log-inharmonicity}{15}{section.3.3}
-\contentsline {section}{\numberline {3.4}Tuning Compensation}{19}{section.3.4}
-\contentsline {section}{\numberline {3.5}Learning Inharmonicity Trajectories}{22}{section.3.5}
-\contentsline {section}{\numberline {3.6}String Classification}{24}{section.3.6}
-\contentsline {section}{\numberline {3.7}Tablature Conversion and Refinement}{27}{section.3.7}
-\contentsline {section}{\numberline {3.8}System Overview}{28}{section.3.8}
-\contentsline {chapter}{\numberline {4}Experiments and Results}{29}{chapter.4}
-\contentsline {section}{\numberline {4.1}Benchmark RWC Evaluation}{29}{section.4.1}
-\contentsline {section}{\numberline {4.2}Tuning Compensation}{31}{section.4.2}
-\contentsline {chapter}{\numberline {5}Discussion}{35}{chapter.5}
-\contentsline {section}{\numberline {5.1}Analysis}{35}{section.5.1}
-\contentsline {section}{\numberline {5.2}Threats to Validity}{43}{section.5.2}
-\contentsline {section}{\numberline {5.3}Future Work}{44}{section.5.3}
-\contentsline {chapter}{\numberline {6}Conclusion}{47}{chapter.6}
-\contentsline {chapter}{Bibliography}{49}{chapter*.4}
+\contentsline {section}{\numberline {3.4}Learning Inharmonicity Trajectories}{19}{section.3.4}
+\contentsline {section}{\numberline {3.5}Tuning Compensation}{21}{section.3.5}
+\contentsline {section}{\numberline {3.6}String Classification}{25}{section.3.6}
+\contentsline {section}{\numberline {3.7}Tablature Conversion and Refinement}{28}{section.3.7}
+\contentsline {section}{\numberline {3.8}System Overview}{29}{section.3.8}
+\contentsline {chapter}{\numberline {4}Experiments and Results}{31}{chapter.4}
+\contentsline {section}{\numberline {4.1}Benchmark RWC Evaluation}{31}{section.4.1}
+\contentsline {section}{\numberline {4.2}Tuning Compensation}{33}{section.4.2}
+\contentsline {chapter}{\numberline {5}Discussion}{37}{chapter.5}
+\contentsline {section}{\numberline {5.1}Analysis}{37}{section.5.1}
+\contentsline {section}{\numberline {5.2}Threats to Validity}{45}{section.5.2}
+\contentsline {section}{\numberline {5.3}Future Work}{46}{section.5.3}
+\contentsline {chapter}{\numberline {6}Conclusion}{49}{chapter.6}
+\contentsline {chapter}{Bibliography}{51}{chapter*.4}

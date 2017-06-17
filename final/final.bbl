@@ -1,4 +1,4 @@
-\begin{thebibliography}{19}
+\begin{thebibliography}{20}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -116,5 +116,13 @@ J.~Rauhala, H.~M. Lehtonen, and V.~V{\"a}lim{\"a}ki.
 \newblock Fast automatic inharmonicity estimation algorithm.
 \newblock \emph{Journal of the Acoustical Society of America}, 121\penalty0
   (5):\penalty0 184--189, 2007.
+
+\bibitem[Yazawa et~al.(2013)Yazawa, Sakaue, Nagira, Itoyama, and
+  Okuno]{yazawa2013}
+K.~Yazawa, D.~Sakaue, K.~Nagira, K.~Itoyama, and H.~Okuno.
+\newblock Audio-based guitar tablature transcription using multipitch analysis
+  and playability constraints.
+\newblock In \emph{Proceedings of the International Conference on Acoustics,
+  Speech, and Signal Processing}, pages 196--200, 2013.
 
 \end{thebibliography}
