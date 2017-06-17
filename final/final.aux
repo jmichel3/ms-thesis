@@ -19,6 +19,8 @@
 \citation{barbanchoi2012}
 \citation{barbanchoi2012}
 \citation{barbanchoi2012}
+\citation{barbanchoi2012}
+\citation{barbanchoi2012}
 \citation{macrae2010}
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}}
 \@writefile{lof}{\addvspace {10\p@ }}
@@ -38,10 +40,10 @@
 \citation{dittmar2013}
 \citation{kehling2014}
 \citation{}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Background}{5}{chapter.2}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Previous Work}{5}{chapter.2}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Previous Tablature Transcription Work}{5}{section.2.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Automatic Tablature Transcription}{5}{section.2.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Graph Search Methods}{5}{subsection.2.1.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}Machine Learning Solutions}{5}{subsection.2.1.2}}
 \citation{}
@@ -63,8 +65,8 @@
 \citation{galembo1999}
 \newlabel{fig:skew}{{2.2}{8}{Inharmonicity Motivation}{equation.2.2.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Power spectrum of note D2 plucked on an electric guitar at string 5 and fret 5. Red dashed lines are drawn at integer multiples of the fundamental. Note the rightward skew of the measured partial peaks.}}{8}{figure.2.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Previous Inharmonicity Estimation Work}{8}{section.2.3}}
-\newlabel{lit-beta-est}{{2.3}{8}{Previous Inharmonicity Estimation Work}{section.2.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Inharmonicity Estimation}{8}{section.2.3}}
+\newlabel{lit-beta-est}{{2.3}{8}{Inharmonicity Estimation}{section.2.3}{}}
 \citation{rauhala2007}
 \citation{hodgkinson2009}
 \citation{barbanchoi2012}
@@ -74,6 +76,7 @@
 \@writefile{toc}{\contentsline {chapter}{\numberline {3}Characterizing Strings as Inharmonicity Trajectories}{11}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chap:method}{{3}{11}{Characterizing Strings as Inharmonicity Trajectories}{chapter.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.1}Motivation}{11}{section.3.1}}
 \newlabel{eq:beta-traj}{{3.1}{11}{Motivation}{equation.3.1.1}{}}
 \newlabel{fig:beta-trajectories-ag}{{3.1}{12}{Motivation}{equation.3.1.1}{}}
@@ -123,34 +126,43 @@
 \newlabel{experiments}{{4}{29}{Experiments and Results}{chapter.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.1}Benchmark RWC Evaluation}{29}{section.4.1}}
 \citation{barbanchoi2012}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Tuning Compensation}{31}{section.4.2}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces .}}{32}{table.4.1}}
-\newlabel{tab:error-results-RWC}{{4.1}{32}{}{table.4.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Comparison of transcription accuracies between Barbancho's partial frequency tally (PFT) method and our log-inharmonicity trajectory method.}}{32}{table.4.2}}
-\newlabel{tab:overall-results-RWC}{{4.2}{32}{Comparison of transcription accuracies between Barbancho's partial frequency tally (PFT) method and our log-inharmonicity trajectory method}{table.4.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Best string-wise F1-scores for our Fender Telecaster at various tunings. Regressions trained on all three RWC electric guitars. WSU: whole-step up (from standard); WSD: whole-step down (from standard); orig.: no tuning compensation used in this trial; comp.: tuning compensation used in this trial. The "Overall" row displays average F1-score of each column.}}{33}{table.4.3}}
-\newlabel{tab:resultsTune}{{4.3}{33}{Best string-wise F1-scores for our Fender Telecaster at various tunings. Regressions trained on all three RWC electric guitars. WSU: whole-step up (from standard); WSD: whole-step down (from standard); orig.: no tuning compensation used in this trial; comp.: tuning compensation used in this trial. The "Overall" row displays average F1-score of each column}{table.4.3}{}}
 \citation{barbanchoi2012}
+\citation{barbanchoi2012}
+\citation{barbanchoi2012}
+\citation{barbanchoi2012}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Error probability comparisons between PCT, residual minimization with theoretical trajectories, and residual minimization with empirical trajectories. PCT results are taken from\nobreakspace  {}\cite  {barbanchoi2012}; we've excluded error due to $f_0$ estimation in their results.}}{31}{table.4.1}}
+\newlabel{tab:error-results-RWC}{{4.1}{31}{Error probability comparisons between PCT, residual minimization with theoretical trajectories, and residual minimization with empirical trajectories. PCT results are taken from~\cite {barbanchoi2012}; we've excluded error due to $f_0$ estimation in their results}{table.4.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Tuning Compensation}{31}{section.4.2}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces F1-scores for theoretical and empirical log-inharmonicity trajectory classification. PCT column removed because F1-scores weren't reported in\nobreakspace  {}\cite  {barbanchoi2012}.}}{32}{table.4.2}}
+\newlabel{tab:f-results-RWC}{{4.2}{32}{F1-scores for theoretical and empirical log-inharmonicity trajectory classification. PCT column removed because F1-scores weren't reported in~\cite {barbanchoi2012}}{table.4.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces String-wise F1-scores for the RWC classical guitars.}}{32}{table.4.3}}
+\newlabel{tab:cg-str-f}{{4.3}{32}{String-wise F1-scores for the RWC classical guitars}{table.4.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces String-wise F1-scores for the RWC acoustic guitars.}}{32}{table.4.4}}
+\newlabel{tab:ag-str-f}{{4.4}{32}{String-wise F1-scores for the RWC acoustic guitars}{table.4.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces String-wise F1-scores for the RWC electric guitars.}}{33}{table.4.5}}
+\newlabel{tab:eg-str-f}{{4.5}{33}{String-wise F1-scores for the RWC electric guitars}{table.4.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.6}{\ignorespaces Best string-wise F1-scores for our Fender Telecaster at various tunings. Regressions trained on all three RWC electric guitars. WSU: whole-step up (from standard); WSD: whole-step down (from standard); orig.: no tuning compensation used in this trial; comp.: tuning compensation used in this trial. The "Overall" row displays average F1-score of each column.}}{33}{table.4.6}}
+\newlabel{tab:resultsTune}{{4.6}{33}{Best string-wise F1-scores for our Fender Telecaster at various tunings. Regressions trained on all three RWC electric guitars. WSU: whole-step up (from standard); WSD: whole-step down (from standard); orig.: no tuning compensation used in this trial; comp.: tuning compensation used in this trial. The "Overall" row displays average F1-score of each column}{table.4.6}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {5}Discussion}{35}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {5.1}Analysis}{35}{section.5.1}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Confusion matrix for one classification trial with EG131. Strings 3 and 4, as they are here, were frequently misclassified because of their regressions' poor discriminability.}}{36}{table.5.1}}
-\newlabel{tab:cf-eg}{{5.1}{36}{Confusion matrix for one classification trial with EG131. Strings 3 and 4, as they are here, were frequently misclassified because of their regressions' poor discriminability}{table.5.1}{}}
 \newlabel{fig:traj-compare-cg}{{5.1}{37}{Analysis}{section.5.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Superimposed string-wise regressions of all three RWC classical guitars. Top: strings 1, 2, and 3. Bottom: strings 4, 5, and 6. Separated for visibility. Axes scales identical for comparison. Observe the consistent placement and orientation despite varying guitar.}}{37}{figure.5.1}}
 \newlabel{fig:traj-compare-ag}{{5.1}{38}{Analysis}{figure.5.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces }}{38}{figure.5.2}}
 \newlabel{fig:traj-compare-eg}{{5.1}{39}{Analysis}{figure.5.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces }}{39}{figure.5.3}}
-\newlabel{fig:best-worst-r2}{{5.1}{40}{Analysis}{table.5.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces }}{40}{figure.5.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Threats to Validity}{41}{section.5.2}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Confusion matrix for one classification trial with EG131. Strings 3 and 4, as they are here, were frequently misclassified because of their regressions' poor discriminability.}}{40}{table.5.1}}
+\newlabel{tab:cf-eg}{{5.1}{40}{Confusion matrix for one classification trial with EG131. Strings 3 and 4, as they are here, were frequently misclassified because of their regressions' poor discriminability}{table.5.1}{}}
+\newlabel{fig:best-worst-r2}{{5.1}{41}{Analysis}{table.5.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces }}{41}{figure.5.4}}
 \newlabel{fig:eg1-string-dyn}{{5.1}{42}{Analysis}{figure.5.4}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Boxplots of log-inharmonicity regression residuals for EG131 by dynamic level. Group 1: piano, Group 2: mezzo, Group 3: forte. Red center horizontal lines are medians; top and bottom edges of blue boxes represent upper and lower quartiles; whiskers depict full range of data excluding outliers; red plus signs denote outliers. Vertical axes not constant throughout plots; we're highlighting relative distributions of the boxplots here.}}{42}{figure.5.5}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Future Work}{43}{section.5.3}}
-\newlabel{fig:p-correct-res}{{5.3}{45}{Future Work}{section.5.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Solid black lines: probability of correctly transcribing a note given the residual width under which the note's log-inharmonicity falls, measured by the left-hand-side vertical axes. Dashed orange lines: CDF of the log-inharmonicity residuals, measured by the right-hand-side vertical axis.}}{45}{figure.5.6}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Threats to Validity}{43}{section.5.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Future Work}{44}{section.5.3}}
+\newlabel{fig:p-correct-res}{{5.3}{46}{Future Work}{section.5.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Solid black lines: probability of correctly transcribing a note given the residual width under which the note's log-inharmonicity falls, measured by the left-hand-side vertical axes. Dashed orange lines: CDF of the log-inharmonicity residuals, measured by the right-hand-side vertical axis.}}{46}{figure.5.6}}
 \citation{barbanchoi2012}
 \@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusion}{47}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}

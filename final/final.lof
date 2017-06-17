@@ -15,8 +15,8 @@
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Superimposed string-wise regressions of all three RWC classical guitars. Top: strings 1, 2, and 3. Bottom: strings 4, 5, and 6. Separated for visibility. Axes scales identical for comparison. Observe the consistent placement and orientation despite varying guitar.}}{37}{figure.5.1}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces }}{38}{figure.5.2}
 \contentsline {figure}{\numberline {5.3}{\ignorespaces }}{39}{figure.5.3}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces }}{40}{figure.5.4}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces }}{41}{figure.5.4}
 \contentsline {figure}{\numberline {5.5}{\ignorespaces Boxplots of log-inharmonicity regression residuals for EG131 by dynamic level. Group 1: piano, Group 2: mezzo, Group 3: forte. Red center horizontal lines are medians; top and bottom edges of blue boxes represent upper and lower quartiles; whiskers depict full range of data excluding outliers; red plus signs denote outliers. Vertical axes not constant throughout plots; we're highlighting relative distributions of the boxplots here.}}{42}{figure.5.5}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Solid black lines: probability of correctly transcribing a note given the residual width under which the note's log-inharmonicity falls, measured by the left-hand-side vertical axes. Dashed orange lines: CDF of the log-inharmonicity residuals, measured by the right-hand-side vertical axis.}}{45}{figure.5.6}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Solid black lines: probability of correctly transcribing a note given the residual width under which the note's log-inharmonicity falls, measured by the left-hand-side vertical axes. Dashed orange lines: CDF of the log-inharmonicity residuals, measured by the right-hand-side vertical axis.}}{46}{figure.5.6}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
