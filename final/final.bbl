@@ -1,24 +1,22 @@
-\begin{thebibliography}{20}
+\begin{thebibliography}{29}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[gag()]{gagnon2003}
-
-
-\bibitem[gal({\natexlab{a}})]{galembo1994}
-{\natexlab{a}}.
-
-\bibitem[gal({\natexlab{b}})]{galembo1999}
-{\natexlab{b}}.
-
 \bibitem[Abe{\ss}er(2012)]{abesser2012}
 J.~Abe{\ss}er.
 \newblock Automatic string detection for bass guitar and electric guitar.
 \newblock In \emph{From Sounds to Music and Emotions - 9th International
   Symposium, CMMR 2012}, pages 333--352, London, UK, June 2012.
+
+\bibitem[Barbancho et~al.(2012{\natexlab{a}})Barbancho, Klapuri, Tard{\'o}n,
+  and Barbancho]{barbanchoa2012}
+A.~Barbancho, A.~Klapuri, L.~Tard{\'o}n, and Isabel Barbancho.
+\newblock Automatic transcription of guitar chords and fingering from audio.
+\newblock In \emph{Proceedings of the IEEE Transactions on Speech and Language
+  Processing}, pages 915--921, March 2012{\natexlab{a}}.
 
 \bibitem[Barbancho et~al.(2009)Barbancho, Barbancho, Tard{\'o}n, and
   Sammartino]{barbancho2009}
@@ -27,13 +25,13 @@ I.~Barbancho, A.~Barbancho, L.~Tard{\'o}n, and S.~Sammartino.
 \newblock In \emph{Proceedings of the 126th Audio Engineering Society (AES)
   Convention}, Munich, Germany, 2009.
 
-\bibitem[Barbancho et~al.(2012)Barbancho, Tard{\'o}n, Sammartino, and
-  Barbancho]{barbanchoi2012}
+\bibitem[Barbancho et~al.(2012{\natexlab{b}})Barbancho, Tard{\'o}n, Sammartino,
+  and Barbancho]{barbanchoi2012}
 I.~Barbancho, L~Tard{\'o}n, S.~Sammartino, and A.~Barbancho.
 \newblock Inharmonicity-based method for the automatic generation of guitar
   tablature.
 \newblock In \emph{Proceedings of the IEEE Transactions on Audio, Speech, and
-  Language Processing}, pages 1857--1868, August 2012.
+  Language Processing}, pages 1857--1868, August 2012{\natexlab{b}}.
 
 \bibitem[Bello et~al.(2005)Bello, Daudet, Abdallah, Duxbury, Davies, and
   Sandler]{bello2005}
@@ -45,8 +43,19 @@ J.~Bello, L.~Daudet, S.~Abdallah, C.~Duxbury, M.~Davies, and M.~Sandler.
 \bibitem[Burlet and Fujinaga(2013)]{burlet2013}
 G.~Burlet and I.~Fujinaga.
 \newblock Robotaba guitar tablature transcription framework.
-\newblock In \emph{Proceedings of the IEEE Transactions on Speech and Language
-  Processing}, Curitiba, Brazil, November 2013.
+\newblock In \emph{Proceedings of the 14th International Society for Music
+  Information Retrieval Conference}, November 2013.
+
+\bibitem[Burlet(2015)]{burlet2015}
+Gregory~D. Burlet.
+\newblock Guitar tablature transcription using a deep belief network.
+\newblock Master's thesis, University of Alberta, Canada, 2015.
+
+\bibitem[Burns and Wanderley(2006)]{burns2006}
+A.~M. Burns and M.~M. Wanderley.
+\newblock Visual methods for the retrieval of guitarist fingering.
+\newblock In \emph{Proc. Conf. New Interfaces for Musical Expression}, pages
+  196--199, France, June 2006.
 
 \bibitem[Dittmar et~al.(2013)Dittmar, M{\"a}anchen, and
   Abe{\ss}er]{dittmar2013}
@@ -67,6 +76,13 @@ H.~Fletcher, E.~Blackham, and R.~Stratton.
 \newblock \emph{Journal of the Acoustical Society of America}, 34\penalty0
   (6):\penalty0 749--761, 1962.
 
+\bibitem[Gagnon et~al.(2003)Gagnon, Larouche, and Lefebvre]{gagnon2003}
+T.~Gagnon, S.~Larouche, and R.~Lefebvre.
+\newblock A neural network approach for preclassification in musical chords
+  recognition.
+\newblock In \emph{Conf. Rec. 37th Asilomar Conf. Signals, Systems, Comput.},
+  volume~2, pages 2106--2109, 2003.
+
 \bibitem[Galembo(1979)]{galembo1979}
 A.~Galembo.
 \newblock Method for objective evaluation of the sound quality in piano trebles
@@ -77,6 +93,16 @@ A.~Galembo.
 A.~Galembo.
 \newblock \emph{The quality of piano tones (in Russian)}.
 \newblock Legkaya Industria Press, Moscow, 1987.
+
+\bibitem[Galembo and Askenfelt(1994)]{galembo1994}
+A.~Galembo and A.~Askenfelt.
+\newblock Measuring inharmonicity through pitch extraction.
+\newblock \emph{STL-QPSR}, 35\penalty0 (1):\penalty0 135--144, 1994.
+
+\bibitem[Galembo and Askenfelt(1999)]{galembo1999}
+Alexander Galembo and Anders Askenfelt.
+\newblock \emph{IEEE Transactions on Speech and Audio Processing}, 7\penalty0
+  (2), March 1999.
 
 \bibitem[Goto et~al.(2003)Goto, Hashiguchi, Nishimura, and Oka]{goto2003}
 M.~Goto, H.~Hashiguchi, T.~Nishimura, and R.~Oka.
@@ -100,10 +126,35 @@ C.~Kehling, J.~Abe{\ss}er, C.~Dittmar, and G.~Schuller.
 \newblock In \emph{Proc. of the 17th Int. Conference on Digital Audio Effects
   (DAFx-14)}, Erlangen, Germany, September 2014.
 
+\bibitem[Kerdvibulvech and Saito(2007)]{kerd2007}
+C.~Kerdvibulvech and H.~Saito.
+\newblock Vision-based detection of guitar players’ fingertips without
+  markers.
+\newblock In \emph{Comput. Graph., Imag., Visualisat. (CGIV)}, pages 419--428,
+  2007.
+
 \bibitem[Macrae and Dixon(2010)]{macrae2010}
 R.~Macrae and S.~Dixon.
 \newblock A guitar tablature score follower.
 \newblock In \emph{Proc. Int. Conf. Multimedia Expo}, pages 725--726, 2010.
+
+\bibitem[O'Grady and Rickard()]{ogrady2009}
+P.~O'Grady and S.~Rickard.
+\newblock Automatic hexaphonic guitar transcription using non-negative
+  constraints.
+\newblock In \emph{Proc. IET Irish Signals Syst. Conf. (ISSC 2009)}, pages
+  1--6, Dublin, Ireland.
+
+\bibitem[Paleari et~al.(2008)Paleari, Huet, Schutz, and Slock]{paleari2008}
+M.~Paleari, B.~Huet, A.~Schutz, and D.~Slock.
+\newblock A multimodal approach to music transcription.
+\newblock In \emph{Proc. 15th IEEE Int. Conf. Image Process (ICIP)}, pages
+  93--96, 2008.
+
+\bibitem[Radicioni et~al.(2005)Radicioni, Scienza, and Lombardo]{radicioni2005}
+D.~Radicioni, C.~D. Scienza, and V.~Lombardo.
+\newblock Guitar fingering for music performance.
+\newblock In \emph{Proc. Int. Comput. Music Assoc.}, pages 527--530, 2005.
 
 \bibitem[Radisavljevic and Driessen(2004)]{radisav2004}
 A.~Radisavljevic and P.~Driessen.
@@ -116,6 +167,20 @@ J.~Rauhala, H.~M. Lehtonen, and V.~V{\"a}lim{\"a}ki.
 \newblock Fast automatic inharmonicity estimation algorithm.
 \newblock \emph{Journal of the Acoustical Society of America}, 121\penalty0
   (5):\penalty0 184--189, 2007.
+
+\bibitem[Sayegh(1989)]{sayegh1989}
+S.~Sayegh.
+\newblock Fingering for string instruments with the optimum path paradigm.
+\newblock \emph{Computer Music Journal}, 13\penalty0 (3):\penalty0 76--84,
+  1989.
+
+\bibitem[Tuohy and Potter(2006)]{tuohy2006}
+D.~Tuohy and W.~D. Potter.
+\newblock Generating guitar tablature with {LHF} notation via {DGA} and {ANN}.
+\newblock In \emph{Advances in Applied Artificial Intelligence: 19th
+  International Conference on Industrial, Engineering and Other Applications of
+  Applied Intelligent Systems, {IEA/AIE} 2006, Annecy, France, June 27-30,
+  2006, Proceedings}, pages 244--253, 2006.
 
 \bibitem[Yazawa et~al.(2013)Yazawa, Sakaue, Nagira, Itoyama, and
   Okuno]{yazawa2013}

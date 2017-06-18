@@ -3,89 +3,73 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: final.aux
 The style file: plainnat.bst
 Database file #1: mybib.bib
-Warning--string name "t." is undefined
---line 113 of file mybib.bib
-I was expecting a `,' or a `}'---line 113 of file mybib.bib
- :   author = t. 
- :               Gagnon and S. Larouche and R. Lefebvre},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 121 of file mybib.bib
+I was expecting a `,' or a `}'---line 151 of file mybib.bib
  :   
- :   author = {A. Galembo and A. Askenfelt},
+ :   pages = {197-203},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 130 of file mybib.bib
- :   
- :   author = {Alexander Galembo and Anders Askenfelt},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 209 of file mybib.bib
+I was expecting a `,' or a `}'---line 231 of file mybib.bib
  :   
  :   year = {2009}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "sayegh"
-Warning--I didn't find a database entry for "radicioni"
-Warning--I didn't find a database entry for "yaezawa"
-Warning--I didn't find a database entry for "burlet"
-Warning--I didn't find a database entry for "asdf"
-Warning--I didn't find a database entry for ""
+"{" immediately follows a field name---line 270 of file mybib.bib
+ : @article
+ :         {shi2000,
+I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "matlab"
-Warning--to sort, need author or key in gagnon2003
-Warning--to sort, need author or key in galembo1994
-Warning--to sort, need author or key in galembo1999
-Warning--empty author in gagnon2003
-Warning--empty title in gagnon2003
-Warning--empty booktitle in gagnon2003
-Warning--empty year in gagnon2003
-Warning--empty year in gagnon2003
-Warning--empty author in galembo1994
-Warning--empty title in galembo1994
-Warning--empty journal in galembo1994
-Warning--empty year in galembo1994
-Warning--empty author in galembo1999
+Name 2 in "A. M. Burns and M. M. Wanderley," has a comma at the end for entry burns2006
+while executing---line 1347 of file plainnat.bst
+Name 2 in "A. M. Burns and M. M. Wanderley," has a comma at the end for entry burns2006
+while executing---line 1347 of file plainnat.bst
+Name 2 in "A. M. Burns and M. M. Wanderley," has a comma at the end for entry burns2006
+while executing---line 1347 of file plainnat.bst
+Name 2 in "A. M. Burns and M. M. Wanderley," has a comma at the end for entry burns2006
+while executing---line 1429 of file plainnat.bst
+Name 2 in "A. M. Burns and M. M. Wanderley," has a comma at the end for entry burns2006
+while executing---line 1429 of file plainnat.bst
 Warning--empty title in galembo1999
-Warning--empty journal in galembo1999
-Warning--empty year in galembo1999
-You've used 20 entries,
+Warning--empty year in ogrady2009
+Warning--empty year in ogrady2009
+You've used 29 entries,
             2773 wiz_defined-function locations,
-            701 strings with 8045 characters,
-and the built_in function-call counts, 9363 in all, are:
-= -- 795
-> -- 493
-< -- 13
-+ -- 171
-- -- 150
-* -- 740
-:= -- 1325
-add.period$ -- 54
-call.type$ -- 20
-change.case$ -- 106
-chr.to.int$ -- 19
-cite$ -- 59
-duplicate$ -- 501
-empty$ -- 855
-format.name$ -- 173
-if$ -- 2049
+            758 strings with 9894 characters,
+and the built_in function-call counts, 14809 in all, are:
+= -- 1299
+> -- 777
+< -- 30
++ -- 264
+- -- 234
+* -- 1112
+:= -- 2133
+add.period$ -- 86
+call.type$ -- 29
+change.case$ -- 163
+chr.to.int$ -- 28
+cite$ -- 61
+duplicate$ -- 771
+empty$ -- 1299
+format.name$ -- 281
+if$ -- 3280
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 21
-newline$ -- 102
-num.names$ -- 68
-pop$ -- 300
+missing$ -- 29
+newline$ -- 152
+num.names$ -- 116
+pop$ -- 396
 preamble$ -- 1
-purify$ -- 90
+purify$ -- 136
 quote$ -- 0
-skip$ -- 347
+skip$ -- 588
 stack$ -- 0
-substring$ -- 272
-swap$ -- 86
-text.length$ -- 6
+substring$ -- 531
+swap$ -- 175
+text.length$ -- 15
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 215
-warning$ -- 16
-while$ -- 66
+type$ -- 314
+warning$ -- 3
+while$ -- 120
 width$ -- 0
-write$ -- 247
-(There were 4 error messages)
+write$ -- 383
+(There were 8 error messages)

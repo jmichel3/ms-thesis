@@ -38,7 +38,7 @@
 \usepackage{subfigure}
 \usepackage{titlesec}
 \DeclareMathOperator*{\argmin}{arg\,min}
-\newcommand\addtag{\refstepcounter{equation}\tag{\theequation}}
+%\newcommand\addtag{\refstepcounter{equation}\tag{\theequation}}
 \titleformat{\chapter}[hang] 
 {\normalfont\LARGE\bfseries}{\chaptertitlename\ \thechapter:}{1em}{}
 
@@ -57,7 +57,7 @@
 \pagestyle{empty}
 
 \title{ %% {\it \huge Thesis Proposal}\\
-{\bf Characterizing Guitar Strings as Inharmonicity Trajectories for Automatic Tablature Transcription}}
+{\bf Guitar String Classification using Inharmonicity Trajectories for Automatic Tablature Transcription}}
 \author{Jonathan Michelson}
 \date{May 2017}
 \Year{2017}
@@ -88,7 +88,7 @@ Dr. Richard Stern, Dr. Thomas Sullivan \\
 
 %\doublespacing
 \begin{abstract}
-We propose and evaluate an additional inharmonicity-based method for automatic tablature transcription using only audio. First, we characterize each guitar string as the linear relation between its log-inharmonicity and fundamental pitch. Then we use these learned trajectories or regressions to classify string labels of unseen guitar notes: the system assigns to a pitch the label of the line which approximates the note's estimated inharmonicity with minimal residual. Given the tuning of the guitar that produced the unseen note, we infer its associated tablature, which allows for further string classification refinement by rejecting and reassigning implausible fret assignments. Average F1-scores achieved with this system for classical, acoustic, and electric guitars in the RWC instruments dataset were $0.92$, $0.94$, and $0.79$ respectively, rivaling performance of existing inharmonicity-based systems. We also derive and evaluate an inharmonicity compensation feature to allow for transcription of arbitrarily-tuned guitars, provided the tuning is known. With this enhancement, our average system accuracy improves by $7\%$ on alternate-tuned guitars, compared to performance with no tuning compensation.
+We propose and evaluate an additional exclusively inharmonicity-based method for automatic tablature transcription using only audio. First, we characterize each guitar string as the linear trajectory between its log-inharmonicity and fundamental pitch. Then we use these learned trends to classify string labels of unseen guitar notes in the following manner. The system assigns to a note the string whose trajectory approximates its estimated inharmonicity with minimal residual. Given the tuning of the guitar that produced the unseen note, we infer its associated tablature, which allows for further string classification refinement by rejecting and reassigning implausible fret assignments. Average error probabilities achieved with this system for classical, acoustic, and electric guitars in the RWC instruments dataset rivaled those of existing inharmonicity-based systems. We also derive and evaluate an inharmonicity compensation feature to allow for transcription of arbitrarily-tuned guitars, provided the tuning is known. With this enhancement, our average system accuracy improves by $5$ points on alternate-tuned guitars, compared to performance with no tuning compensation. Overall, the results show that residual minimization between unseen guitar notes' estimated inharmonicities and reference guitar strings' inharmonicity trajectories is a valid classification approach for the tablature transcription task.
 
 \end{abstract}
 %\singlespacing
@@ -131,9 +131,9 @@ Abesser,Barbancho -- for their helpful correspondence
 \doublespacing
 \noindent
 \chapter{Introduction} 
-The guitar is a popular musical instrument whose family comprises a diverse collection of stringed instruments. Its most prominent classes are the acoustic, classical, and electric guitars, and intraclass variation in characteristics such as body shape, string material, and amplification mode is high. Despite this diversity, the majority of guitar configurations have six strings tuned to $E2$ ($82$Hz), $A2$ ($110$Hz), $D3$ ($147$Hz), $G3$ ($196$Hz), $B3$ ($247$Hz), and $E4$ ($330$Hz). To play, a performer presses these strings with one hand against the neck's metal frets, each of which increase the string's pitch by one half-step, while strumming or plucking them with the other hand. Guitars typically have upwards of 20 frets, allowing for versatile musical passage realizations along the fretboard.
+The guitar is a popular musical instrument whose family comprises a diverse collection of stringed instruments. Its most prominent classes are the acoustic, classical, and electric guitars, and intraclass variation is high in characteristics such as body shape, string material, and amplification modality. Despite this diversity, the majority of guitar configurations exhibit some unifying features, like having six strings tuned to $E2$ ($82$Hz), $A2$ ($110$Hz), $D3$ ($147$Hz), $G3$ ($196$Hz), $B3$ ($247$Hz), and $E4$ ($330$Hz), for example. Performance is relatively constant as well; to play, a performer presses these strings with one hand against the neck's metal frets, each of which increase the string's pitch by one half-step, while strumming or plucking them with the other hand. Guitars typically have upwards of 20 frets, allowing for versatile musical passage realizations along the fretboard.
 
-A consequence of this is liberal pitch overlap between neighboring strings. Conventional music scores that represent passages as notes and chords therefore fail to communicate fretboard position. This ambiguity renders scores unfit for guitar students trying to learn more skillful placement of scales and arpeggios, or for enthusiasts trying to decrypt the fretboard positions used on recordings of virtuosic players' riffs. Figure~\ref{fig:score-tabs} illustrates this ambiguity.
+A consequence of the strings' open-tunings and extensive fretting locations is liberal pitch overlap between neighboring strings; multiple fretboard locations can usually be selected to produce a given pitch. Conventional music scores that represent passages as notes and chords therefore fail to communicate fretboard position. This ambiguity renders scores unfit for guitar students trying to learn more skillful placement of scales and arpeggios, or for enthusiasts trying to decrypt the fretboard positions used on recordings of virtuosic players' riffs. Figure~\ref{fig:score-tabs} illustrates this ambiguity.
 
 Tablature, on the other hand, is an alternative music notation that doesn't suffer from the one-to-many mapping of scores. The staff, instead of representing pitch as in classical scores, depicts a birds-eye view of the guitar neck from the performer's perspective. Each of the six horizontal lines signify a corresponding string on the guitar, and numbers on each line specify the fret to be played. Time progresses from left to right as in scores. 
 
@@ -144,28 +144,31 @@ Tablature, on the other hand, is an alternative music notation that doesn't suff
 \caption{Musical score and two identical realizations of that score in tablature notation. Figure taken from~\cite{barbanchoi2012}.}
 \end{figure}
 
-Tablature (tabs for short) is widely popular for a number of likely reasons. Its accessibility and intuition are attractive to those without formal musical training; learning from a pictorial representation of one's instrument must seem more attractive to beginners than learning musical theory foundations and decoding scores. And because tabs are easily encodable and interpretable with simple ASCII characters, authoring them isn't limited to those with knowledge of any sort of tab-specific generation program, unlike with scores.~\cite{macrae2010}.
+Tablature (abbr. tabs) is widely more popular than scores for a number of likely reasons~\cite{macrae2010}. Its accessibility is attractive to those without formal musical training; reading a pictorial representation of the fretboard poses a smaller learning curve than understanding music theory and score notation. Additionally, the lines and numbers in tablature that represent the strings and frets are easily represented with ASCII characters, rendering it an exceptionally portable mode of communication. Indeed, one can create, modify, and transfer tablature files using simply a text editor.
 
-Accurate tablature transcription is a fairly tedious task, however. Dependable tabs containing few errors typically require a seasoned musician's careful listening to an audio recording, and possibly video recordings if available too. Reliable automation of this transcription task would benefit the guitar student community by expediting quality tab generation and unearthing fretboard positions of guitar riffs in songs for which accurate tabs don't yet exist. Recent technologies proposed to encourage proliferation of accessible tab transcription systems, such as web framework Robotaba~\cite{burlet2013}, demonstrate a desire among MIR researchers to see this theoretically mature but practically nascent field mature into student-benefitting applications. Closely related to tab transcription is the task of string classification: producing the correct tablature is straightforward if the guitar's tuning is known and the correct string labels are identified. 
+Accurate tablature transcription is a fairly laborious task, however. Dependable tabs containing few errors typically require a seasoned musician's careful listening to an audio recording, and possibly video recordings if for additional consultation. Reliable automation of this transcription task would benefit the guitar student community by expediting quality tab generation and unearthing fretboard positions of guitar riffs in songs for which accurate tabs don't yet exist. Recent technologies proposed to encourage proliferation of accessible tab transcription systems, such as web framework Robotaba~\cite{burlet2013}, demonstrate a desire among MIR researchers to see this theoretically mature but practically nascent field mature into student-benefitting applications. 
 
-In the next chapter, we survey previous work in the field of automatic tablature transcription, and highlight the feature known as inharmonicity. Then in Chapter~\ref{method}, we motivate inharmonicity's suitability for the string discrimination task, looking at Barbancho's work as an example. We transition to discussing the novel approach of our system. Chapter~\ref{experiments} contains descriptions and results of our experiments, and the discussion Chapter~\ref{discussion} regards an anlaysis of the results, shortcomings, and remaining work. We summarize this work in our final chapter.
+In the next chapter, we survey previous work in the field of automatic tablature transcription, highlighting one team in particular who successfully used a singular feature known as inharmonicity and whose work inspired ours. This is followed by a motivation of inharmonicity's suitability for the string discrimination task, and a review of the literature on inharmonicity estimation. In Chapter~\ref{chap:method}, we introduce our system in detail. Chapter~\ref{chap:experiments} reports the results of our experiments, and Chapter~\ref{chap:discussion} contains analysis of the results, threats to validity, and future work. We summarize this work in Chapter~\ref{chap:conclusion}.
 
 \noindent
 \chapter{Previous Work}
+\label{chap:lit-review}
+Music transcription is a rich research topic with many contributors. We begin with a brief review of various teams who have focused specifically on tablature transcription. We then introduce a feature of guitar audio referred to as inharmonicity, which has been used exclusively and successfully in one system, whose detailed summary we defer to~\ref{chap:method}. We close this chapter with a survey of the inharmonicity estimation literature.
+
 \section{Automatic Tablature Transcription}
 \subsection{Graph Search Methods}
-A popular framework for the stringed-instrument transcription task, introduced by Sayegh~\cite{sayegh} for both transcription and fingering problems, is that of weighted directed graphs that capture all plausible sequences of fretboard positions for a given musical passage. Edge weights in the graph are typically informed by mechanical or musical desirability of the fretboard sequences implied by the vertex transitions. Radicioni~\cite{radicioni} used this graph paradigm to obtain optimal tablatures from music scores. Yaezawa~\cite{yaezawa} extracted pitch and melody information from guitar recordings, and computed an optimal fingering based on plausible multipitch estimation results. Burlet~\cite{burlet} developed a polyphonic extension to monophonic optimal search algorithms. Radisavljevic~\cite{radisav2004} proposed a method to learn the optimal weights on the graph given optimal tablature.
+A popular framework for the stringed-instrument transcription task, introduced by Sayegh~\cite{sayegh1989} for both transcription and fingering problems, is that of weighted directed graphs that capture all plausible sequences of fretboard positions for a given musical passage. Edge weights in the graph are typically informed by mechanical or musical desirability of the fretboard sequences implied by the vertex transitions. Radicioni~\cite{radicioni2005} used this graph paradigm to obtain optimal fingerings from music scores. Yazawa~\cite{yazawa2013} extracted pitch and melody information from guitar recordings, and computed an optimal fingering based on plausible multipitch estimation results. Burlet~\cite{burlet2013} developed a polyphonic extension to monophonic optimal search algorithms. Radisavljevic~\cite{radisav2004} proposed a method to learn the optimal weights on the graph given optimal tablature.
 
 \subsection{Machine Learning Solutions}
-A number of teams have used machine learning techniques to ascertain fretboard position or related parameters. Gagnon~\cite{gagnon2003} proposed using neural networks on scores to deduce general fretboard region position and number of strings playing, while Tuohy~\cite{asdf} used a genetic algorithm on scores to obtain tablature. Barbancho et al. ~\cite{barbancho2009} attempted guitar string classification with a Fisher linear discriminant using a multitude of time and frequency-domain features. Abesser~\cite{abesser2012}, Dittmar~\cite{dittmar2013}, and Kehling~\cite{kehling2014} achieve good string transcription performance after training an SVM on standard-tuning guitar audio and using a slew of partials-related features. Burlet~\cite{} developed a deep belief network that achieved fretboard transcription from audio.
+A number of teams have used machine learning techniques to ascertain fretboard position or related parameters. Gagnon~\cite{gagnon2003} proposed using neural networks on scores to deduce general fretboard region position and number of strings playing, while Tuohy~\cite{tuohy2006} used a genetic algorithm on scores to obtain tablature. Barbancho~\cite{barbancho2009} attempted guitar string classification with a Fisher linear discriminant using a multitude of time and frequency-domain features. Barbancho~\cite{barbanchoa2012} used HMMs on polyphonic recordings of guitar chord sequences to transcribe their fret position and fingering. Abesser~\cite{abesser2012}, Dittmar~\cite{dittmar2013}, and Kehling~\cite{kehling2014} achieve good string transcription performance after training an SVM on standard-tuning guitar audio and using a slew of partials-related features. Burlet~\cite{burlet2015} developed a deep belief network that achieved fretboard transcription from audio.
 
 \subsection{Multimedia Approaches}
-Some researchers have explored usage of media other than audio or musical information (i.e., scores). Ogrady~\cite{} exploited hexaphonic pickups and matrix factorization of their output to record fretboard positions. Paleari~\cite{}, Burns~\cite{}, and Kerdvibulvich~\cite{} extract tablature from video recordings using image processing and computer vision techniques.
+Some researchers have explored usage of media other than audio or musical information (i.e., scores). Ogrady~\cite{ogrady2009} exploited hexaphonic pickups and matrix factorization of their output to record fretboard positions. Paleari~\cite{paleari2008}, Burns~\cite{burns2006}, and Kerdvibulvich~\cite{kerd2007} extract tablature from video recordings using image processing and computer vision techniques.
 
 \subsection{The Partial Coincidence Tally (PCT) Method}
-One system in particular served as inspiration for this work. Barbancho~\cite{barbanchoi2012} realized the discriminative potential of a singular feature known as inharmonicity, and devised an algorithm that exclusively used inharmonicity to achieve impressive transcription results using only audio. We discuss inharmonicity in detail and methods for its estimation in the next two sections. Barbancho's method, which we refer to as the "partial coincidence tally" method, is also given a more thorough treatment later in Chapter~\ref{method}.
+One system in particular served as inspiration for this work. Barbancho~\cite{barbanchoi2012} realized the discriminative potential of a singular feature known as inharmonicity, and devised an algorithm that exclusively used inharmonicity to achieve impressive transcription results using only audio. We discuss inharmonicity in detail and methods for its estimation in the remainder of this chapter. Their method, which we refer to as the partial coincidence tally (PCT) method, is also given a more thorough treatment later in Chapter~\ref{chap:method}.
 
-We were particularly interested in the PCT method for a number of reasons. Firstly, its input is audio. This is important because other media are less -------; scores are inaccessible to novices, while video recordings somewhat nullify the need for tablature ascertainment in the first place. Among the most interesting use cases for an automatic tab transcription system are certainly direct audio-to-tab capability. Other inputs, like scores or video footage of the guitar neck, are already levels of transcription that detracts from the novelty of such a system. Secondly, PCT is rooted in physics which allows for potential transcription of theoretically any fretboard position. Lastly, their method exclusively uses inharmonicity. Other systems that use inharmonicity~\cite{barbancho2009,abesser2012,dittmar2013,kehling2014} exploit additional features that are, in light of~\cite{barbanchoi2012}, superfluous regarding the discriminative information they contribute. 
+We were particularly interested in the PCT method for a number of reasons. Firstly, its input is audio. Among the most interesting use cases for an automatic tab transcription system are direct audio-to-tablature capability, as audio is the natural output of the object we're interested in transcribing. Other inputs, like scores or video, are already an extent of transcription that detract from the impressiveness of a tablature transcriber. Secondly, because PCT examines notes' underlying physical signatures, it can theoretically decode the fretboard position of any note despite how unexpected its location may be. Other methods, like graph searches, rely on optimization of cost functions that are generalizations of tab playability rules, and therefore aren't as well-suited to correctly transcribe aberrant note sequences. Lastly, their method exclusively uses inharmonicity. Other systems that use inharmonicity~\cite{barbancho2009,abesser2012,dittmar2013,kehling2014} exploit additional features that aid in string discriminability. We were captivated by the idea of singularly using only inharmonicity to achieve impressive transcription scores.
 
 \section{Inharmonicity Motivation}
 To understand the motivation for this work, we first need to address the motivation behind inharmonicity as a feature itself. Inharmonicity is key in many string discrimination systems~\cite{barbanchoi2012,abesser2012,dittmar2013,kehling2014}. When an ideal string fixed at both ends is displaced, the restoring force that causes it to oscillate is its tension. However, for a real string with stiffness, its elasticity contributes to this restoring force~\cite{fletcher1962} which causes the frequencies of the modes of vibration to no longer be integer multiples of the fundamental. Instead, they're skewed upward according to: 
@@ -328,7 +331,7 @@ After transforming our data into log-inharmonicity and MIDI pitch space, we appl
 
 Though standard tuning is the most common pitch configuration of six-string guitars, there exist numerous other tunings in which performers often play. Aside from altering the musicality of the instrument, alternate tunings complicate the transcription process by introducing uncertainty about the open-string pitches. They distort inharmonicity-based methods, since the tensions $T$ of alternately-tuned guitar strings differ from those in standard-tuned strings, thereby affecting estimation of the inharmonicity. 
 
-Current string classification systems don't address this degree of freedom. The method proposed by Barbancho~\cite{barbanchoi2012} is technically tuning-invariant, but would require access to recordings of the alternately-tuned test guitar's open strings and so isn't considered a classifier here. Other supervised learning systems~\cite{kehling2014, dittmar2013, abesser2012} are trained and evaluated only on standard-tuning guitars.
+Current string classification systems don't address this degree of freedom. PCT~\cite{barbanchoi2012} is technically tuning-invariant, but would require access to recordings of the alternately-tuned test guitar's open strings and so isn't considered a classifier here. Other supervised learning systems~\cite{kehling2014, dittmar2013, abesser2012} are trained and evaluated only on standard-tuning guitars.
 
 A possible approach to augment inharmonicity-based string classifiers with tuning-invariant performance is to simply introduce a scaling factor on the expected inharmonicity, or equivalently an additive factor on the expected log-inharonicity. The fundamental frequency $f_0$ of an ideal vibrating string is related to its tension $T$ according to
 \begin{equation}
@@ -423,13 +426,13 @@ Below in Figure~\ref{fig:overview}, we summarize the operation of our system. In
 \begin{figure}[!htbp] 
 \label{fig:overview}
 \centering
-\includegraphics[scale=0.70]{overview}
+\includegraphics[scale=0.6]{overview}
 \caption{System overview of tablature transcription with log-inharmonicity trajectories using residual minimization classification.}
 \end{figure}
 
 \noindent
 \chapter{Experiments and Results}
-\label{experiments}
+\label{chap:experiments}
 \section{Benchmark RWC Evaluation}
 %We used subsets of the Real World Corpus' Music Instrument Database (RWC-MDB-I)~\cite{goto2003}, subsets of the Fraunhofer Institute for Digital Media Technology's Semantic Music Technologies guitar dataset (IDMT-SMT)~\cite{asdf}, and personal recordings of an electric guitar to conduct our experiments. 
 
@@ -535,7 +538,7 @@ Overall EG: & 0.81 & 0.85 & 0.78 & 0.76\\
 
 Also displayed in Tables~\ref{tab:cg-str-f},~\ref{tab:ag-str-f}, and~\ref{tab:eg-str-f} are the \textit{string-wise} F1-scores from this experiment. These tables' left-hand columns denote the string number of the rows' F1-scores, and the right-hand columns are the row-wise average of the three guitars in the class.
 
-\begin{table}
+\begin{table}[!htbp]
 \begin{center}
 \begin{tabular}{||c|c|c|c|c||}
 \hline
@@ -560,7 +563,7 @@ String No. & CG1 & CG2 & CG3 & Overall CG \\
 \end{center}
 \end{table}
 
-\begin{table}
+\begin{table}[!htbp]
 \begin{center}
 \begin{tabular}{||c||c|c|c|c||}
 \hline
@@ -585,7 +588,7 @@ String No. & AG1 & AG2 & AG3 & Overall AG \\
 \end{center}
 \end{table}
 
-\begin{table}
+\begin{table}[!htbp]
 \begin{center}
 \begin{tabular}{||c||c|c|c|c||}
 \hline
@@ -613,7 +616,7 @@ String No. & EG1 & EG2 & EG3 & Overall EG\\
 \section{Tuning Compensation}
 For the next experiment, we learned inharmonicity regressions from the standard-tuned RWC electric guitar recordings, and predicted string classes on our alternate-tuned personal recordings. We evaluated string-wise F1-score performance both with and without the tuning compensation factor in our system discussed in Chapter~\ref{chap:method}. Tuning compensation results are denoted by the "comp." column, and original results without compensation are denoted by the "orig." column. See Table~\ref{tab:resultsTune}. For reference, we also report transcription performance on our Fender Telecaster in standard tuning, in the second column from the left. In standard tuning, strings 6 through 1 are tuned to E2, A2, D3, G3, B3, and E4. In so-called "DADGAD" tuning, the open-string pitches are made to be D2, A2, D3, G3, A3, and D4 as these open pitches concatenated together form its name. Whole-step up and whole-step down are tunings in which each of the standard-tuned strings are respectively incremented or decremented by two semitones. For whole-step down, this results in D2, G2, C3, F3, A3, and D4. For whole-step up, we have F\#2, B2, E3, A3, C\#4, and F\#4.
 
-\begin{table}
+\begin{table}[!htbp]
 \begin{center}
 \begin{tabular}{||c||c||c|c||c|c||c|c||}
 \hline
@@ -644,6 +647,7 @@ Overall: & 0.86 & 0.74 & 0.76 & 0.65 & 0.73 & 0.67 & 0.71\\
 
 \noindent
 \chapter{Discussion}
+\label{chap:discussion}
 In this chapter, we begin with an analysis of the previous chapter's results, followed by consideration of factors that potentially threaten this work's validity. We close with a discussion about future work.
 
 \section{Analysis}
@@ -761,6 +765,7 @@ Another dimension we didn't consider was varying the regression polynomial. It w
 
 \noindent
 \chapter{Conclusion}
+\label{chap:conclusion}
 We began by introducing the guitar and an essential component of its musicality: the overlapping pitch ranges of its strings. We related this to tablature and its ability to uniquely specify fretboard positions for musical passages, then highlighted its popularity and its tedious manual annotation process. This led us to introduce automatic transcription systems and their applications in music education, and we reviewed previous work on this rich topic.
 
 We paid special attention to the partial coincidence tally (PCT) transcription method introduced by Barbancho in~\cite{barbanchoi2012}, which exploited only one feature known as inharmonicity in development of a successful system using only audio. We explained how inharmonicity affects the degree of upward skew of a note's partials, then discussed the intuition behind its discriminative power before introducing our novel approach.
