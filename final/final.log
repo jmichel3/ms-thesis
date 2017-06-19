@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  18 JUN 2017 13:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  19 JUN 2017 00:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -489,7 +489,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 106.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 111.
  (./final.toc)
 \tf@toc=\write4
 \openout4 = `final.toc'.
@@ -523,7 +523,7 @@ Underfull \vbox (badness 3158) has occurred while \output is active []
 <score-tabs.png, id=326, 209.78375pt x 201.75375pt>
 File: score-tabs.png Graphic file (type png)
  <use score-tabs.png>
-Package pdftex.def Info: score-tabs.png used on input line 143.
+Package pdftex.def Info: score-tabs.png used on input line 147.
 (pdftex.def)             Requested size: 167.82721pt x 161.40321pt.
 
 [2 <./score-tabs.png>] [3] [4
@@ -537,7 +537,7 @@ Underfull \vbox (badness 6708) has occurred while \output is active []
 [6] [7] <skew.png, id=417, 685.56125pt x 398.48875pt>
 File: skew.png Graphic file (type png)
  <use skew.png>
-Package pdftex.def Info: skew.png used on input line 188.
+Package pdftex.def Info: skew.png used on input line 192.
 (pdftex.def)             Requested size: 445.60953pt x 259.01462pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -547,7 +547,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [9]
 
-LaTeX Warning: Reference `experiments' on page 10 undefined on input line 202.
+LaTeX Warning: Reference `experiments' on page 10 undefined on input line 207.
 
 [10]
 Chapter 3.
@@ -555,7 +555,7 @@ Chapter 3.
 File: beta-trajectories-ag.png Graphic file (type png)
 
 <use beta-trajectories-ag.png>
-Package pdftex.def Info: beta-trajectories-ag.png used on input line 225.
+Package pdftex.def Info: beta-trajectories-ag.png used on input line 229.
 (pdftex.def)             Requested size: 426.49046pt x 314.07123pt.
 
 
@@ -573,14 +573,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <mat-flowchart.png, id=479, 344.28625pt x 642.4pt>
 File: mat-flowchart.png Graphic file (type png)
  <use mat-flowchart.png>
-Package pdftex.def Info: mat-flowchart.png used on input line 255.
+Package pdftex.def Info: mat-flowchart.png used on input line 260.
 (pdftex.def)             Requested size: 309.85475pt x 578.15466pt.
 
 [14] <beta-v-midi.png, id=489, 549.05125pt x 434.62375pt>
 File: beta-v-midi.png Graphic file (type png)
 
 <use beta-v-midi.png>
-Package pdftex.def Info: beta-v-midi.png used on input line 269.
+Package pdftex.def Info: beta-v-midi.png used on input line 273.
 (pdftex.def)             Requested size: 384.33325pt x 304.23454pt.
 
 
@@ -591,7 +591,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: log-beta-v-midi.png Graphic file (type png)
 
 <use log-beta-v-midi.png>
-Package pdftex.def Info: log-beta-v-midi.png used on input line 293.
+Package pdftex.def Info: log-beta-v-midi.png used on input line 297.
 (pdftex.def)             Requested size: 400.49352pt x 328.82626pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -600,13 +600,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <traj-v-reg.png, id=520, 523.9575pt x 655.44875pt>
 File: traj-v-reg.png Graphic file (type png)
  <use traj-v-reg.png>
-Package pdftex.def Info: traj-v-reg.png used on input line 312.
+Package pdftex.def Info: traj-v-reg.png used on input line 316.
 (pdftex.def)             Requested size: 392.96716pt x 491.58536pt.
 
 [19] [20 <./traj-v-reg.png (PNG copy)>]
 
-Package natbib Warning: Citation `matlab' on page 21 undefined on input line 32
-7.
+Package natbib Warning: Citation `matlab' on page 21 undefined on input line 33
+2.
 
 [21]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -615,7 +615,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <tuning-eg.png, id=558, 562.1pt x 425.59pt>
 File: tuning-eg.png Graphic file (type png)
  <use tuning-eg.png>
-Package pdftex.def Info: tuning-eg.png used on input line 384.
+Package pdftex.def Info: tuning-eg.png used on input line 389.
 (pdftex.def)             Requested size: 421.57397pt x 319.1917pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -628,7 +628,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <classify.png, id=581, 557.08125pt x 416.55624pt>
 File: classify.png Graphic file (type png)
  <use classify.png>
-Package pdftex.def Info: classify.png used on input line 409.
+Package pdftex.def Info: classify.png used on input line 414.
 (pdftex.def)             Requested size: 417.80992pt x 312.41641pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -638,7 +638,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <overview.png, id=605, 397.0032pt x 460.119pt>
 File: overview.png Graphic file (type png)
  <use overview.png>
-Package pdftex.def Info: overview.png used on input line 429.
+Package pdftex.def Info: overview.png used on input line 433.
 (pdftex.def)             Requested size: 238.20375pt x 276.07353pt.
  [29 <./overview.png>] [30
 
@@ -652,31 +652,31 @@ Chapter 5.
 File: traj-compare-cg.png Graphic file (type png)
 
 <use traj-compare-cg.png>
-Package pdftex.def Info: traj-compare-cg.png used on input line 668.
+Package pdftex.def Info: traj-compare-cg.png used on input line 672.
 (pdftex.def)             Requested size: 385.43904pt x 491.58536pt.
 
 <traj-compare-ag.png, id=674, 533.995pt x 655.44875pt>
 File: traj-compare-ag.png Graphic file (type png)
 
 <use traj-compare-ag.png>
-Package pdftex.def Info: traj-compare-ag.png used on input line 675.
+Package pdftex.def Info: traj-compare-ag.png used on input line 679.
 (pdftex.def)             Requested size: 400.49527pt x 491.58536pt.
 
 <traj-compare-eg.png, id=675, 537.00626pt x 655.44875pt>
 File: traj-compare-eg.png Graphic file (type png)
 
 <use traj-compare-eg.png>
-Package pdftex.def Info: traj-compare-eg.png used on input line 682.
+Package pdftex.def Info: traj-compare-eg.png used on input line 686.
 (pdftex.def)             Requested size: 402.75371pt x 491.58536pt.
  [38] [39 <./traj-compare-cg.png (PNG copy)>] [40 <./traj-compare-ag.png (PNG c
 opy)>] [41 <./traj-compare-eg.png (PNG copy)>]
 <best-worst-r2.png, id=694, 624.3325pt x 655.44875pt>
 File: best-worst-r2.png Graphic file (type png)
  <use best-worst-r2.png>
-Package pdftex.def Info: best-worst-r2.png used on input line 718.
+Package pdftex.def Info: best-worst-r2.png used on input line 722.
 (pdftex.def)             Requested size: 468.24823pt x 491.58536pt.
 
-Overfull \hbox (7.527pt too wide) in paragraph at lines 718--719
+Overfull \hbox (7.527pt too wide) in paragraph at lines 722--723
  [][] 
  []
 
@@ -684,10 +684,10 @@ Overfull \hbox (7.527pt too wide) in paragraph at lines 718--719
 File: eg1-string-dyn.png Graphic file (type png)
 
 <use eg1-string-dyn.png>
-Package pdftex.def Info: eg1-string-dyn.png used on input line 726.
+Package pdftex.def Info: eg1-string-dyn.png used on input line 730.
 (pdftex.def)             Requested size: 468.24823pt x 491.58536pt.
 
-Overfull \hbox (7.527pt too wide) in paragraph at lines 726--727
+Overfull \hbox (7.527pt too wide) in paragraph at lines 730--731
  [][] 
  []
 
@@ -700,7 +700,7 @@ Underfull \vbox (badness 3861) has occurred while \output is active []
 File: p-correct-res.png Graphic file (type png)
 
 <use p-correct-res.png>
-Package pdftex.def Info: p-correct-res.png used on input line 752.
+Package pdftex.def Info: p-correct-res.png used on input line 756.
 (pdftex.def)             Requested size: 847.16292pt x 655.44714pt.
  [47] [48 <./p-correct-res.png (PNG copy)>]
 Chapter 6.
@@ -730,24 +730,27 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 800.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 805.
 [54]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 800.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 805.
  (./final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 800.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 800.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 805.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 805.
 Package rerunfilecheck Info: File `final.out' has not changed.
 (rerunfilecheck)             Checksum: D7F4824B3C955567B17F1A1459F4D384;1893.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 800.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 805.
  ) 
 Here is how much of TeX's memory you used:
  8152 strings out of 493089
- 116317 string characters out of 6134842
- 249562 words of memory out of 5000000
+ 116308 string characters out of 6134842
+ 251636 words of memory out of 5000000
  11320 multiletter control sequences out of 15000+600000
  24709 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -768,7 +771,7 @@ st/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist
 /fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
 e1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/tim
 es/utmri8a.pfb>
-Output written on final.pdf (66 pages, 717765 bytes).
+Output written on final.pdf (66 pages, 719116 bytes).
 PDF statistics:
  850 PDF objects out of 1000 (max. 8388607)
  733 compressed objects within 8 object streams
