@@ -2,13 +2,14 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Error probability comparisons between PCT, residual minimization with theoretical trajectories, and residual minimization with empirical trajectories. PCT results are taken from\nobreakspace {}\cite {barbanchoi2012}; we've excluded error due to $f_0$ estimation in their results.}}{33}{table.4.1}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Error probability comparisons between PCT, residual minimization with theoretical trajectories, and residual minimization with empirical trajectories. PCT results are taken from\nobreakspace {}\cite {barbanchoi2012}; we've excluded error due to $f_0$ estimation in their results.}}{34}{table.4.1}
 \contentsline {table}{\numberline {4.2}{\ignorespaces F1-scores for theoretical and empirical log-inharmonicity trajectory classification. PCT column removed because F1-scores weren't reported in\nobreakspace {}\cite {barbanchoi2012}.}}{34}{table.4.2}
-\contentsline {table}{\numberline {4.3}{\ignorespaces String-wise F1-scores for the RWC classical guitars.}}{34}{table.4.3}
-\contentsline {table}{\numberline {4.4}{\ignorespaces String-wise F1-scores for the RWC acoustic guitars.}}{34}{table.4.4}
+\contentsline {table}{\numberline {4.3}{\ignorespaces String-wise F1-scores for the RWC classical guitars.}}{35}{table.4.3}
+\contentsline {table}{\numberline {4.4}{\ignorespaces String-wise F1-scores for the RWC acoustic guitars.}}{35}{table.4.4}
 \contentsline {table}{\numberline {4.5}{\ignorespaces String-wise F1-scores for the RWC electric guitars.}}{35}{table.4.5}
-\contentsline {table}{\numberline {4.6}{\ignorespaces Best string-wise F1-scores for our Fender Telecaster at various tunings. Regressions trained on all three RWC electric guitars. WSU: whole-step up (from standard); WSD: whole-step down (from standard); orig.: no tuning compensation used in this trial; comp.: tuning compensation used in this trial. The "Overall" row displays average F1-score of each column.}}{35}{table.4.6}
+\contentsline {table}{\numberline {4.6}{\ignorespaces Best string-wise F1-scores for our electric Fender Telecaster at various tunings. Regressions trained on all recordings of all three RWC electric guitars. WSU: whole-step up (from standard); WSD: whole-step down (from standard); orig.: no tuning compensation used in this trial; comp.: tuning compensation used in this trial. The ``Overall" row displays average F1-score of each column.}}{36}{table.4.6}
+\contentsline {table}{\numberline {4.7}{\ignorespaces Best string-wise F1-scores for our acoustic Takamine G-series at various tunings. Regressions trained on all recordings of all three RWC acoustic guitars. WSU: whole-step up (from standard); WSD: whole-step down (from standard); orig.: no tuning compensation used in this trial; comp.: tuning compensation used in this trial. The ``Overall" row displays average F1-score of each column.}}{37}{table.4.7}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Confusion matrix for one classification trial with EG131. Strings 3 and 4, as they are here, were frequently misclassified because of their regressions' poor discriminability.}}{42}{table.5.1}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Confusion matrix for one classification trial with EG131. Strings 3 and 4, as they are here, were frequently misclassified because of their regressions' poor discriminability.}}{44}{table.5.1}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

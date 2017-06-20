@@ -1,4 +1,4 @@
-\begin{thebibliography}{29}
+\begin{thebibliography}{31}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -173,6 +173,20 @@ S.~Sayegh.
 \newblock Fingering for string instruments with the optimum path paradigm.
 \newblock \emph{Computer Music Journal}, 13\penalty0 (3):\penalty0 76--84,
   1989.
+
+\bibitem[Short and Garcia(2006)]{short2006}
+K.~M. Short and R.~A. Garcia.
+\newblock Signal analysis using the complex spectral phase evolution {(CSPE)}
+  method.
+\newblock In \emph{Audio Engineering Society 120th Convention}, Paris, France,
+  May 2006.
+
+\bibitem[{The MathWorks}(2017)]{matlab-robustfit}
+{The MathWorks}.
+\newblock {Least-Squares Fitting Documentation}.
+\newblock
+  \url{http://www.mathworks.com/help/curvefit/least-squares-fitting.html}, June
+  2017.
 
 \bibitem[Tuohy and Potter(2006)]{tuohy2006}
 D.~Tuohy and W.~D. Potter.
