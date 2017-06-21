@@ -26,6 +26,7 @@
 \citation{barbanchoi2012}
 \citation{macrae2010}
 \citation{burlet2013}
+\citation{barbanchoi2012}
 \@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Musical score and two identical realizations of that score in tablature notation. Figure taken from\nobreakspace  {}\cite  {barbanchoi2012}.}}{2}{figure.1.1}}
 \newlabel{fig:score-tabs}{{1.1}{2}{Musical score and two identical realizations of that score in tablature notation. Figure taken from~\cite {barbanchoi2012}}{figure.1.1}{}}
 \citation{sayegh1989}
@@ -97,30 +98,31 @@
 \newlabel{eq:linear-traj}{{3.9}{17}{Log-inharmonicity}{equation.3.3.9}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Log-inharmonicity estimates for same frets, strings, and guitar as Fig.\nobreakspace  {}\ref  {fig:beta-v-midi}}}{18}{figure.3.4}}
 \newlabel{fig:log-beta-v-midi}{{3.4}{18}{Log-inharmonicity estimates for same frets, strings, and guitar as Fig.~\ref {fig:beta-v-midi}}{figure.3.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Learning Inharmonicity Trajectories}{19}{section.3.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Learning Inharmonicity Trajectories}{18}{section.3.4}}
 \newlabel{lin-reg}{{3.10}{19}{Learning Inharmonicity Trajectories}{equation.3.4.10}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Comparison of string inharmonicity characterization approaches for our recorded Fender Telecaster. Top: \textit  {theoretical} trajectories. Note how each line begins precisely at the first marker of each string (i.e. the open-string note) and continues along a trajectory that ignores empirical inharmonicity estimates. String 1 most clearly shows this. Additionally, the trajectories for strings 3 and 4 are effectively co-linear and therefore indiscriminable. Bottom: regressions, or \textit  {empirical} trajectories. Each regression was obtained by minimizing the bisquare weighted error of the string's residuals, so the lines more closely follow the empirical inharmonicity scatterplot estimates.}}{20}{figure.3.5}}
 \newlabel{fig:traj-v-reg}{{3.5}{20}{Comparison of string inharmonicity characterization approaches for our recorded Fender Telecaster. Top: \textit {theoretical} trajectories. Note how each line begins precisely at the first marker of each string (i.e. the open-string note) and continues along a trajectory that ignores empirical inharmonicity estimates. String 1 most clearly shows this. Additionally, the trajectories for strings 3 and 4 are effectively co-linear and therefore indiscriminable. Bottom: regressions, or \textit {empirical} trajectories. Each regression was obtained by minimizing the bisquare weighted error of the string's residuals, so the lines more closely follow the empirical inharmonicity scatterplot estimates}{figure.3.5}{}}
 \citation{matlab-robustfit}
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}Tuning Compensation}{21}{section.3.5}}
 \citation{barbanchoi2012}
 \citation{kehling2014,dittmar2013,abesser2012}
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}Tuning Compensation}{21}{section.3.5}}
 \newlabel{eq:delta-beta}{{3.17}{22}{Tuning Compensation}{equation.3.5.17}{}}
 \newlabel{eq:3.17}{{3.20}{23}{Tuning Compensation}{equation.3.5.20}{}}
 \newlabel{eq:3.18}{{3.21}{23}{Tuning Compensation}{equation.3.5.21}{}}
 \newlabel{eq:3.19}{{3.22}{23}{Tuning Compensation}{equation.3.5.22}{}}
 \newlabel{eq:3.20}{{3.23}{23}{Tuning Compensation}{equation.3.5.23}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.6}String Classification}{23}{section.3.6}}
+\newlabel{sec:string-classification}{{3.6}{23}{String Classification}{section.3.6}{}}
 \newlabel{fig:tuning-eg}{{3.5}{24}{Tuning Compensation}{equation.3.5.23}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Effect of alternate tuning on an electric guitar's log-inharmonicity trajectories. The circles are log-inharmonicity estimates of frets 0-12 on string 6 of RWC electric guitar EG131 in standard tuning, and the dashed line is their bisquare-weighted regression. The asterisks are log-inharmonicity estimates for the same frets, string, and guitar, but tuned two semitones down. The dotted line passing through them is the \textit  {predicted} regression obtained by applying equation\nobreakspace  {}\textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:3.20}\unskip \@@italiccorr )}} to the dashed line.}}{24}{figure.3.6}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.6}String Classification}{25}{section.3.6}}
 \citation{abesser2012}
 \newlabel{eq:classify}{{3.24}{26}{String Classification}{equation.3.6.24}{}}
-\newlabel{fig:classify}{{3.6}{27}{String Classification}{equation.3.6.25}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Classifying two new notes A and B using learned log-inharmonicity characterizations. Dashed lines are actual learned regressions for RWC acoustic guitar AG091. Note A with fundamental pitch 62 is assigned to string 3, since its line characterization is closest to A's inharmonicity estimate. The residual of note B, with fundamental pitch 76, is smallest with respect to string 1, so it's assigned to that string under the least-square-error decision of equation\nobreakspace  {}\textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:classify}\unskip \@@italiccorr )}}.}}{27}{figure.3.7}}
+\newlabel{fig:classify}{{3.6}{26}{String Classification}{equation.3.6.25}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Classifying two new notes A and B using learned log-inharmonicity characterizations. Dashed lines are actual learned regressions for RWC acoustic guitar AG091. Note A with fundamental pitch 62 is assigned to string 3, since its line characterization is closest to A's inharmonicity estimate. The residual of note B, with fundamental pitch 76, is smallest with respect to string 1, so it's assigned to that string under the least-square-error decision of equation\nobreakspace  {}\textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:classify}\unskip \@@italiccorr )}}.}}{26}{figure.3.7}}
 \citation{bello2005,dixon2006}
+\@writefile{toc}{\contentsline {section}{\numberline {3.7}Tablature Conversion and Refinement}{27}{section.3.7}}
 \citation{abesser2012}
-\@writefile{toc}{\contentsline {section}{\numberline {3.7}Tablature Conversion and Refinement}{28}{section.3.7}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.8}System Overview}{29}{section.3.8}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.8}System Overview}{28}{section.3.8}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces System overview of tablature transcription with log-inharmonicity trajectories using residual minimization classification.}}{29}{figure.3.8}}
 \newlabel{fig:overview}{{3.8}{29}{System overview of tablature transcription with log-inharmonicity trajectories using residual minimization classification}{figure.3.8}{}}
 \citation{goto2003}

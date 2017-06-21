@@ -11,11 +11,11 @@
 \contentsline {section}{\numberline {3.1}Motivation}{11}{section.3.1}
 \contentsline {section}{\numberline {3.2}Inharmonicity Estimation}{14}{section.3.2}
 \contentsline {section}{\numberline {3.3}Log-inharmonicity}{15}{section.3.3}
-\contentsline {section}{\numberline {3.4}Learning Inharmonicity Trajectories}{19}{section.3.4}
+\contentsline {section}{\numberline {3.4}Learning Inharmonicity Trajectories}{18}{section.3.4}
 \contentsline {section}{\numberline {3.5}Tuning Compensation}{21}{section.3.5}
-\contentsline {section}{\numberline {3.6}String Classification}{25}{section.3.6}
-\contentsline {section}{\numberline {3.7}Tablature Conversion and Refinement}{28}{section.3.7}
-\contentsline {section}{\numberline {3.8}System Overview}{29}{section.3.8}
+\contentsline {section}{\numberline {3.6}String Classification}{23}{section.3.6}
+\contentsline {section}{\numberline {3.7}Tablature Conversion and Refinement}{27}{section.3.7}
+\contentsline {section}{\numberline {3.8}System Overview}{28}{section.3.8}
 \contentsline {chapter}{\numberline {4}Experiments and Results}{31}{chapter.4}
 \contentsline {section}{\numberline {4.1}Benchmark RWC Evaluation}{31}{section.4.1}
 \contentsline {section}{\numberline {4.2}Tuning Compensation}{33}{section.4.2}
