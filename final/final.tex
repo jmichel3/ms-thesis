@@ -88,7 +88,7 @@ Dr. Richard Stern, Dr. Thomas Sullivan \\
 
 %\doublespacing
 \begin{abstract}
-We propose and evaluate an additional inharmonicity-based guitar string classification method using only audio. We characterize each guitar string as the linear trajectory of its log-inharmonicity with respect to its fundamental pitch, then assign unseen notes to the strings whose trajectories best approximate the notes' estimated inharmonicities. Results from classical, acoustic, and electric guitars in the RWC instruments dataset show that this method performs slightly better than the benchmark inharmonicity-based method for test guitars on which the system wasn't exclusively trained. We also derive and evaluate an inharmonicity compensation feature to allow for tablature transcription of arbitrarily-tuned guitars, provided the tuning is known. Performance increases on personally recorded alternately-tuned guitars validate this tuning adjustment feature.
+We propose and evaluate two additional inharmonicity-based guitar string classification methods using only audio. We characterize each guitar string as the linear trajectory of its log-inharmonicity with respect to its fundamental pitch, then assign unseen notes to the strings whose trajectories best approximate the notes' estimated inharmonicities. Results from classical, acoustic, and electric guitars in the RWC instruments dataset show that this method performs slightly better than the existing inharmonicity-based method for test guitars on which the system wasn't exclusively trained. We also derive and evaluate an inharmonicity compensation feature to allow for tablature transcription of arbitrarily-tuned guitars, provided the tuning is known. Performance increases on personally recorded alternately-tuned guitars validate this tuning adjustment feature.
 
 \end{abstract}
 %\singlespacing
@@ -458,123 +458,174 @@ Our RWC subset comprised nine guitar recordings (three classical, three acoustic
 
 We also recorded a Fender Telecaster (electric guitar) and a Takamine G-series (acoustic guitar) at 16 bits and 44.1kHz in the same vein as the RWC database: string and fret enumeration, totaling 78 notes per recording. We captured various tunings: standard, ``DADGAD" (in which the open pitches of strings 6 through 1 are given by the respective letters in name), ``WSU" (whole-step up), and ``WSD" (whole-step down). The Fender, which was recorded directly into our audio interface, was performed with a thick plectrum at center pickup orientation and at similar moderate dynamic levels throughout. We recorded the Takamine in an isolated acoustic chamber with a large diaphragm condenser microphone (an MXL 990) placed 12 inches away from fret 12, and we also played it with a thick plectrum and at constant dynamic levels. Analog-to-digital hardware included a Focusrite Saffire Pro 24 and a 2011 Macbook Pro running Logic. No other musicality parameters were captured; we focused on tuning variance here.
 
-Our first experiment was comparison of our classification method (residual error of each string's trajectory) to the benchmark classification method (partials coincidence tally, or PCT). This experiment used \textit{theoretical} inharmonicity trajectories. For each guitar in our RWC subset, we obtained log-inharmonicity estimates of its open-string notes from two-thirds of its recordings, then performed string classification on the remaining third using residual error minimization on the theoretical trajectories, as discussed in Chapter~\ref{chap:method}. We repeated this twice with different folds for three-fold cross validation, and averaged each fold's probability of an erroneous transcription to produce composite error probabilities. These are reported under the ``theo." column of the ``Guitar-specific $\beta$'s" heading in Table~\ref{tab:error-results-RWC}. This experiment was also repeated for more general inharmonicity contexts: we estimated log-inharmonicity for the open-string notes of two-thirds of the test guitar's recordings, in addition to all of the open-string notes belonging to the other guitars in the same class. As before, we performed three-fold cross validation on the test guitar's recordings, and report error probabilities under the ``theo." column of the ``Guitar-averaged $\beta$'s" heading. This heading is named as such because the effect of learning from all three guitars is an ``averaging" of their open-string notes' inharmonicities.
+We conduct experiments on all nine RWC guitars at three levels of context, which comprise the headings of Table~\ref{tab:error-results-RWC}: guitar-specific, guitar-averaged, and guitar-independent. For guitar-specific trials, we train and test the system on the same guitar using three-fold cross-validation with test folds that are one-third of the guitar's recordings. The folds' results are averaged together for composite transcription errors. For guitar-averaged trials, we train the system on all recordings of the two guitars in the same class as the test guitar, as well as a two-thirds training portion of the test guitar, and then evaluate on the remaining third of the test guitar recordings. Again, three-fold cross-validation is used to iterate through the portions of the test recordings. For guitar-independent trials, the system never sees any of the test guitar's recordings before evaluation. We train the system on two of the guitars in the same class as the test guitar, and test on all recordings of the remaining one to obtain its transcription performance. In all cases, Table~\ref{tab:error-results-RWC} reports error probabilities, as this was the transcription metric used in~\cite{barbanchoi2012}.
 
-Our second experiment was an evaluation of our classification method using \textit{empirical} inharmonicity trajectories, or inharmonicity regressions. For each of the guitars in our RWC subset, we obtained log-inharmonicity estimates of \textit{all} labeled notes from two-thirds of its total recordings, then performed bisquare weighted regression against their pitches. String classification was performed on the remaining third using residual error minimization on the regressions, as discussed in Chapter~\ref{chap:method}. We repeat this using the same number of folds as the first experiment, and report error probabilities for each guitar under the ``empi." column of the ``Guitar-specific $\beta$'s" heading in~\ref{tab:error-results-RWC}. Again, we also evaluate regressions learned from all three guitars in the same class as the test guitar's, using the same cross-validation configuration. These results are reported under the ``empi." column of the ``Guitar-averaged $\beta$'s".
+For our first experiment, we evaluated string identification performance of a rudimentary maximum-likelihood classifier as a baseline. Because currently the only standard for solely inharmonicity-based transcription performance is that of PCT, it's essential that we interpret any performance gains with our proposed method in light of an agnostic na\"ive baseline method. To this end, inharmonicities from the training audio were collected by fretboard position, and their medians were calculated. To classify an unknown note, we simply obtained its candidate fretboard positions and returned that which maximized the probability of having observed the note's measured inharmonicity. Because the inharmonicities often didn't closely follow a normal distribution, we used as a proxe for probability the inverse squared-distance to the candidate fretboard positions' median inharmonicities. Results from this baseline experiment, conducted for all three evaluation scenarios discussed in the previous paragraph, are displayed under the ``MLE" columns of Table~\ref{tab:error-results-RWC}.
 
-We point the reader's attention to the ``Overall..." rows in Table~\ref{tab:error-results-RWC} to highlight one of the claims of this work. For the columns under the ``Guitar-specific $\beta$'s" heading, PCT excels for every guitar -- the inharmonicity estimates on which the systems were trained were exclusively those of the guitar under test. Though for the columns under the ``Guitar-averaged $\beta$'s" heading, our trajectory residual-minimization method excels for all guitars except the classicals. This was the context in which the systems were trained on inharmonicity estimates belonging to all guitars in the test guitar's class. In other words, when the test guitar exhibited inharmonicities that didn't nicely align with those of the training audio, PCT performance degraded more quickly than did our method.
+We next report string identification results using the PCT method, taken from~\cite{barbanchoi2012}. These are located under the ``PCT" columns of Table~\ref{tab:error-results-RWC}. As discussed in Chapter~\ref{chap:lit-review}, this method uses estimates of the open-string inharmonicities of the training audio's guitar(s) to predict \textit{expected} inharmonicities of an unknown note's candidate fretboard positions. The degree of similarity between the unknown note's measured inharmonicity and that of the candidate fretboard positions is assessed by tallying their coincident partials. The candidate fretboard position that produces the highest tally is returned as the transcribed tablature. Note that no results for the ``Guitar-independent" column exist for this method, as no results were reported in~\cite{barbanchoi2012} for this scenario.
 
-We quantified our system performance with error probabilities because this was the metric used by Barbancho in~\cite{barbanchoi2012}. F1-score, which is the harmonic mean of the precision and recall, is also commonly used for measurement of classification performance so we report it in Table~\ref{tab:f-results-RWC} for reference.
+%Our second experiment was comparison of our classification method (residual error of each string's trajectory) to the benchmark classification method (partials coincidence tally, or PCT). This experiment used \textit{theoretical} inharmonicity trajectories. For each guitar in our RWC subset, we obtained log-inharmonicity estimates of its open-string notes from two-thirds of its recordings, then performed string classification on the remaining third using residual error minimization on the theoretical trajectories, as discussed in Chapter~\ref{chap:method}. We repeated this twice with different folds for three-fold cross validation, and averaged each fold's probability of an erroneous transcription to produce composite error probabilities. These are reported under the ``theo." column of the ``Guitar-specific $\beta$'s" heading in Table~\ref{tab:error-results-RWC}. This experiment was also repeated for more general inharmonicity contexts: we estimated log-inharmonicity for the open-string notes of two-thirds of the test guitar's recordings, in addition to all of the open-string notes belonging to the other guitars in the same class. As before, we performed three-fold cross validation on the test guitar's recordings, and report error probabilities under the ``theo." column of the ``Guitar-averaged $\beta$'s" heading. This heading is named as such because the effect of learning from all three guitars is an ``averaging" of their open-string notes' inharmonicities.
+
+Finally, we evaluate our trajectory residual method. We performed bisquare weighted regression of the training guitars' log-inharmonicity estimates against their pitches. String classification was performed on the test notes using residual minimization on the regressions, as discussed in Chapter~\ref{chap:method}. Error probabilities are reported under the ``Regr." columns of Table~\ref{tab:error-results-RWC}. We also evaluated our \textit{theoretical} trajectory method, in which regressions aren't computed but residual minimization is still used for classification. However, error probabilities were only slightly better than those of our \textit{empirical} trajectory (i.e. regression) method, so they're omitted from Table~\ref{tab:error-results-RWC} for conciseness.
+
+%Our second experiment was an evaluation of our classification method using \textit{empirical} inharmonicity trajectories, or inharmonicity regressions. For each of the training guitars  String classification was performed on the remaining third using residual error minimization on the regressions, as discussed in Chapter~\ref{chap:method}. We repeat this using the same number of folds as the first experiment, and report error probabilities for each guitar under the ``empi." column of the ``Guitar-specific $\beta$'s" heading in~\ref{tab:error-results-RWC}. Again, we also evaluate regressions learned from all three guitars in the same class as the test guitar's, using the same cross-validation configuration. These results are reported under the ``empi." column of the ``Guitar-averaged $\beta$'s".
+
+We point the reader's attention to the ``Overall..." rows in Table~\ref{tab:error-results-RWC} to highlight the central results of this work. For the columns under the ``Guitar-specific" column, PCT excels for every guitar. Clearly, tallying the coincident partials using inharmonicity estimates from the exact guitar on which tests are conducted outperforms the MLE baseline and our regression-residual method. Though surprisingly for the columns under the ``Guitar-averaged" and ``Guitar-independent" heading, the straight-forward baseline MLE performs best, and is nearly unwavering in accuracy throughout the varying experimental scenarios. Also noteworthy is our regression-residual method's superior performance to PCT's for acoustics and classicals; it seems that capturing the training audio's inharmonicity trajectories rather than just its open-string inharmonicities is a more robust transcription scheme when the test guitars increasingly differ from those in the reference set.
+
+%\begin{table}[!htbp]
+%\begin{center}
+%\begin{tabular} {||c||c|c|c||c|c|c||}
+%\hline
+%\multicolumn{7}{|c|}{\bf{Transcription Error Probabilities}} \\
+%\hline
+% & \multicolumn{3}{|c|}{Guitar-specific $\beta$'s} & \multicolumn{3}{|c|}{Guitar-averaged $\beta$'s}\\
+%\hline
+%Guitar & PCT~\cite{barbanchoi2012} & theo. & empi. & PCT~\cite{barbanchoi2012} & theo. & empi.\\
+%\hline
+%\hline
+%Classical CG091 & 0.04 & 0.02 & 0.04 & 0.09 & 0.02 & 0.04\\
+%\hline
+%Classical CG092 & 0.00 & 0.08 & 0.08 & 0.01 & 0.08 &  0.08\\
+%\hline
+%Classical CG093 & 0.01 & 0.07 & 0.08 & 0.00 & 0.08 & 0.09\\
+%\hline
+%Overall CG: & \bf{0.02} & \bf{0.06} & \bf{0.07} & \bf{0.03} & \bf{0.06} & \bf{0.07}\\
+%\hline
+%\hline
+%Acoustic AG111 & 0.00 & 0.01 & 0.04 & 0.06 & 0.00 & 0.04 \\
+%\hline
+%Acoustic AG112 & 0.00 & 0.02 & 0.03 & 0.22 & 0.11 & 0.06 \\
+%\hline
+%Acoustic AG113  & 0.00 & 0.03 & 0.06 & 0.04 & 0.04 & 0.08\\
+%\hline
+%Overall AG: & \bf{0.00} & \bf{0.02} & \bf{0.04} & \bf{0.11} & \bf{0.05} & \bf{0.06} \\
+%\hline
+%\hline
+%Electric EG131 & 0.00 & 0.20 & 0.22 & 0.20 & 0.19 & 0.21 \\
+%\hline
+%Electric EG132 & 0.01 & 0.20 & 0.16 & 0.23 & 0.19 & 0.23 \\
+%\hline
+%Electric EG133 & 0.00 & 0.12 & 0.07 & 0.32 & 0.16  & 0.24 \\
+%\hline
+%Overall EG: & \bf{0.00} & \bf{0.17} & \bf{0.15} & \bf{0.25} & \bf{0.18} & \bf{0.23}\\
+%\hline
+%\end{tabular}
+%\caption{Error probability comparisons between PCT, residual minimization with theoretical trajectories, and residual minimization with empirical trajectories. PCT results are taken from~\cite{barbanchoi2012}; we've excluded error due to $f_0$ estimation in their results.}
+%\label{tab:error-results-RWC}
+%\end{center}
+%\end{table}
 
 \begin{table}[!htbp]
 \begin{center}
-\begin{tabular} {||c||c|c|c||c|c|c||}
+\begin{tabular} {||c||c|c|c||c|c|c||c|c|c||}
 \hline
-\multicolumn{7}{|c|}{\bf{Transcription Error Probabilities}} \\
+\multicolumn{10}{||c||}{\bf{Transcription Error Probabilities}} \\
 \hline
- & \multicolumn{3}{|c|}{Guitar-specific $\beta$'s} & \multicolumn{3}{|c|}{Guitar-averaged $\beta$'s}\\
+ & \multicolumn{3}{|c||}{Guitar-specific} & \multicolumn{3}{|c||}{Guitar-averaged}& \multicolumn{3}{|c||}{Guitar-independent}\\
 \hline
-Guitar & PCT~\cite{barbanchoi2012} & theo. & empi. & PCT~\cite{barbanchoi2012} & theo. & empi.\\
-\hline
-\hline
-Classical CG091 & 0.04 & 0.02 & 0.04 & 0.09 & 0.02 & 0.04\\
-\hline
-Classical CG092 & 0.00 & 0.08 & 0.08 & 0.01 & 0.08 &  0.08\\
-\hline
-Classical CG093 & 0.01 & 0.07 & 0.08 & 0.00 & 0.08 & 0.09\\
-\hline
-Overall CG: & \bf{0.02} & \bf{0.06} & \bf{0.07} & \bf{0.03} & \bf{0.06} & \bf{0.07}\\
+Guitar & MLE & PCT & Regr. & MLE & PCT & Regr. & MLE & PCT & Regr.\\
 \hline
 \hline
-Acoustic AG111 & 0.00 & 0.01 & 0.04 & 0.06 & 0.00 & 0.04 \\
+Classical CG091 & 0.02 & 0.04 & 0.03 & 0.13 & 0.09 & 0.03 & 0.14 & -- & 0.03 \\
 \hline
-Acoustic AG112 & 0.00 & 0.02 & 0.03 & 0.22 & 0.11 & 0.06 \\
+Classical CG092 & 0.15 & 0.00 & 0.06 & 0.16 & 0.01 & 0.06 & 0.13 & -- & 0.03 \\
 \hline
-Acoustic AG113  & 0.00 & 0.03 & 0.06 & 0.04 & 0.04 & 0.08\\
+Classical CG093 & 0.08 & 0.01 & 0.04 & 0.14 & 0.00 & 0.06 & 0.14 & -- & 0.06 \\
 \hline
-Overall AG: & \bf{0.00} & \bf{0.02} & \bf{0.04} & \bf{0.11} & \bf{0.05} & \bf{0.06} \\
+Overall CG: & \bf{0.08} & \bf{0.02}  & \bf{0.04} & \bf{0.14} & \bf{0.03} & \bf{0.05} & \bf{0.14} & -- & \bf{0.05}\\
 \hline
 \hline
-Electric EG131 & 0.00 & 0.20 & 0.22 & 0.20 & 0.19 & 0.21 \\
+Acoustic AG111 & 0.00 & 0.00 & 0.03 & 0.01 & 0.06 & 0.03 & 0.02 & -- & 0.03 \\
 \hline
-Electric EG132 & 0.01 & 0.20 & 0.16 & 0.23 & 0.19 & 0.23 \\
+Acoustic AG112 & 0.02 & 0.00 & 0.03 & 0.03 & 0.22 & 0.06 & 0.13 & -- & 0.13 \\
 \hline
-Electric EG133 & 0.00 & 0.12 & 0.07 & 0.32 & 0.16  & 0.24 \\
+Acoustic AG113  & 0.03 & 0.00 & 0.04 & 0.06 & 0.04 & 0.06 & 0.10 & -- & 0.07\\
 \hline
-Overall EG: & \bf{0.00} & \bf{0.17} & \bf{0.15} & \bf{0.25} & \bf{0.18} & \bf{0.23}\\
+Overall AG: & \bf{0.02} & \bf{0.00} & \bf{0.03} & \bf{0.03} & \bf{0.11} & \bf{0.05} & \bf{0.08} & -- & \bf{0.08}\\
+\hline
+\hline
+Electric EG131 & 0.22 & 0.00 & 0.18 & 0.21 & 0.20 & 0.18 & 0.24 & -- & 0.23\\
+\hline
+Electric EG132 & 0.15 & 0.01 & 0.10 & 0.15 & 0.23 & 0.17 & 0.17 & -- & 0.21\\
+\hline
+Electric EG133 & 0.06 & 0.00 & 0.09 & 0.20 & 0.32  & 0.19 & 0.22 & -- & 0.27 \\
+\hline
+Overall EG: & \bf{0.14} & \bf{0.00} & \bf{0.12} & \bf{0.19} & \bf{0.25} & \bf{0.18} & \bf{0.21} & -- & \bf{0.24}\\
 \hline
 \end{tabular}
-\caption{Error probability comparisons between PCT, residual minimization with theoretical trajectories, and residual minimization with empirical trajectories. PCT results are taken from~\cite{barbanchoi2012}; we've excluded error due to $f_0$ estimation in their results.}
+\caption{Error probability comparisons between PCT, the baseline maximum likelihood estimate classifier MLE, residual minimization with theoretical trajectories, and residual minimization with empirical trajectories. PCT results are taken from~\cite{barbanchoi2012}; we've excluded error due to $f_0$ estimation in their results.}
 \label{tab:error-results-RWC}
 \end{center}
 \end{table}
 
-\begin{table}[!htbp]
-\begin{center}
-\begin{tabular} {||c||c|c||c|c||}
-\hline
-\multicolumn{5}{|c|}{\bf{Transcription F1-scores}} \\
-\hline
- & \multicolumn{2}{|c|}{Guitar-specific $\beta$'s} & \multicolumn{2}{|c|}{Guitar-averaged $\beta$'s}\\
-\hline
-Guitar & theo. & empi. & theo. & empi.\\
-\hline
-\hline
-Classical CG091 & 0.98 & 0.96 & 0.98 & 0.96\\
-\hline
-Classical CG092  & 0.93 & 0.92 &  0.93 &  0.92\\
-\hline
-Classical CG093  & 0.92 & 0.92 &  0.91 & 0.91\\
-\hline
-Overall CG:  & \bf{0.94} & \bf{0.93} & \bf{0.94} & \bf{0.93}\\
-\hline
-\hline
-Acoustic AG111 & 0.99 & 0.97 &  1.00 & 0.96 \\
-\hline
-Acoustic AG112 & 0.97 & 0.97 &  0.87 & 0.94 \\
-\hline
-Acoustic AG113 & 0.97 & 0.94 & 0.96 & 0.92\\
-\hline
-Overall AG: & \bf{0.98} & \bf{0.96} & \bf{0.94} & \bf{0.94} \\
-\hline
-\hline
-Electric EG131  & 0.78 & 0.78 & 0.79 & 0.78 \\
-\hline
-Electric EG132 & 0.76 & 0.83 & 0.76 & 0.74 \\
-\hline
-Electric EG133 & 0.89 & 0.93 & 0.79  & 0.76 \\
-\hline
-Overall EG: & \bf{0.81} & \bf{0.85} & \bf{0.78} & \bf{0.76}\\
-\hline
-\end{tabular}
-\caption{F1-scores for theoretical and empirical log-inharmonicity trajectory classification. PCT column removed because F1-scores weren't reported in~\cite{barbanchoi2012}.}
-\label{tab:f-results-RWC}
-\end{center}
-\end{table}
+%\begin{table}[!htbp]
+%\begin{center}
+%\begin{tabular} {||c||c|c||c|c||}
+%\hline
+%\multicolumn{5}{|c|}{\bf{Transcription F1-scores}} \\
+%\hline
+% & \multicolumn{2}{|c|}{Guitar-specific $\beta$'s} & \multicolumn{2}{|c|}{Guitar-averaged $\beta$'s}\\
+%\hline
+%Guitar & theo. & empi. & theo. & empi.\\
+%\hline
+%\hline
+%Classical CG091 & 0.98 & 0.96 & 0.98 & 0.96\\
+%\hline
+%Classical CG092  & 0.93 & 0.92 &  0.93 &  0.92\\
+%\hline
+%Classical CG093  & 0.92 & 0.92 &  0.91 & 0.91\\
+%\hline
+%Overall CG:  & \bf{0.94} & \bf{0.93} & \bf{0.94} & \bf{0.93}\\
+%\hline
+%\hline
+%Acoustic AG111 & 0.99 & 0.97 &  1.00 & 0.96 \\
+%\hline
+%Acoustic AG112 & 0.97 & 0.97 &  0.87 & 0.94 \\
+%\hline
+%Acoustic AG113 & 0.97 & 0.94 & 0.96 & 0.92\\
+%\hline
+%Overall AG: & \bf{0.98} & \bf{0.96} & \bf{0.94} & \bf{0.94} \\
+%\hline
+%\hline
+%Electric EG131  & 0.78 & 0.78 & 0.79 & 0.78 \\
+%\hline
+%Electric EG132 & 0.76 & 0.83 & 0.76 & 0.74 \\
+%\hline
+%Electric EG133 & 0.89 & 0.93 & 0.79  & 0.76 \\
+%\hline
+%Overall EG: & \bf{0.81} & \bf{0.85} & \bf{0.78} & \bf{0.76}\\
+%\hline
+%\end{tabular}
+%\caption{F1-scores for theoretical and empirical log-inharmonicity trajectory classification. PCT column removed because F1-scores weren't reported in~\cite{barbanchoi2012}.}
+%\label{tab:f-results-RWC}
+%\end{center}
+%\end{table}
 
-Also displayed in Tables~\ref{tab:cg-str-f},~\ref{tab:ag-str-f}, and~\ref{tab:eg-str-f} are the \textit{string-wise} F1-scores from this experiment. These tables' left-hand columns denote the string number of the rows' F1-scores, and the right-hand columns are the row-wise average of the three guitars in the class.
+Also displayed in Tables~\ref{tab:cg-str-f},~\ref{tab:ag-str-f}, and~\ref{tab:eg-str-f} are the \textit{string-wise} F1-scores using our regression-based classifier for the ``Guitar-averaged" trial. The F1-score is the harmonic mean of precision and recall, and is a commonly used classification metric elsewhere, so we use it here and wherever comparison with~\cite{barbanchoi2012} is absent. These tables' left-hand columns denote the string number of the rows' F1-scores, and the right-hand columns are the row-wise average of the three guitars in the class. We present this information to highlight the individual strings' contributions to the overall transcription accuracy.
 
 \begin{table}[!htbp]
 \begin{center}
 \begin{tabular}{||c|c|c|c|c||}
 \hline
+\multicolumn{5}{||c||}{\bf{Transcription F1-scores}} \\
+\hline
 String No. & CG1 & CG2 & CG3 & Overall CG \\
 \hline
-1 & 0.96 & 0.93 & 0.95 & 0.95 \\
+1 & 0.96 & 0.93 & 0.96 & 0.95\\
 \hline
-2 & 0.92 & 0.88 & 0.89 & 0.90 \\
+2 & 0.92 & 0.90 & 0.91 & 0.91\\
 \hline
-3 & 0.97 & 0.91 & 0.89 & 0.92 \\
+3 & 1.00 & 0.95 & 0.96 & 0.97\\
 \hline
-4 & 0.94 & 0.89 & 0.84 & 0.89 \\
+4 & 0.96 & 0.93 & 0.91 & 0.93\\
 \hline
-5 & 0.99 & 0.95 & 0.90 & 0.95 \\
+5 & 1.00 & 0.96 & 0.93 & 0.96 \\
 \hline
-6 & 0.99 & 0.97 & 0.99 & 0.98\\ 
+6 & 1.00 & 0.98 & 1.00 & 0.99\\ 
 \hline
 \hline
 \end{tabular}
-\caption{String-wise F1-scores for the RWC classical guitars.} 
+\caption{String-wise F1-scores for the RWC classical guitars, using regression-residual minimization for the ``Guitar-averaged" scenario.} 
 \label{tab:cg-str-f}
 \end{center}
 \end{table}
@@ -583,23 +634,25 @@ String No. & CG1 & CG2 & CG3 & Overall CG \\
 \begin{center}
 \begin{tabular}{||c||c|c|c|c||}
 \hline
+\multicolumn{5}{||c||}{\bf{Transcription F1-scores}} \\
+\hline
 String No. & AG1 & AG2 & AG3 & Overall AG \\
 \hline
-1 &  0.96 & 0.96 & 0.95 & 0.96 \\
+1 &  0.96 & 0.96 & 0.96 & 0.96 \\
 \hline
-2 & 0.93 & 0.86 & 0.88 & 0.89 \\
+2 & 0.94 & 0.80 & 0.87 &  0.87\\
 \hline
-3 & 0.89 & 0.86 & 0.78 & 0.84\\
+3 & 0.91 & 0.89 & 0.85 & 0.88\\
 \hline
-4 & 0.99 & 0.99 & 0.94 & 0.97 \\
+4 & 1.00 & 1.00 & 0.99 &  1.00 \\
 \hline
-5 & 1.00 & 0.99 & 0.96 & 0.98 \\
+5 & 1.00 & 1.00 & 0.99 &  1.00 \\
 \hline
 6 & 1.00 & 1.00 & 1.00 & 1.00 \\ 
 \hline
 \hline
 \end{tabular}
-\caption{String-wise F1-scores for the RWC acoustic guitars.} 
+\caption{String-wise F1-scores for the RWC acoustic guitars, using regression-residual minimization for the ``Guitar-averaged" scenario.} 
 \label{tab:ag-str-f}
 \end{center}
 \end{table}
@@ -608,23 +661,25 @@ String No. & AG1 & AG2 & AG3 & Overall AG \\
 \begin{center}
 \begin{tabular}{||c||c|c|c|c||}
 \hline
+\multicolumn{5}{||c||}{\bf{Transcription F1-scores}} \\
+\hline
 String No. & EG1 & EG2 & EG3 & Overall EG\\
 \hline
-1 & 0.92 & 0.86 & 0.96 & 0.91 \\
+1 & 0.96 & 0.94 & 0.96 & 0.95 \\
 \hline
-2 & 0.88 & 0.83 & 0.68 & 0.80\\
+2 & 0.94 & 0.95 & 0.72 & 0.87\\
 \hline
-3 & 0.44 & 0.23 & 0.32 & 0.33 \\
+3 & 0.47 & 0.42 & 0.42 &  0.44\\
 \hline
-4 & 0.60 & 0.66 & 0.59 & 0.62 \\
+4 & 0.66 & 0.72 & 0.79 &  0.72\\
 \hline
-5 & 0.89 & 0.91 & 1.00 & 0.93 \\
+5 & 0.85 & 0.92 & 1.00 &  0.92 \\
 \hline
-6 & 0.96 & 0.96 & 1.00 & 0.97 \\ 
+6 & 0.96 & 0.98 & 1.00 &  0.98 \\ 
 \hline
 \hline
 \end{tabular}
-\caption{String-wise F1-scores for the RWC electric guitars.} 
+\caption{String-wise F1-scores for the RWC electric guitars, using regression-residual minimization for the ``Guitar-averaged" scenario.} 
 \label{tab:eg-str-f}
 \end{center}
 \end{table}
@@ -644,20 +699,20 @@ In standard tuning, strings 6 through 1 are tuned to E2, A2, D3, G3, B3, and E4.
 \hline
 String No. & orig. & orig. & comp. & orig. & comp. & orig. & comp. \\
 \hline
-1 & 0.96 & 0.70 & 0.92 & 0.92 & 0.92 & 0.77 & 0.92 \\
+1 & 0.96 & 0.75 & 0.96 & 0.83 & 0.96 & 0.80 & 0.96 \\
 \hline
-2 & 0.92 & 0.69 & 0.85 & 0.89 & 0.89 & 0.72 & 0.92\\
+2 & 0.96 & 0.78 & 0.92 & 0.58 & 0.96 & 0.83 & 0.96\\
 \hline
-3 & 0.74 & 0.63 & 0.69 & 0.63 & 0.67 & 0.21 & 0.62\\
+3 & 0.50 & 0.40 & 0.43 & 0.56 & 0.50 & 0.29 & 0.50\\
 \hline
-4 & 0.56 & 0.53 & 0.53 & 0.25 & 0.5 & 0.65 & 0.61 \\
+4 & 0.76 & 0.76 & 0.74 & 0.23 & 0.76 & 0.65 & 0.76 \\
 \hline
-5 & 1.00 & 1.00 & 1.00 & 0.40 & 1.00 & 0.85 & 1.00 \\
+5 & 1.00 & 1.00 & 0.87 & 0.33 & 1.00 & 0.85 & 1.00 \\
 \hline
-6 & 1.00 & 0.92 & 1.00 & 0.83 & 1.00 & 0.85 & 1.00\\ 
+6 & 1.00 & 0.92 & 1.00 & 0.88 & 1.00 & 0.85 & 1.00\\ 
 \hline
 \hline
-Overall: & 0.86 & 0.74 & 0.83 & 0.65 & 0.83 & 0.67 & 0.85\\
+Overall: & 0.86 & 0.77 & 0.82 & 0.57 & 0.86 & 0.71 & 0.86\\
 \hline
 \end{tabular}
 \caption{Best string-wise F1-scores for our electric Fender Telecaster at various tunings. Regressions trained on all recordings of all three RWC electric guitars. WSU: whole-step up (from standard); WSD: whole-step down (from standard); orig.: no tuning compensation used in this trial; comp.: tuning compensation used in this trial. The ``Overall" row displays average F1-score of each column.} 
@@ -675,20 +730,20 @@ Overall: & 0.86 & 0.74 & 0.83 & 0.65 & 0.83 & 0.67 & 0.85\\
 \hline
 String No. & orig. & orig. & comp. & orig. & comp. & orig. & comp. \\
 \hline
-1 & 0.96 & 0.64 & 0.96 & 0.92 & 0.96 & 0.64 & 0.96 \\
+1 & 0.96 & 0.82 & 0.92 & 0.92 & 0.96 & 0.82 & 0.96 \\
 \hline
-2 & 0.96 & 0.70 & 0.70 & 0.45 & 0.96 & 0.54 & 0.96\\
+2 & 0.82 & 0.70 & 0.63 & 0.45 & 0.82 & 0.61 & 0.92\\
 \hline
-3 & 0.90 & 0.79 & 0.93 & 0.67 & 0.93 & 0.42 & 0.93\\
+3 & 0.96 & 0.84 & 1.00 & 0.71 & 0.96 & 0.00 & 0.96\\
 \hline
-4 & 0.96 & 0.81 & 0.81 & 0.77 & 0.93 & 0.25 & 1.00 \\
+4 & 0.87 & 0.79 & 0.79 & 0.81 & 0.87 & 0.18 & 0.93 \\
 \hline
-5 & 0.92 & 0.96 & 0.96 & 0.83 & 0.96 & 0.23 & 1.00 \\
+5 & 1.00 & 1.00 & 1.00 & 0.77 & 1.00 & 0.61 & 1.00 \\
 \hline
-6 & 1.00 & 0.92 & 1.00 & 0.88 & 0.96 & 0.65 & 1.00\\ 
+6 & 1.00 & 0.92 & 1.00 & 0.83 & 1.00 & 0.81 & 1.00\\ 
 \hline
 \hline
-Overall: & 0.95 & 0.80 & 0.89 & 0.75 & 0.95 & 0.45 & 0.97\\
+Overall: & 0.93 & 0.84 & 0.89 & 0.75 & 0.93 & 0.50 & 0.96\\
 \hline
 \end{tabular}
 \caption{Best string-wise F1-scores for our acoustic Takamine G-series at various tunings. Regressions trained on all recordings of all three RWC acoustic guitars. WSU: whole-step up (from standard); WSD: whole-step down (from standard); orig.: no tuning compensation used in this trial; comp.: tuning compensation used in this trial. The ``Overall" row displays average F1-score of each column.} 
@@ -702,17 +757,19 @@ Overall: & 0.95 & 0.80 & 0.89 & 0.75 & 0.95 & 0.45 & 0.97\\
 In this chapter, we begin with an analysis of the previous chapter's results, followed by consideration of factors that potentially limit this work's significance. We close with a discussion about future work.
 
 \section{Analysis}
-Although we performed worse than PCT for the case when training and testing were both performed exclusively on one guitar whose open-string log-inharmonicities we had access to (the ``Guitar-specific $\beta$'s" heading in Tables~\ref{tab:error-results-RWC}), we achieve lower error probabilities for the most part when the training set diversifies and multiple guitars' log-inharmoncities are considered (the ``Guitar-averaged $\beta$'s" heading). It seems this is a strength of our system; PCT shines with reliable specific test-guitar inharmonicity information, but degrades faster and more variably when the reliability of that information decreases. Its worst case performance degradation (for EG133) is from zero error to 25\% error as the guitar-specific inharmonicity context is lost, but the error probability of our trajectory residual classification, on the other hand, worsens only marginally at its worst case (also for EG133), degrading by only 8 percentage points. PCT performance on guitar-averaged inharmonicities is also more erratic, with error probability variances for all three guitar classes about one order of magnitude greater than our residual classification. It appears that the residual classification approach trades peak performance capability for more stable results that are also more robust to different guitars' inharmonicities.
+The baseline MLE approach outperformed both the existing PCT method and our new regression method. This was surprising; we expected that our regression method, by exploiting the underlying linear structure of the log-inharmonicity trajectories, would more accurately predict unseen notes' inharmonicities. Also intriguing is its robust performance across experimental scenarios; classical and acoustic transcription performance for the baseline MLE is constant throughout the ``Guitar-specific", ``Guitar-averaged", and ``Guitar-independent" contexts, with electric transcription performance degrading only marginally for the ``Guitar-independent" case.
+
+Our regression-residual approach, though outdone by the na\"ive MLE classifier, still exhibits noteworthy behavior. We performed worse than PCT for the case when training and testing were both performed exclusively on one guitar whose open-string log-inharmonicities we had access to (the ``Guitar-specific" heading in Table~\ref{tab:error-results-RWC}, comparing columns ``PCT" and ``Regr."), but we achieve lower error probabilities for the most part when the training set diversifies and multiple guitars' log-inharmoncities are considered (the ``Guitar-averaged" heading). It seems this is a strength of our system; PCT shines with reliable specific test-guitar inharmonicity information, but degrades faster and more variably when the reliability of that information decreases. Its worst case performance degradation (for EG133) is from zero error to 25\% error as the guitar-specific inharmonicity context is lost, but the error probability of our trajectory residual classification, on the other hand, worsens only marginally at its worst case (also for EG133), degrading by only 8 percentage points. PCT performance on guitar-averaged inharmonicities is also more erratic, with error probability variances for all three guitar classes about one order of magnitude greater than our residual classification. It appears that the residual classification approach trades peak performance capability for more stable results that are also more robust to different guitars' inharmonicities.
 
 %A possible reason PCT is superior when guitar-specific inharmonicities are available is the flexibility of its partial coincidence tallying routine. The authors of~\cite{barbanchoi2012} note that when searching for coincident peaks, they found that varying the higher partial for which to search would change the algorithm's certainty about its string decision. Different regions of partials in the spectrum wou
 
-Interestingly, classification using regressions on inharmonicity estimates collected from a single guitar generally performed worse than classification with the theoretical trajectories obtained from the open-string inharmonicity estimates of the same guitar. (Compare columns ``theo." and ``empi." under the ``Guitar-specific $\beta$'s" heading). This was contrary to our hypothesis that the regressions would more accurately capture the empirical trajectory than would the theoretical one.
+%Interestingly, classification using regressions on inharmonicity estimates collected from a single guitar generally performed worse than classification with the theoretical trajectories obtained from the open-string inharmonicity estimates of the same guitar. (Compare columns ``theo." and ``empi." under the ``Guitar-specific $\beta$'s" heading). This was contrary to our hypothesis that the regressions would more accurately capture the empirical trajectory than would the theoretical one.
 
 The alternate-tuning experiments validated our tuning compensation feature nicely. We see in Tables~\ref{tab:resultsTune} and~\ref{tab:results-ag-tune} that the general effect of appropriately scaling the inharmonicity regressions is to restore transcription F1-scores towards best-case standard-tuned performance.
 
-Insight into the error probabilities in Tables~\ref{tab:error-results-RWC} is gained when considering the string-wise breakdowns of F1-scores in Tables~\ref{tab:cg-str-f},~\ref{tab:ag-str-f}, and~\ref{tab:eg-str-f}. We see that across all guitars, strings 2, 3, and 4 consistently exhibit lower F1-scores. Strings 1, 5, and 6, contrastingly, exhibit exceptional performance, so we know that any poor results in Table~\ref{tab:error-results-RWC} stem from poor accuracy on these problematic ``middle" strings that are physically surrounded on the instrument by higher and lower strings. We thus see a flaw in this residual-based inharmonicity similarity approach: because of its inherently spatial classification decision (residual minimization), this system exhibits poor performance on strings whose trajectories share overlapping regions in inharmonicity-pitch space.
+Further insight into the error probabilities in Tables~\ref{tab:error-results-RWC} is gained by considering the string-wise F1-scores in Tables~\ref{tab:cg-str-f},~\ref{tab:ag-str-f}, and~\ref{tab:eg-str-f}. We see that across all guitars, strings 2, 3, and 4 consistently exhibit lower F1-scores. Strings 1, 5, and 6, contrastingly, exhibit exceptional performance, so we know that any poor results in the ``Regr." column in Table~\ref{tab:error-results-RWC} stem from poor accuracy on these problematic ``middle" strings that are physically surrounded on the instrument by higher and lower strings. We thus see a flaw in this residual-based inharmonicity similarity approach: because of its inherently spatial classification decision (residual minimization), this system exhibits poor performance on strings whose trajectories share overlapping regions in inharmonicity-pitch space.
 
-It's unclear why performance for electric guitars is invariably worse than for classicals and acoustics. To investigate, we visually compared the string-wise inharmonicity regressions of all guitars in each guitar class. As can be seen in Figures~\ref{fig:cg-traj-comp},~\ref{fig:ag-traj-comp}, and~\ref{fig:eg-traj-comp}, the classical and acoustic guitars' inharmonicity regressions remain fairly stable from guitar to guitar, whereas those of the electric guitars clearly exhibit more variability, making residual-based classification more difficult. Electric guitar regressions belonging to strings 3 and 4 overlap considerably, which is a behavior not absent in the classicals (strings 1 and 4, 2 and 5, 3 and 6) and acoustics (strings 2 and 3) with some strings but which manifests in less error due to their regressions' more consistent placements than those of their electric counterparts. Indeed, the electric guitars' confusion matrices support this, and one which highlights this error trend is shown in Table~\ref{tab:cf-eg}. 
+It's unclear why performance for electric guitars is invariably worse than for classicals and acoustics. To investigate, we visually compared our string-wise inharmonicity regressions of all guitars in each guitar class. As can be seen in Figures~\ref{fig:cg-traj-comp},~\ref{fig:ag-traj-comp}, and~\ref{fig:eg-traj-comp}, the classical and acoustic guitars' inharmonicity regressions remain fairly stable from guitar to guitar, whereas those of the electric guitars clearly exhibit more variability, making residual-based classification more difficult. Electric guitar regressions belonging to strings 3 and 4 overlap considerably, which is a behavior not absent in the classicals (strings 1 and 4, 2 and 5, 3 and 6) and acoustics (strings 2 and 3) with some strings but which manifests in less error due to their regressions' more consistent placements than those of their electric counterparts. Indeed, the electric guitars' confusion matrices support this, and one which highlights this error trend is shown in Table~\ref{tab:cf-eg}. 
 %Example confusion matrices for the CGs and AGs are also shown; the overlapping error doesn't seem to affect the CGs and AGs nearly as much, since their regression variability is much smaller.
 
 \begin{figure}[!htbp] 

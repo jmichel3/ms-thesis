@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  21 JUN 2017 12:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  23 JUN 2017 18:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -634,71 +634,76 @@ Package pdftex.def Info: overview.png used on input line 442.
 
 ]
 Chapter 4.
-[31] [32]
-Overfull \hbox (3.24268pt too wide) in paragraph at lines 633--634
+[31] [32] [33]
+Overfull \hbox (3.24268pt too wide) in paragraph at lines 688--689
 \OT1/ptm/m/n/12 For the next ex-per-i-ment, we learned in-har-monic-ity re-gres
 -sions from all record-ings of the standard-
  []
 
-[33] [34] [35] [36] [37] [38
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [34]
+[35] [36] [37] [38
 
 ]
 Chapter 5.
-[39] <traj-compare-cg.png, id=701, 513.92pt x 655.44875pt>
+[39] [40] <traj-compare-cg.png, id=707, 513.92pt x 655.44875pt>
 File: traj-compare-cg.png Graphic file (type png)
 
 <use traj-compare-cg.png>
-Package pdftex.def Info: traj-compare-cg.png used on input line 720.
+Package pdftex.def Info: traj-compare-cg.png used on input line 777.
 (pdftex.def)             Requested size: 385.43904pt x 491.58536pt.
- [40]
-<traj-compare-ag.png, id=706, 533.995pt x 655.44875pt>
+
+<traj-compare-ag.png, id=708, 533.995pt x 655.44875pt>
 File: traj-compare-ag.png Graphic file (type png)
 
 <use traj-compare-ag.png>
-Package pdftex.def Info: traj-compare-ag.png used on input line 727.
+Package pdftex.def Info: traj-compare-ag.png used on input line 784.
 (pdftex.def)             Requested size: 400.49527pt x 491.58536pt.
 
-<traj-compare-eg.png, id=707, 537.00626pt x 655.44875pt>
+<traj-compare-eg.png, id=709, 537.00626pt x 655.44875pt>
 File: traj-compare-eg.png Graphic file (type png)
 
 <use traj-compare-eg.png>
-Package pdftex.def Info: traj-compare-eg.png used on input line 734.
+Package pdftex.def Info: traj-compare-eg.png used on input line 791.
 (pdftex.def)             Requested size: 402.75371pt x 491.58536pt.
- [41 <./traj-compare-cg.png (PNG copy)>] [42 <./traj-compare-ag.png (PNG copy)>
-] [43 <./traj-compare-eg.png (PNG copy)>]
-<best-worst-r2.png, id=722, 624.3325pt x 655.44875pt>
+
+<best-worst-r2.png, id=711, 624.3325pt x 655.44875pt>
 File: best-worst-r2.png Graphic file (type png)
  <use best-worst-r2.png>
-Package pdftex.def Info: best-worst-r2.png used on input line 770.
+Package pdftex.def Info: best-worst-r2.png used on input line 827.
 (pdftex.def)             Requested size: 468.24823pt x 491.58536pt.
 
-Overfull \hbox (7.527pt too wide) in paragraph at lines 770--771
+Overfull \hbox (7.527pt too wide) in paragraph at lines 827--828
  [][] 
  []
 
-<eg1-string-dyn.png, id=724, 624.3325pt x 655.44875pt>
+<eg1-string-dyn.png, id=713, 624.3325pt x 655.44875pt>
 File: eg1-string-dyn.png Graphic file (type png)
 
 <use eg1-string-dyn.png>
-Package pdftex.def Info: eg1-string-dyn.png used on input line 778.
+Package pdftex.def Info: eg1-string-dyn.png used on input line 835.
 (pdftex.def)             Requested size: 468.24823pt x 491.58536pt.
 
-Overfull \hbox (7.527pt too wide) in paragraph at lines 778--779
+Overfull \hbox (7.527pt too wide) in paragraph at lines 835--836
  [][] 
  []
 
 
-Underfull \vbox (badness 3861) has occurred while \output is active []
+Underfull \vbox (badness 1629) has occurred while \output is active []
 
- [44]
-[45 <./best-worst-r2.png (PNG copy)>] [46 <./eg1-string-dyn.png (PNG copy)>]
-[47] [48] <p-correct-res.png, id=751, 847.165pt x 655.44875pt>
+ [41]
+[42 <./traj-compare-cg.png (PNG copy)>] [43 <./traj-compare-ag.png (PNG copy)>]
+[44 <./traj-compare-eg.png (PNG copy)>] [45 <./best-worst-r2.png (PNG copy)>]
+[46] [47 <./eg1-string-dyn.png (PNG copy)>] [48]
+<p-correct-res.png, id=753, 847.165pt x 655.44875pt>
 File: p-correct-res.png Graphic file (type png)
-
-<use p-correct-res.png>
-Package pdftex.def Info: p-correct-res.png used on input line 800.
+ <use p-correct-res.png>
+Package pdftex.def Info: p-correct-res.png used on input line 857.
 (pdftex.def)             Requested size: 847.16292pt x 655.44714pt.
- [49] [50 <./p-correct-res.png (PNG copy)>]
+
+[49] [50 <./p-correct-res.png (PNG copy)>]
 Chapter 6.
 
 Underfull \vbox (badness 1616) has occurred while \output is active []
@@ -728,21 +733,21 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [55])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 851.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 908.
 
 [56]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 851.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 908.
  (./final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 851.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 851.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 908.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 908.
 Package rerunfilecheck Info: File `final.out' has not changed.
 (rerunfilecheck)             Checksum: 261054A8C18D5A77F51301D58FC5CDCB;1882.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 851.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 908.
  ) 
 Here is how much of TeX's memory you used:
- 8198 strings out of 493089
- 117025 string characters out of 6134842
- 255744 words of memory out of 5000000
+ 8197 strings out of 493089
+ 117006 string characters out of 6134842
+ 254100 words of memory out of 5000000
  11356 multiletter control sequences out of 15000+600000
  25224 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -764,10 +769,10 @@ st/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist
 ype1/urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/t
 imes/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri
 8a.pfb>
-Output written on final.pdf (68 pages, 742452 bytes).
+Output written on final.pdf (68 pages, 743495 bytes).
 PDF statistics:
- 890 PDF objects out of 1000 (max. 8388607)
- 770 compressed objects within 8 object streams
- 182 named destinations out of 1000 (max. 500000)
+ 892 PDF objects out of 1000 (max. 8388607)
+ 773 compressed objects within 8 object streams
+ 181 named destinations out of 1000 (max. 500000)
  297 words of extra memory for PDF output out of 10000 (max. 10000000)
 
