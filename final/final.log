@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  26 JUN 2017 17:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  3 JUL 2017 22:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -157,8 +157,22 @@ LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
 )
+(/usr/local/texlive/2015/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/array.sty
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen114
+\extrarowheight=\dimen115
+\NC@list=\toks20
+\extratabsurround=\skip47
+\backup@length=\skip48
+)
+\everycr=\toks21
+\minrowclearance=\skip49
+)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/multirow/multirow.sty
-\bigstrutjot=\dimen114
+\bigstrutjot=\dimen116
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
@@ -167,8 +181,8 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 Package natbib Warning: The `cite' package should not be used
 (natbib)                with natbib. Use option `sort' instead.
 
-\bibhang=\skip47
-\bibsep=\skip48
+\bibhang=\skip50
+\bibsep=\skip51
 LaTeX Info: Redefining \cite on input line 694.
 LaTeX Info: Redefining \citenum on input line 708.
 \c@NAT@ctr=\count101
@@ -228,7 +242,7 @@ Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
-\@linkdim=\dimen115
+\@linkdim=\dimen117
 \Hy@linkcounter=\count102
 \Hy@pagecounter=\count103
 
@@ -260,10 +274,10 @@ Package hyperref Info: Bookmarks ON on input line 4688.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen116
+\XeTeXLinkMargin=\dimen118
 \Fld@menulength=\count106
-\Field@Width=\dimen117
-\Fld@charsize=\dimen118
+\Field@Width=\dimen119
+\Fld@charsize=\dimen120
 Package hyperref Info: Hyper figures OFF on input line 6295.
 Package hyperref Info: Link nesting OFF on input line 6300.
 Package hyperref Info: Hyper index ON on input line 6303.
@@ -290,7 +304,7 @@ Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
-\Hy@SectionHShift=\skip49
+\Hy@SectionHShift=\skip52
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/rotating/rotating.sty
 Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
@@ -299,22 +313,22 @@ Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \c@r@tfl@t=\count112
-\rotFPtop=\skip50
-\rotFPbot=\skip51
+\rotFPtop=\skip53
+\rotFPbot=\skip54
 \rot@float@box=\box30
-\rot@mess@toks=\toks20
+\rot@mess@toks=\toks22
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/subfigure/subfigure.sty
 Package: subfigure 2002/03/15 v2.1.5 subfigure package
-\subfigtopskip=\skip52
-\subfigcapskip=\skip53
-\subfigcaptopadj=\dimen119
-\subfigbottomskip=\skip54
-\subfigcapmargin=\dimen120
-\subfiglabelskip=\skip55
+\subfigtopskip=\skip55
+\subfigcapskip=\skip56
+\subfigcaptopadj=\dimen121
+\subfigbottomskip=\skip57
+\subfigcapmargin=\dimen122
+\subfiglabelskip=\skip58
 \c@subfigure=\count113
 \c@lofdepth=\count114
 \c@subtable=\count115
@@ -324,70 +338,70 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 * Local config file subfigure.cfg used *
 ****************************************
 (/usr/local/texlive/2015/texmf-dist/tex/latex/subfigure/subfigure.cfg)
-\subfig@top=\skip56
-\subfig@bottom=\skip57
+\subfig@top=\skip59
+\subfig@bottom=\skip60
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2011/12/15 v2.10.0 Sectioning titles
 \ttl@box=\box31
-\beforetitleunit=\skip58
-\aftertitleunit=\skip59
-\ttl@plus=\dimen121
-\ttl@minus=\dimen122
-\ttl@toksa=\toks21
-\titlewidth=\dimen123
-\titlewidthlast=\dimen124
-\titlewidthfirst=\dimen125
+\beforetitleunit=\skip61
+\aftertitleunit=\skip62
+\ttl@plus=\dimen123
+\ttl@minus=\dimen124
+\ttl@toksa=\toks23
+\titlewidth=\dimen125
+\titlewidthlast=\dimen126
+\titlewidthfirst=\dimen127
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 \Gm@cnth=\count117
 \Gm@cntv=\count118
 \c@Gm@tempcnt=\count119
-\Gm@bindingoffset=\dimen126
-\Gm@wd@mp=\dimen127
-\Gm@odd@mp=\dimen128
-\Gm@even@mp=\dimen129
-\Gm@layoutwidth=\dimen130
-\Gm@layoutheight=\dimen131
-\Gm@layouthoffset=\dimen132
-\Gm@layoutvoffset=\dimen133
-\Gm@dimlist=\toks22
+\Gm@bindingoffset=\dimen128
+\Gm@wd@mp=\dimen129
+\Gm@odd@mp=\dimen130
+\Gm@even@mp=\dimen131
+\Gm@layoutwidth=\dimen132
+\Gm@layoutheight=\dimen133
+\Gm@layouthoffset=\dimen134
+\Gm@layoutvoffset=\dimen135
+\Gm@dimlist=\toks24
 )
 (./final.aux)
 \openout1 = `final.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 54.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 55.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count120
-\scratchdimen=\dimen134
+\scratchdimen=\dimen136
 \scratchbox=\box32
 \nofMPsegments=\count121
 \nofMParguments=\count122
-\everyMPshowfont=\toks23
+\everyMPshowfont=\toks25
 \MPscratchCnt=\count123
-\MPscratchDim=\dimen135
+\MPscratchDim=\dimen137
 \MPnumerator=\count124
 \makeMPintoPDFobject=\count125
-\everyMPtoPDFconversion=\toks24
+\everyMPtoPDFconversion=\toks26
 ) (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -404,7 +418,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box33
-Package hyperref Info: Link coloring OFF on input line 54.
+Package hyperref Info: Link coloring OFF on input line 55.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -414,9 +428,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count126
 )
-LaTeX Info: Redefining \ref on input line 54.
-LaTeX Info: Redefining \pageref on input line 54.
-LaTeX Info: Redefining \nameref on input line 54.
+LaTeX Info: Redefining \ref on input line 55.
+LaTeX Info: Redefining \pageref on input line 55.
+LaTeX Info: Redefining \nameref on input line 55.
 
 (./final.out) (./final.out)
 \@outlinefile=\write3
@@ -458,17 +472,17 @@ LaTeX Info: Redefining \nameref on input line 54.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\@cutoutvskip=\skip60
+\@cutoutvskip=\skip63
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 80.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 81.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 80.
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 80.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 81.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 81.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 80.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 81.
  [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
@@ -477,19 +491,24 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 91.
- [3
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 92.
+
+Overfull \hbox (3.55219pt too wide) in paragraph at lines 95--96
+\OT1/ptm/m/n/12 notes' mea-sured in-har-monic-i-ties. The sec-ond method, de-ve
+l-oped as a base-line against
+ []
+
+[3
 
 ] [4
 
 
-] [5]
-[6
+] [5] [6
 
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 116.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 117.
  (./final.toc [7])
 \tf@toc=\write4
 \openout4 = `final.toc'.
@@ -499,12 +518,17 @@ Underfull \vbox (badness 1701) has occurred while \output is active []
 
  [9
 
-])
+]
+Overfull \hbox (0.32666pt too wide) in paragraph at lines 13--13
+ [][] [][]\OT1/ptm/m/n/12 System overview of tab-la-ture tran-scrip-tion with B
+ayesian fretboard-position clas- 
+ []
+
+)
 \tf@lof=\write5
 \openout5 = `final.lof'.
 
-
-[10] (./final.lot)
+ [10] (./final.lot)
 \tf@lot=\write6
 \openout6 = `final.lot'.
 
@@ -520,82 +544,94 @@ Underfull \vbox (badness 3158) has occurred while \output is active []
  [1
 
 ]
-<score-tabs.png, id=356, 736.7525pt x 708.6475pt>
+<score-tabs.png, id=370, 736.7525pt x 708.6475pt>
 File: score-tabs.png Graphic file (type png)
  <use score-tabs.png>
-Package pdftex.def Info: score-tabs.png used on input line 152.
+Package pdftex.def Info: score-tabs.png used on input line 153.
 (pdftex.def)             Requested size: 184.18767pt x 177.16144pt.
- [2 <./score-tabs.png>] [3] [4]
+ [2 <./score-tabs.png>]
+Overfull \hbox (21.97363pt too wide) in paragraph at lines 164--165
+\OT1/ptm/m/n/12 computed log-inharmonicity tra-jec-tory most prob-a-bly pre-dic
+ts the note's es-ti-mated log-inharmonicity.
+ []
+
+[3] [4]
 Chapter 2.
 [5
 
-] [6]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7]
-<skew.png, id=453, 741.77126pt x 255.95625pt>
+] [6] [7] <skew.png, id=468, 741.77126pt x 255.95625pt>
 File: skew.png Graphic file (type png)
  <use skew.png>
-Package pdftex.def Info: skew.png used on input line 205.
+Package pdftex.def Info: skew.png used on input line 206.
 (pdftex.def)             Requested size: 482.14561pt x 166.36958pt.
 
-Overfull \hbox (21.42438pt too wide) in paragraph at lines 205--206
+Overfull \hbox (21.42438pt too wide) in paragraph at lines 206--207
  [][] 
  []
 
 [8 <./skew.png (PNG copy)>] [9] [10]
 Chapter 3.
 
-Overfull \hbox (28.59293pt too wide) in paragraph at lines 229--229
- |[]\OT1/ptm/b/n/20.74 Proposed Inharmonicity-Based Tran-scrip-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1454) has occurred while \output is active []
 
  [11
 
 ]
-<beta-trajectories-ag.png, id=489, 609.27625pt x 448.67625pt>
+<beta-trajectories-ag.png, id=506, 609.27625pt x 448.67625pt>
 File: beta-trajectories-ag.png Graphic file (type png)
 
 <use beta-trajectories-ag.png>
-Package pdftex.def Info: beta-trajectories-ag.png used on input line 244.
+Package pdftex.def Info: beta-trajectories-ag.png used on input line 245.
 (pdftex.def)             Requested size: 426.49046pt x 314.07123pt.
  [12 <./beta-trajectories-ag.png (PNG copy)>]
-[13] [14] <mat-flowchart.png, id=525, 344.28625pt x 642.4pt>
+[13] [14] <mat-flowchart.png, id=540, 344.28625pt x 642.4pt>
 File: mat-flowchart.png Graphic file (type png)
 
 <use mat-flowchart.png>
-Package pdftex.def Info: mat-flowchart.png used on input line 278.
+Package pdftex.def Info: mat-flowchart.png used on input line 279.
 (pdftex.def)             Requested size: 309.85475pt x 578.15466pt.
- <beta-v-midi.png, id=528, 549.05125pt x 434.62375pt>
+ <beta-v-midi.png, id=543, 549.05125pt x 434.62375pt>
 File: beta-v-midi.png Graphic file (type png)
 
 <use beta-v-midi.png>
-Package pdftex.def Info: beta-v-midi.png used on input line 291.
+Package pdftex.def Info: beta-v-midi.png used on input line 292.
 (pdftex.def)             Requested size: 384.33325pt x 304.23454pt.
- [15] [16 <./mat-flowchart.png>]
-Underfull \vbox (badness 4927) has occurred while \output is active []
 
- [17 <./beta-v-midi.png (PNG copy)>] <log-beta-v-midi.png, id=550, 572.1375pt x
- 469.755pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 2245) has occurred while \output is active []
+
+ [15]
+[16 <./mat-flowchart.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17 <./beta-v-midi.png (PNG copy)>]
+<log-beta-v-midi.png, id=567, 572.1375pt x 469.755pt>
 File: log-beta-v-midi.png Graphic file (type png)
 
 <use log-beta-v-midi.png>
-Package pdftex.def Info: log-beta-v-midi.png used on input line 315.
+Package pdftex.def Info: log-beta-v-midi.png used on input line 316.
 (pdftex.def)             Requested size: 400.49352pt x 328.82626pt.
  [18 <./log-beta-v-midi.png (PNG copy)>]
-<traj-v-reg.png, id=561, 523.9575pt x 655.44875pt>
+<traj-v-reg.png, id=577, 523.9575pt x 655.44875pt>
 File: traj-v-reg.png Graphic file (type png)
  <use traj-v-reg.png>
-Package pdftex.def Info: traj-v-reg.png used on input line 334.
+Package pdftex.def Info: traj-v-reg.png used on input line 335.
 (pdftex.def)             Requested size: 392.96716pt x 491.58536pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 6691) has occurred while \output is active []
 
  [19]
-[20 <./traj-v-reg.png (PNG copy)>] [21]
+[20 <./traj-v-reg.png (PNG copy)>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [21]
+
+LaTeX Warning: Reference `' on page 22 undefined on input line 367.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [22]
@@ -603,119 +639,150 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 4156) has occurred while \output is active []
 
  [26]
-<tuning-eg.png, id=634, 562.1pt x 425.59pt>
+<tuning-eg.png, id=649, 562.1pt x 425.59pt>
 File: tuning-eg.png Graphic file (type png)
  <use tuning-eg.png>
-Package pdftex.def Info: tuning-eg.png used on input line 480.
+Package pdftex.def Info: tuning-eg.png used on input line 482.
 (pdftex.def)             Requested size: 421.57397pt x 319.1917pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [27]
 [28 <./tuning-eg.png (PNG copy)>]
-<overview.png, id=652, 397.0032pt x 460.119pt>
+<overview.png, id=667, 397.0032pt x 460.119pt>
 File: overview.png Graphic file (type png)
  <use overview.png>
-Package pdftex.def Info: overview.png used on input line 492.
+Package pdftex.def Info: overview.png used on input line 494.
 (pdftex.def)             Requested size: 238.20375pt x 276.07353pt.
 
-<overviewMLE.png, id=653, 397.0032pt x 460.119pt>
+<overviewMLE.png, id=668, 397.0032pt x 460.119pt>
 File: overviewMLE.png Graphic file (type png)
  <use overviewMLE.png>
-Package pdftex.def Info: overviewMLE.png used on input line 499.
+Package pdftex.def Info: overviewMLE.png used on input line 501.
 (pdftex.def)             Requested size: 238.20375pt x 276.07353pt.
 
 [29] [30 <./overview.png>] [31 <./overviewMLE.png>] [32
 
 ]
 Chapter 4.
-[33] [34] [35]
-Overfull \hbox (3.24268pt too wide) in paragraph at lines 748--749
-\OT1/ptm/m/n/12 For the next ex-per-i-ment, we learned in-har-monic-ity re-gres
--sions from all record-ings of the standard-
- []
+[33] [34] [35] [36] [37]
+Underfull \vbox (badness 1442) has occurred while \output is active []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [36]
-[37] [38] [39] [40
+ [38]
+[39] [40
 
 ]
 Chapter 5.
-[41] [42] <traj-compare-cg.png, id=751, 513.92pt x 655.44875pt>
+[41] [42] <regs3by3.png, id=760, 768.8725pt x 655.44875pt>
+File: regs3by3.png Graphic file (type png)
+ <use regs3by3.png>
+Package pdftex.def Info: regs3by3.png used on input line 888.
+(pdftex.def)             Requested size: 499.7612pt x 426.03664pt.
+
+Overfull \hbox (39.03996pt too wide) in paragraph at lines 888--889
+ [][] 
+ []
+
+[43 <./regs3by3.png (PNG copy)>]
+<traj-compare-cg.png, id=771, 513.92pt x 655.44875pt>
 File: traj-compare-cg.png Graphic file (type png)
 
 <use traj-compare-cg.png>
-Package pdftex.def Info: traj-compare-cg.png used on input line 839.
+Package pdftex.def Info: traj-compare-cg.png used on input line 898.
 (pdftex.def)             Requested size: 385.43904pt x 491.58536pt.
 
-<traj-compare-ag.png, id=752, 533.995pt x 655.44875pt>
+<traj-compare-ag.png, id=772, 533.995pt x 655.44875pt>
 File: traj-compare-ag.png Graphic file (type png)
 
 <use traj-compare-ag.png>
-Package pdftex.def Info: traj-compare-ag.png used on input line 846.
+Package pdftex.def Info: traj-compare-ag.png used on input line 905.
 (pdftex.def)             Requested size: 400.49527pt x 491.58536pt.
 
-<traj-compare-eg.png, id=753, 537.00626pt x 655.44875pt>
+<traj-compare-eg.png, id=773, 537.00626pt x 655.44875pt>
 File: traj-compare-eg.png Graphic file (type png)
 
 <use traj-compare-eg.png>
-Package pdftex.def Info: traj-compare-eg.png used on input line 853.
+Package pdftex.def Info: traj-compare-eg.png used on input line 912.
 (pdftex.def)             Requested size: 402.75371pt x 491.58536pt.
 
-<best-worst-r2.png, id=755, 624.3325pt x 655.44875pt>
+<meas-variance.png, id=775, 759.83875pt x 287.0725pt>
+File: meas-variance.png Graphic file (type png)
+ <use meas-variance.png>
+Package pdftex.def Info: meas-variance.png used on input line 948.
+(pdftex.def)             Requested size: 455.90675pt x 172.24483pt.
+
+Underfull \vbox (badness 1442) has occurred while \output is active []
+
+ [44]
+[45 <./traj-compare-cg.png (PNG copy)>] [46 <./traj-compare-ag.png (PNG copy)>]
+[47 <./traj-compare-eg.png (PNG copy)>]
+<best-worst-r2.png, id=794, 624.3325pt x 655.44875pt>
 File: best-worst-r2.png Graphic file (type png)
  <use best-worst-r2.png>
-Package pdftex.def Info: best-worst-r2.png used on input line 889.
+Package pdftex.def Info: best-worst-r2.png used on input line 957.
 (pdftex.def)             Requested size: 468.24823pt x 491.58536pt.
 
-Overfull \hbox (7.527pt too wide) in paragraph at lines 889--890
+Overfull \hbox (7.527pt too wide) in paragraph at lines 957--958
  [][] 
  []
 
-<eg1-string-dyn.png, id=757, 624.3325pt x 655.44875pt>
+<eg1-string-dyn.png, id=796, 624.3325pt x 655.44875pt>
 File: eg1-string-dyn.png Graphic file (type png)
 
 <use eg1-string-dyn.png>
-Package pdftex.def Info: eg1-string-dyn.png used on input line 897.
+Package pdftex.def Info: eg1-string-dyn.png used on input line 965.
 (pdftex.def)             Requested size: 468.24823pt x 491.58536pt.
 
-Overfull \hbox (7.527pt too wide) in paragraph at lines 897--898
+Overfull \hbox (7.527pt too wide) in paragraph at lines 965--966
  [][] 
  []
 
+[48 <./meas-variance.png (PNG copy)>] [49 <./best-worst-r2.png (PNG copy)>]
+[50 <./eg1-string-dyn.png (PNG copy)>]
 
-Underfull \vbox (badness 1629) has occurred while \output is active []
+LaTeX Warning: Reference `:' on page 51 undefined on input line 972.
 
- [43]
-[44 <./traj-compare-cg.png (PNG copy)>] [45 <./traj-compare-ag.png (PNG copy)>]
-[46 <./traj-compare-eg.png (PNG copy)>] [47 <./best-worst-r2.png (PNG copy)>]
-[48] [49 <./eg1-string-dyn.png (PNG copy)>] [50]
-<p-correct-res.png, id=799, 847.165pt x 655.44875pt>
+
+Overfull \hbox (16.4419pt too wide) in paragraph at lines 972--973
+\OT1/ptm/m/n/12 vari-ables aside from fin-ger vs plec-trum pluck-ing are at pla
+y in the mea-sure-ments in Fig-ure []fig:best-
+ []
+
+
+LaTeX Warning: Reference `fig:physical-factors' on page 51 undefined on input l
+ine 974.
+
+[51]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [52]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [53]
+<p-correct-res.png, id=829, 847.165pt x 655.44875pt>
 File: p-correct-res.png Graphic file (type png)
  <use p-correct-res.png>
-Package pdftex.def Info: p-correct-res.png used on input line 919.
+Package pdftex.def Info: p-correct-res.png used on input line 994.
 (pdftex.def)             Requested size: 847.16292pt x 655.44714pt.
 
-[51] [52 <./p-correct-res.png (PNG copy)>]
+[54] [55 <./p-correct-res.png (PNG copy)>] [56
+
+]
 Chapter 6.
 
-Underfull \vbox (badness 1616) has occurred while \output is active []
+Underfull \vbox (badness 3158) has occurred while \output is active []
 
- [53
-
-]
-[54] (./final.bbl
+ [57]
+[58] (./final.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [55
+ [59
 
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [56]
+ [60]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
@@ -727,26 +794,31 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [57])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 970.
+ [61])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1045.
 
-[58]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 970.
+[62]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1045.
  (./final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 970.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 970.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1045.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1045.
+
 Package rerunfilecheck Info: File `final.out' has not changed.
-(rerunfilecheck)             Checksum: 8FA5D5AF40DA4D50CBE4FBEB61B53366;2487.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 970.
+(rerunfilecheck)             Checksum: 1EC7A04134DC2C9D94D6CD8CBCDAB036;2422.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1045.
  ) 
 Here is how much of TeX's memory you used:
- 8215 strings out of 493089
- 117341 string characters out of 6134842
- 254254 words of memory out of 5000000
- 11365 multiletter control sequences out of 15000+600000
+ 8330 strings out of 493089
+ 118843 string characters out of 6134842
+ 256936 words of memory out of 5000000
+ 11464 multiletter control sequences out of 15000+600000
  25224 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,15n,39p,2267b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,16n,39p,2318b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texl
@@ -764,10 +836,10 @@ st/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist
 ype1/urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/t
 imes/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri
 8a.pfb>
-Output written on final.pdf (70 pages, 762888 bytes).
+Output written on final.pdf (74 pages, 845392 bytes).
 PDF statistics:
- 938 PDF objects out of 1000 (max. 8388607)
- 816 compressed objects within 9 object streams
- 190 named destinations out of 1000 (max. 500000)
- 345 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 975 PDF objects out of 1000 (max. 8388607)
+ 847 compressed objects within 9 object streams
+ 197 named destinations out of 1000 (max. 500000)
+ 355 words of extra memory for PDF output out of 10000 (max. 10000000)
 
