@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  4 JUL 2017 21:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  5 JUL 2017 13:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -483,10 +483,10 @@ File: omsptm.fd
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 81.
- [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+ [1
 
 
-] [2
+{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 
 ]
@@ -544,17 +544,20 @@ ts in tri-als with statistically-significant
 \tf@lot=\write6
 \openout6 = `final.lot'.
 
- [13] [14
 
-]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+[14]
 Chapter 1.
 
 Underfull \vbox (badness 3158) has occurred while \output is active []
 
  [1
 
+
 ]
-<score-tabs.png, id=398, 736.7525pt x 708.6475pt>
+<score-tabs.png, id=400, 736.7525pt x 708.6475pt>
 File: score-tabs.png Graphic file (type png)
  <use score-tabs.png>
 Package pdftex.def Info: score-tabs.png used on input line 153.
@@ -569,7 +572,11 @@ ts the note's es-ti-mated log-inharmonicity.
 Chapter 2.
 [5
 
-] [6] [7] <skew.png, id=496, 741.77126pt x 255.95625pt>
+] [6]
+Underfull \vbox (badness 1629) has occurred while \output is active []
+
+ [7]
+<skew.png, id=497, 741.77126pt x 255.95625pt>
 File: skew.png Graphic file (type png)
  <use skew.png>
 Package pdftex.def Info: skew.png used on input line 206.
@@ -587,20 +594,20 @@ Underfull \vbox (badness 1454) has occurred while \output is active []
  [11
 
 ]
-<beta-trajectories-ag.png, id=535, 609.27625pt x 448.67625pt>
+<beta-trajectories-ag.png, id=542, 609.27625pt x 448.67625pt>
 File: beta-trajectories-ag.png Graphic file (type png)
 
 <use beta-trajectories-ag.png>
 Package pdftex.def Info: beta-trajectories-ag.png used on input line 245.
 (pdftex.def)             Requested size: 426.49046pt x 314.07123pt.
  [12 <./beta-trajectories-ag.png (PNG copy)>]
-[13] [14] <mat-flowchart.png, id=568, 344.28625pt x 642.4pt>
+[13] [14] <mat-flowchart.png, id=576, 344.28625pt x 642.4pt>
 File: mat-flowchart.png Graphic file (type png)
 
 <use mat-flowchart.png>
 Package pdftex.def Info: mat-flowchart.png used on input line 279.
 (pdftex.def)             Requested size: 309.85475pt x 578.15466pt.
- <beta-v-midi.png, id=571, 549.05125pt x 434.62375pt>
+ <beta-v-midi.png, id=579, 549.05125pt x 434.62375pt>
 File: beta-v-midi.png Graphic file (type png)
 
 <use beta-v-midi.png>
@@ -610,34 +617,27 @@ Package pdftex.def Info: beta-v-midi.png used on input line 292.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-Underfull \vbox (badness 2245) has occurred while \output is active []
-
- [15]
-[16 <./mat-flowchart.png>]
+[15] [16 <./mat-flowchart.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17 <./beta-v-midi.png (PNG copy)>]
-<log-beta-v-midi.png, id=596, 572.1375pt x 469.755pt>
+<log-beta-v-midi.png, id=603, 572.1375pt x 469.755pt>
 File: log-beta-v-midi.png Graphic file (type png)
 
 <use log-beta-v-midi.png>
 Package pdftex.def Info: log-beta-v-midi.png used on input line 316.
 (pdftex.def)             Requested size: 400.49352pt x 328.82626pt.
  [18 <./log-beta-v-midi.png (PNG copy)>]
-<traj-v-reg.png, id=606, 523.9575pt x 655.44875pt>
+<traj-v-reg.png, id=613, 523.9575pt x 655.44875pt>
 File: traj-v-reg.png Graphic file (type png)
  <use traj-v-reg.png>
 Package pdftex.def Info: traj-v-reg.png used on input line 335.
 (pdftex.def)             Requested size: 392.96716pt x 491.58536pt.
 
-Underfull \vbox (badness 6691) has occurred while \output is active []
-
- [19]
-[20 <./traj-v-reg.png (PNG copy)>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [21]
+ [19]
+[20 <./traj-v-reg.png (PNG copy)>] [21]
 
 LaTeX Warning: Reference `' on page 22 undefined on input line 367.
 
@@ -645,13 +645,10 @@ LaTeX Warning: Reference `' on page 22 undefined on input line 367.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [22]
-[23] [24] [25]
-Underfull \vbox (badness 4156) has occurred while \output is active []
-
- [26]
-<tuning-eg.png, id=677, 562.1pt x 425.59pt>
+[23] [24] [25] [26] <tuning-eg.png, id=682, 562.1pt x 425.59pt>
 File: tuning-eg.png Graphic file (type png)
- <use tuning-eg.png>
+
+<use tuning-eg.png>
 Package pdftex.def Info: tuning-eg.png used on input line 482.
 (pdftex.def)             Requested size: 421.57397pt x 319.1917pt.
 
@@ -659,13 +656,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [27]
 [28 <./tuning-eg.png (PNG copy)>]
-<overview.png, id=696, 397.0032pt x 460.119pt>
+<overview.png, id=703, 397.0032pt x 460.119pt>
 File: overview.png Graphic file (type png)
  <use overview.png>
 Package pdftex.def Info: overview.png used on input line 494.
 (pdftex.def)             Requested size: 238.20375pt x 276.07353pt.
 
-<overviewMLE.png, id=697, 397.0032pt x 460.119pt>
+<overviewMLE.png, id=704, 397.0032pt x 460.119pt>
 File: overviewMLE.png Graphic file (type png)
  <use overviewMLE.png>
 Package pdftex.def Info: overviewMLE.png used on input line 501.
@@ -683,71 +680,71 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [40]
-[41] [42
-
-]
+[41] [42]
 Chapter 5.
-[43] [44] <regs3by3.png, id=800, 768.8725pt x 655.44875pt>
+[43
+
+] [44] <regs3by3.png, id=806, 768.8725pt x 655.44875pt>
 File: regs3by3.png Graphic file (type png)
  <use regs3by3.png>
-Package pdftex.def Info: regs3by3.png used on input line 926.
+Package pdftex.def Info: regs3by3.png used on input line 928.
 (pdftex.def)             Requested size: 499.7612pt x 426.03664pt.
 
-Overfull \hbox (39.03996pt too wide) in paragraph at lines 926--927
+Overfull \hbox (39.03996pt too wide) in paragraph at lines 928--929
  [][] 
  []
 
 [45 <./regs3by3.png (PNG copy)>]
-<traj-compare-cg.png, id=810, 513.92pt x 655.44875pt>
+<traj-compare-cg.png, id=816, 513.92pt x 655.44875pt>
 File: traj-compare-cg.png Graphic file (type png)
 
 <use traj-compare-cg.png>
-Package pdftex.def Info: traj-compare-cg.png used on input line 936.
+Package pdftex.def Info: traj-compare-cg.png used on input line 938.
 (pdftex.def)             Requested size: 385.43904pt x 491.58536pt.
 
-<traj-compare-ag.png, id=811, 533.995pt x 655.44875pt>
+<traj-compare-ag.png, id=817, 533.995pt x 655.44875pt>
 File: traj-compare-ag.png Graphic file (type png)
 
 <use traj-compare-ag.png>
-Package pdftex.def Info: traj-compare-ag.png used on input line 943.
+Package pdftex.def Info: traj-compare-ag.png used on input line 945.
 (pdftex.def)             Requested size: 400.49527pt x 491.58536pt.
 
-<traj-compare-eg.png, id=812, 537.00626pt x 655.44875pt>
+<traj-compare-eg.png, id=818, 537.00626pt x 655.44875pt>
 File: traj-compare-eg.png Graphic file (type png)
 
 <use traj-compare-eg.png>
-Package pdftex.def Info: traj-compare-eg.png used on input line 950.
+Package pdftex.def Info: traj-compare-eg.png used on input line 952.
 (pdftex.def)             Requested size: 402.75371pt x 491.58536pt.
 
 
 LaTeX Warning: Reference `fig:traj-compare-cg' on page 46 undefined on input li
-ne 982.
+ne 984.
 
 
 LaTeX Warning: Reference `fig:traj-compare-ag' on page 46 undefined on input li
-ne 982.
+ne 984.
 
 
 LaTeX Warning: Reference `fig:traj-compare-eg' on page 46 undefined on input li
-ne 982.
+ne 984.
 
-<ag-meas-var.png, id=815, 724.7075pt x 655.44875pt>
+<ag-meas-var.png, id=821, 724.7075pt x 655.44875pt>
 File: ag-meas-var.png Graphic file (type png)
  <use ag-meas-var.png>
-Package pdftex.def Info: ag-meas-var.png used on input line 986.
+Package pdftex.def Info: ag-meas-var.png used on input line 988.
 (pdftex.def)             Requested size: 471.05429pt x 426.03664pt.
 
-Overfull \hbox (10.33305pt too wide) in paragraph at lines 986--987
+Overfull \hbox (10.33305pt too wide) in paragraph at lines 988--989
  [][] 
  []
 
-<eg-meas-var.png, id=816, 724.7075pt x 655.44875pt>
+<eg-meas-var.png, id=822, 724.7075pt x 655.44875pt>
 File: eg-meas-var.png Graphic file (type png)
  <use eg-meas-var.png>
-Package pdftex.def Info: eg-meas-var.png used on input line 993.
+Package pdftex.def Info: eg-meas-var.png used on input line 995.
 (pdftex.def)             Requested size: 471.05429pt x 426.03664pt.
 
-Overfull \hbox (10.33305pt too wide) in paragraph at lines 993--994
+Overfull \hbox (10.33305pt too wide) in paragraph at lines 995--996
  [][] 
  []
 
@@ -758,43 +755,43 @@ Underfull \vbox (badness 1442) has occurred while \output is active []
 [47 <./traj-compare-cg.png (PNG copy)>] [48 <./traj-compare-ag.png (PNG copy)>]
 [49 <./traj-compare-eg.png (PNG copy)>] [50 <./ag-meas-var.png (PNG copy)>]
 [51 <./eg-meas-var.png (PNG copy)>]
-<best-worst-r2.png, id=843, 624.3325pt x 655.44875pt>
+<best-worst-r2.png, id=849, 624.3325pt x 655.44875pt>
 File: best-worst-r2.png Graphic file (type png)
  <use best-worst-r2.png>
-Package pdftex.def Info: best-worst-r2.png used on input line 1002.
+Package pdftex.def Info: best-worst-r2.png used on input line 1004.
 (pdftex.def)             Requested size: 468.24823pt x 491.58536pt.
 
-Overfull \hbox (7.527pt too wide) in paragraph at lines 1002--1003
+Overfull \hbox (7.527pt too wide) in paragraph at lines 1004--1005
  [][] 
  []
 
-<eg1-string-dyn.png, id=845, 624.3325pt x 655.44875pt>
+<eg1-string-dyn.png, id=851, 624.3325pt x 655.44875pt>
 File: eg1-string-dyn.png Graphic file (type png)
 
 <use eg1-string-dyn.png>
-Package pdftex.def Info: eg1-string-dyn.png used on input line 1010.
+Package pdftex.def Info: eg1-string-dyn.png used on input line 1012.
 (pdftex.def)             Requested size: 468.24823pt x 491.58536pt.
 
-Overfull \hbox (7.527pt too wide) in paragraph at lines 1010--1011
+Overfull \hbox (7.527pt too wide) in paragraph at lines 1012--1013
  [][] 
  []
 
 [52] [53 <./best-worst-r2.png (PNG copy)>] [54 <./eg1-string-dyn.png (PNG copy)
->] <eg-params.png, id=862, 703.62875pt x 324.21124pt>
+>] <eg-params.png, id=868, 703.62875pt x 324.21124pt>
 File: eg-params.png Graphic file (type png)
  <use eg-params.png>
-Package pdftex.def Info: eg-params.png used on input line 1023.
+Package pdftex.def Info: eg-params.png used on input line 1025.
 (pdftex.def)             Requested size: 492.53676pt x 226.94632pt.
 
-Overfull \hbox (31.81552pt too wide) in paragraph at lines 1023--1024
+Overfull \hbox (31.81552pt too wide) in paragraph at lines 1025--1026
  [][] 
  []
 
 [55] [56 <./eg-params.png (PNG copy)>]
-<eg-params-od.png, id=877, 542.025pt x 251.94125pt>
+<eg-params-od.png, id=883, 542.025pt x 251.94125pt>
 File: eg-params-od.png Graphic file (type png)
  <use eg-params-od.png>
-Package pdftex.def Info: eg-params-od.png used on input line 1036.
+Package pdftex.def Info: eg-params-od.png used on input line 1038.
 (pdftex.def)             Requested size: 325.2175pt x 151.16591pt.
 
 [57 <./eg-params-od.png (PNG copy)>]
@@ -804,10 +801,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [59]
-<p-correct-res.png, id=897, 847.165pt x 655.44875pt>
+<p-correct-res.png, id=903, 847.165pt x 655.44875pt>
 File: p-correct-res.png Graphic file (type png)
  <use p-correct-res.png>
-Package pdftex.def Info: p-correct-res.png used on input line 1063.
+Package pdftex.def Info: p-correct-res.png used on input line 1061.
 (pdftex.def)             Requested size: 847.16292pt x 655.44714pt.
 
 [60] [61 <./p-correct-res.png (PNG copy)>] [62
@@ -831,7 +828,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 188.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 190.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1pcr.fd
@@ -840,13 +837,13 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [67])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1114.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1115.
 
 [68]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1114.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1115.
  (./final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1114.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1114.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1115.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1115.
 
 Package rerunfilecheck Info: File `final.out' has not changed.
 (rerunfilecheck)             Checksum: 1EC7A04134DC2C9D94D6CD8CBCDAB036;2422.
@@ -854,16 +851,16 @@ Package rerunfilecheck Info: File `final.out' has not changed.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1114.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1115.
  ) 
 Here is how much of TeX's memory you used:
- 8362 strings out of 493089
- 119311 string characters out of 6134842
- 257061 words of memory out of 5000000
- 11481 multiletter control sequences out of 15000+600000
+ 8361 strings out of 493089
+ 119295 string characters out of 6134842
+ 257208 words of memory out of 5000000
+ 11480 multiletter control sequences out of 15000+600000
  25224 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,16n,39p,2318b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,10n,39p,2318b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texl
@@ -881,10 +878,10 @@ st/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist
 ype1/urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/t
 imes/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri
 8a.pfb>
-Output written on final.pdf (82 pages, 942988 bytes).
+Output written on final.pdf (82 pages, 942696 bytes).
 PDF statistics:
- 1045 PDF objects out of 1200 (max. 8388607)
- 905 compressed objects within 10 object streams
+ 1047 PDF objects out of 1200 (max. 8388607)
+ 907 compressed objects within 10 object streams
  209 named destinations out of 1000 (max. 500000)
  370 words of extra memory for PDF output out of 10000 (max. 10000000)
 

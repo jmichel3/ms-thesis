@@ -3,12 +3,12 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: final.aux
 The style file: plainnat.bst
 Database file #1: mybib.bib
-I was expecting a `,' or a `}'---line 151 of file mybib.bib
+I was expecting a `,' or a `}'---line 152 of file mybib.bib
  :   
  :   pages = {197-203},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 238 of file mybib.bib
+I was expecting a `,' or a `}'---line 239 of file mybib.bib
  :   
  :   year = {2009}
 (Error may have been on previous line)
@@ -23,35 +23,34 @@ Name 2 in "A. M. Burns and M. M. Wanderley," has a comma at the end for entry bu
 while executing---line 1429 of file plainnat.bst
 Name 2 in "A. M. Burns and M. M. Wanderley," has a comma at the end for entry burns2006
 while executing---line 1429 of file plainnat.bst
-Warning--empty title in galembo1999
 Warning--empty year in ogrady2009
 Warning--empty year in ogrady2009
 You've used 31 entries,
             2773 wiz_defined-function locations,
-            767 strings with 10197 characters,
-and the built_in function-call counts, 15503 in all, are:
-= -- 1360
+            767 strings with 10275 characters,
+and the built_in function-call counts, 15508 in all, are:
+= -- 1362
 > -- 808
 < -- 32
 + -- 275
 - -- 243
-* -- 1154
-:= -- 2238
-add.period$ -- 92
+* -- 1151
+:= -- 2240
+add.period$ -- 93
 call.type$ -- 31
-change.case$ -- 172
+change.case$ -- 173
 chr.to.int$ -- 30
-cite$ -- 65
+cite$ -- 64
 duplicate$ -- 809
 empty$ -- 1369
 format.name$ -- 294
-if$ -- 3431
+if$ -- 3433
 int.to.chr$ -- 2
 int.to.str$ -- 1
 missing$ -- 30
-newline$ -- 162
+newline$ -- 163
 num.names$ -- 124
-pop$ -- 422
+pop$ -- 421
 preamble$ -- 1
 purify$ -- 143
 quote$ -- 0
@@ -63,8 +62,8 @@ text.length$ -- 15
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 336
-warning$ -- 3
+warning$ -- 2
 while$ -- 126
 width$ -- 0
-write$ -- 408
+write$ -- 410
 (There were 7 error messages)
