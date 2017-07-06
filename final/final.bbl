@@ -40,19 +40,19 @@ J.~Bello, L.~Daudet, S.~Abdallah, C.~Duxbury, M.~Davies, and M.~Sandler.
 \newblock \emph{IEEE Transactions on Speech and Audio Processing}, 13\penalty0
   (5):\penalty0 1035--1047, 2005.
 
+\bibitem[Burlet(2015)]{burlet2015}
+G.~Burlet.
+\newblock Guitar tablature transcription using a deep belief network.
+\newblock Master's thesis, University of Alberta, Canada, 2015.
+
 \bibitem[Burlet and Fujinaga(2013)]{burlet2013}
 G.~Burlet and I.~Fujinaga.
 \newblock Robotaba guitar tablature transcription framework.
 \newblock In \emph{Proceedings of the 14th International Society for Music
   Information Retrieval Conference}, November 2013.
 
-\bibitem[Burlet(2015)]{burlet2015}
-Gregory~D. Burlet.
-\newblock Guitar tablature transcription using a deep belief network.
-\newblock Master's thesis, University of Alberta, Canada, 2015.
-
 \bibitem[Burns and Wanderley(2006)]{burns2006}
-A.~M. Burns and M.~M. Wanderley.
+A.~Burns and M.~Wanderley.
 \newblock Visual methods for the retrieval of guitarist fingering.
 \newblock In \emph{Proc. Conf. New Interfaces for Musical Expression}, pages
   196--199, France, June 2006.
@@ -177,7 +177,7 @@ S.~Sayegh.
   1989.
 
 \bibitem[Short and Garcia(2006)]{short2006}
-K.~M. Short and R.~A. Garcia.
+K.~Short and R.~Garcia.
 \newblock Signal analysis using the complex spectral phase evolution {(CSPE)}
   method.
 \newblock In \emph{Audio Engineering Society 120th Convention}, Paris, France,
