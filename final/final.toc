@@ -21,13 +21,13 @@
 \contentsline {subsection}{\numberline {3.2.3}Fretboard-Position Inharmonicity Distributions}{25}{subsection.3.2.3}
 \contentsline {subsection}{\numberline {3.2.4}Fretboard Position Classification}{25}{subsection.3.2.4}
 \contentsline {section}{\numberline {3.3}Tuning Compensation Feature}{26}{section.3.3}
-\contentsline {section}{\numberline {3.4}System Overviews}{29}{section.3.4}
+\contentsline {section}{\numberline {3.4}System Overviews}{28}{section.3.4}
 \contentsline {chapter}{\numberline {4}Experiments and Results}{33}{chapter.4}
 \contentsline {section}{\numberline {4.1}RWC Evaluation}{33}{section.4.1}
 \contentsline {section}{\numberline {4.2}Tuning Compensation}{40}{section.4.2}
 \contentsline {chapter}{\numberline {5}Discussion}{43}{chapter.5}
 \contentsline {section}{\numberline {5.1}Analysis}{43}{section.5.1}
-\contentsline {section}{\numberline {5.2}Limitations}{59}{section.5.2}
-\contentsline {section}{\numberline {5.3}Future Work}{60}{section.5.3}
+\contentsline {section}{\numberline {5.2}Limitations}{60}{section.5.2}
+\contentsline {section}{\numberline {5.3}Future Work}{61}{section.5.3}
 \contentsline {chapter}{\numberline {6}Summary}{65}{chapter.6}
-\contentsline {chapter}{Bibliography}{67}{chapter*.4}
+\contentsline {chapter}{Bibliography}{69}{chapter*.4}
