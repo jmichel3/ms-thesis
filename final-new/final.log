@@ -1,0 +1,1199 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  19 JUL 2017 21:48
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**final.tex
+(./final.tex
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+(./cmuthesis.cls (/usr/local/texlive/2015/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/bk12.clo
+File: bk12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+\@copyrightbox=\box26
+\@measbox=\box27
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 94.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count88
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2015/04/20 v2.0e eso-pic (RN)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/times.sty
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/preprint/fullpage.sty
+Package: fullpage 1999/02/23 1.1 (PWD)
+\FP@margin=\skip43
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip44
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks15
+\ex@=\dimen105
+))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen106
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count89
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count90
+\leftroot@=\count91
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count92
+\DOTSCASE@=\count93
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen107
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count94
+\c@MaxMatrixCols=\count95
+\dotsspace@=\muskip10
+\c@parentequation=\count96
+\dspbrk@lvl=\count97
+\tag@help=\toks16
+\row@=\count98
+\column@=\count99
+\maxfields@=\count100
+\andhelp@=\toks17
+\eqnshift@=\dimen108
+\alignsep@=\dimen109
+\tagshift@=\dimen110
+\tagwidth@=\dimen111
+\totwidth@=\dimen112
+\lineht@=\dimen113
+\@envbody=\toks18
+\multlinegap=\skip45
+\multlinetaggap=\skip46
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/array.sty
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen114
+\extrarowheight=\dimen115
+\NC@list=\toks20
+\extratabsurround=\skip47
+\backup@length=\skip48
+)
+\everycr=\toks21
+\minrowclearance=\skip49
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen116
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+
+
+Package natbib Warning: The `cite' package should not be used
+(natbib)                with natbib. Use option `sort' instead.
+
+\bibhang=\skip50
+\bibsep=\skip51
+LaTeX Info: Redefining \cite on input line 694.
+LaTeX Info: Redefining \citenum on input line 708.
+\c@NAT@ctr=\count101
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
+
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
+)
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package hobsub Info: Skipping package `atbegshi' (already loaded).
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+)
+\@linkdim=\dimen117
+\Hy@linkcounter=\count102
+\Hy@pagecounter=\count103
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count104
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `pageanchor' set `true' on input line 4319.
+Package hyperref Info: Option `plainpages' set `false' on input line 4319.
+Package hyperref Info: Option `pdfpagelabels' set `true' on input line 4319.
+Package hyperref Info: Option `bookmarks' set `true' on input line 4319.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 4319
+.
+Package hyperref Info: Hyper figures OFF on input line 4443.
+Package hyperref Info: Link nesting OFF on input line 4448.
+Package hyperref Info: Hyper index ON on input line 4451.
+Package hyperref Info: Plain pages OFF on input line 4458.
+Package hyperref Info: Backreferencing OFF on input line 4463.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4688.
+\c@Hy@tempcnt=\count105
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5041.
+\XeTeXLinkMargin=\dimen118
+\Fld@menulength=\count106
+\Field@Width=\dimen119
+\Fld@charsize=\dimen120
+Package hyperref Info: Hyper figures OFF on input line 6295.
+Package hyperref Info: Link nesting OFF on input line 6300.
+Package hyperref Info: Hyper index ON on input line 6303.
+Package hyperref Info: backreferencing OFF on input line 6310.
+Package hyperref Info: Link coloring OFF on input line 6315.
+Package hyperref Info: Link coloring with OCG OFF on input line 6320.
+Package hyperref Info: PDF/A mode OFF on input line 6325.
+LaTeX Info: Redefining \ref on input line 6365.
+LaTeX Info: Redefining \pageref on input line 6369.
+\Hy@abspage=\count107
+\c@Item=\count108
+\c@Hfootnote=\count109
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
+\Fld@listcount=\count110
+\c@bookmark@seq@number=\count111
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip52
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/rotating/rotating.sty
+Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count112
+\rotFPtop=\skip53
+\rotFPbot=\skip54
+\rot@float@box=\box30
+\rot@mess@toks=\toks22
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip55
+\subfigcapskip=\skip56
+\subfigcaptopadj=\dimen121
+\subfigbottomskip=\skip57
+\subfigcapmargin=\dimen122
+\subfiglabelskip=\skip58
+\c@subfigure=\count113
+\c@lofdepth=\count114
+\c@subtable=\count115
+\c@lotdepth=\count116
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/local/texlive/2015/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip59
+\subfig@bottom=\skip60
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2011/12/15 v2.10.0 Sectioning titles
+\ttl@box=\box31
+\beforetitleunit=\skip61
+\aftertitleunit=\skip62
+\ttl@plus=\dimen123
+\ttl@minus=\dimen124
+\ttl@toksa=\toks23
+\titlewidth=\dimen125
+\titlewidthlast=\dimen126
+\titlewidthfirst=\dimen127
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+\Gm@cnth=\count117
+\Gm@cntv=\count118
+\c@Gm@tempcnt=\count119
+\Gm@bindingoffset=\dimen128
+\Gm@wd@mp=\dimen129
+\Gm@odd@mp=\dimen130
+\Gm@even@mp=\dimen131
+\Gm@layoutwidth=\dimen132
+\Gm@layoutheight=\dimen133
+\Gm@layouthoffset=\dimen134
+\Gm@layoutvoffset=\dimen135
+\Gm@dimlist=\toks24
+)
+(./final.aux)
+\openout1 = `final.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 55.
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count120
+\scratchdimen=\dimen136
+\scratchbox=\box32
+\nofMPsegments=\count121
+\nofMParguments=\count122
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count123
+\MPscratchDim=\dimen137
+\MPnumerator=\count124
+\makeMPintoPDFobject=\count125
+\everyMPtoPDFconversion=\toks26
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\AtBeginShipoutBox=\box33
+Package hyperref Info: Link coloring OFF on input line 55.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count126
+)
+LaTeX Info: Redefining \ref on input line 55.
+LaTeX Info: Redefining \pageref on input line 55.
+LaTeX Info: Redefining \nameref on input line 55.
+
+(./final.out) (./final.out)
+\@outlinefile=\write3
+\openout3 = `final.out'.
+
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* hratio: 1:1
+* modes: twoside 
+* h-part:(L,W,R)=(76.78688pt, 460.72124pt, 76.78688pt)
+* v-part:(T,H,B)=(63.59662pt, 635.97841pt, 95.39496pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=460.72124pt
+* \textheight=635.97841pt
+* \oddsidemargin=4.51689pt
+* \evensidemargin=4.51689pt
+* \topmargin=-8.67337pt
+* \headheight=0.0pt
+* \headsep=0.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=0.0pt
+* \marginparsep=0.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\@cutoutvskip=\skip63
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 81.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 81.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 81.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 81.
+ [1
+
+
+{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
+
+
+]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 92.
+
+Overfull \hbox (5.20767pt too wide) in paragraph at lines 95--96
+[]\OT1/ptm/m/n/12 The first method lin-early re-gresses the log-inharmonicities
+ of gui-tar strings against
+ []
+
+[3
+
+] [4
+
+
+] [5] [6
+
+
+]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 117.
+ (./final.toc [7])
+\tf@toc=\write4
+\openout4 = `final.toc'.
+
+ [8] (./final.lof
+
+Package natbib Warning: Citation `barbanchoi2012' on page ix undefined on input
+ line 2.
+
+
+Underfull \vbox (badness 1701) has occurred while \output is active []
+
+ [9
+
+]
+Overfull \hbox (0.32666pt too wide) in paragraph at lines 13--13
+ [][] [][]\OT1/ptm/m/n/12 System overview of tab-la-ture tran-scrip-tion with B
+ayesian fretboard-position clas- 
+ []
+
+
+Underfull \vbox (badness 3108) has occurred while \output is active []
+
+ [10])
+\tf@lof=\write5
+\openout5 = `final.lof'.
+
+
+[11] [12
+
+] (./final.lot
+
+Package natbib Warning: Citation `barbanchoi2012' on page xiii undefined on inp
+ut line 5.
+
+
+Overfull \hbox (12.56549pt too wide) in paragraph at lines 7--7
+ [][] [][]\OT1/ptm/m/n/12 Error prob-a-bil-ity com-par-isons. Su-pe-rior re-sul
+ts in tri-als with statistically-significant 
+ []
+
+)
+\tf@lot=\write6
+\openout6 = `final.lot'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+[14]
+Chapter 1.
+
+Underfull \vbox (badness 3158) has occurred while \output is active []
+
+ [1
+
+
+]
+<score-tabs.png, id=396, 736.7525pt x 708.6475pt>
+File: score-tabs.png Graphic file (type png)
+ <use score-tabs.png>
+Package pdftex.def Info: score-tabs.png used on input line 153.
+(pdftex.def)             Requested size: 184.18767pt x 177.16144pt.
+
+
+Package natbib Warning: Citation `barbanchoi2012' on page 2 undefined on input 
+line 154.
+
+
+Package natbib Warning: Citation `barbanchoi2012' on page 2 undefined on input 
+line 154.
+
+
+Package natbib Warning: Citation `macrae2010' on page 2 undefined on input line
+ 158.
+
+
+Package natbib Warning: Citation `burlet2013' on page 2 undefined on input line
+ 160.
+
+[2 <./score-tabs.png>]
+
+Package natbib Warning: Citation `barbanchoi2012' on page 3 undefined on input 
+line 162.
+
+
+Package natbib Warning: Citation `barbanchoi2012' on page 3 undefined on input 
+line 166.
+
+[3] [4]
+Chapter 2.
+
+Package natbib Warning: Citation `sayegh1989' on page 5 undefined on input line
+ 179.
+
+
+Package natbib Warning: Citation `radicioni2005' on page 5 undefined on input l
+ine 179.
+
+
+Package natbib Warning: Citation `yazawa2013' on page 5 undefined on input line
+ 179.
+
+
+Package natbib Warning: Citation `burlet2013' on page 5 undefined on input line
+ 179.
+
+
+Package natbib Warning: Citation `burlet2015' on page 5 undefined on input line
+ 179.
+
+
+Package natbib Warning: Citation `radisav2004' on page 5 undefined on input lin
+e 179.
+
+
+Package natbib Warning: Citation `gagnon2003' on page 5 undefined on input line
+ 182.
+
+
+Package natbib Warning: Citation `tuohy2006' on page 5 undefined on input line 
+182.
+
+
+Package natbib Warning: Citation `barbancho2009' on page 5 undefined on input l
+ine 182.
+
+
+Package natbib Warning: Citation `barbanchoa2012' on page 5 undefined on input 
+line 182.
+
+
+Package natbib Warning: Citation `abesser2012' on page 5 undefined on input lin
+e 182.
+
+
+Package natbib Warning: Citation `kehling2014' on page 5 undefined on input lin
+e 182.
+
+
+Package natbib Warning: Citation `dittmar2013' on page 5 undefined on input lin
+e 182.
+
+
+Package natbib Warning: Citation `abesser2012' on page 5 undefined on input lin
+e 182.
+
+[5
+
+]
+
+Package natbib Warning: Citation `ogrady2009' on page 6 undefined on input line
+ 185.
+
+
+Package natbib Warning: Citation `paleari2008' on page 6 undefined on input lin
+e 185.
+
+
+Package natbib Warning: Citation `burns2006' on page 6 undefined on input line 
+185.
+
+
+Package natbib Warning: Citation `kerd2007' on page 6 undefined on input line 1
+85.
+
+
+Package natbib Warning: Citation `barbanchoi2012' on page 6 undefined on input 
+line 188.
+
+
+Package natbib Warning: Citation `barbancho2009' on page 6 undefined on input l
+ine 190.
+
+
+Package natbib Warning: Citation `abesser2012' on page 6 undefined on input lin
+e 190.
+
+
+Package natbib Warning: Citation `dittmar2013' on page 6 undefined on input lin
+e 190.
+
+
+Package natbib Warning: Citation `kehling2014' on page 6 undefined on input lin
+e 190.
+
+[6]
+
+Package natbib Warning: Citation `barbancho2009' on page 7 undefined on input l
+ine 193.
+
+
+Package natbib Warning: Citation `barbanchoi2012' on page 7 undefined on input 
+line 193.
+
+
+Package natbib Warning: Citation `abesser2012' on page 7 undefined on input lin
+e 193.
+
+
+Package natbib Warning: Citation `dittmar2013' on page 7 undefined on input lin
+e 193.
+
+
+Package natbib Warning: Citation `kehling2014' on page 7 undefined on input lin
+e 193.
+
+
+Package natbib Warning: Citation `fletcher1962' on page 7 undefined on input li
+ne 193.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7]
+<skew.png, id=439, 741.77126pt x 255.95625pt>
+File: skew.png Graphic file (type png)
+ <use skew.png>
+Package pdftex.def Info: skew.png used on input line 206.
+(pdftex.def)             Requested size: 482.14561pt x 166.36958pt.
+
+Overfull \hbox (21.42438pt too wide) in paragraph at lines 206--207
+ [][] 
+ []
+
+
+Package natbib Warning: Citation `galembo1979' on page 8 undefined on input lin
+e 215.
+
+
+Package natbib Warning: Citation `galembo1987' on page 8 undefined on input lin
+e 215.
+
+
+Package natbib Warning: Citation `galembo1994' on page 8 undefined on input lin
+e 215.
+
+[8 <./skew.png (PNG copy)>]
+
+Package natbib Warning: Citation `galembo1999' on page 9 undefined on input lin
+e 217.
+
+
+Package natbib Warning: Citation `rauhala2007' on page 9 undefined on input lin
+e 219.
+
+
+Package natbib Warning: Citation `hodgkinson2009' on page 9 undefined on input 
+line 221.
+
+[9]
+
+Package natbib Warning: Citation `barbanchoi2012' on page 10 undefined on input
+ line 223.
+
+
+Package natbib Warning: Citation `abesser2012' on page 10 undefined on input li
+ne 225.
+
+
+Package natbib Warning: Citation `barbanchoi2012' on page 10 undefined on input
+ line 225.
+
+
+Package natbib Warning: Citation `hodgkinson2009' on page 10 undefined on input
+ line 227.
+
+
+Package natbib Warning: Citation `rauhala2007' on page 10 undefined on input li
+ne 227.
+
+
+Package natbib Warning: Citation `galembo1999' on page 10 undefined on input li
+ne 227.
+
+
+Package natbib Warning: Citation `barbanchoi2012' on page 10 undefined on input
+ line 227.
+
+
+Package natbib Warning: Citation `abesser2012' on page 10 undefined on input li
+ne 227.
+
+
+Package natbib Warning: Citation `hodgkinson2009' on page 10 undefined on input
+ line 227.
+
+[10]
+Chapter 3.
+
+Package natbib Warning: Citation `barbanchoi2012' on page 11 undefined on input
+ line 236.
+
+
+Underfull \vbox (badness 1454) has occurred while \output is active []
+
+ [11
+
+]
+<beta-trajectories-ag.png, id=462, 609.27625pt x 448.67625pt>
+File: beta-trajectories-ag.png Graphic file (type png)
+
+<use beta-trajectories-ag.png>
+Package pdftex.def Info: beta-trajectories-ag.png used on input line 245.
+(pdftex.def)             Requested size: 426.49046pt x 314.07123pt.
+ [12 <./beta-trajectories-ag.png (PNG copy)>]
+[13]
+
+Package natbib Warning: Citation `hodgkinson2009' on page 14 undefined on input
+ line 256.
+
+
+Package natbib Warning: Citation `short2006' on page 14 undefined on input line
+ 273.
+
+
+Package natbib Warning: Citation `hodgkinson2009' on page 14 undefined on input
+ line 273.
+
+[14] <mat-flowchart.png, id=491, 344.28625pt x 642.4pt>
+File: mat-flowchart.png Graphic file (type png)
+
+<use mat-flowchart.png>
+Package pdftex.def Info: mat-flowchart.png used on input line 280.
+(pdftex.def)             Requested size: 309.85475pt x 578.15466pt.
+
+Underfull \vbox (badness 1337) has occurred while \output is active []
+
+ [15]
+[16 <./mat-flowchart.png>]
+<beta-v-midi.png, id=505, 549.05125pt x 434.62375pt>
+File: beta-v-midi.png Graphic file (type png)
+ <use beta-v-midi.png>
+Package pdftex.def Info: beta-v-midi.png used on input line 293.
+(pdftex.def)             Requested size: 384.33325pt x 304.23454pt.
+
+[17 <./beta-v-midi.png (PNG copy)>]
+<log-beta-v-midi.png, id=517, 572.1375pt x 469.755pt>
+File: log-beta-v-midi.png Graphic file (type png)
+
+<use log-beta-v-midi.png>
+Package pdftex.def Info: log-beta-v-midi.png used on input line 317.
+(pdftex.def)             Requested size: 400.49352pt x 328.82626pt.
+
+
+Package natbib Warning: Citation `barbanchoi2012' on page 18 undefined on input
+ line 323.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18 <./log-beta-v-midi.png (PNG copy)>]
+<traj-v-reg.png, id=527, 523.9575pt x 655.44875pt>
+File: traj-v-reg.png Graphic file (type png)
+ <use traj-v-reg.png>
+Package pdftex.def Info: traj-v-reg.png used on input line 336.
+(pdftex.def)             Requested size: 392.96716pt x 491.58536pt.
+
+
+Package natbib Warning: Citation `matlab-robustfit' on page 19 undefined on inp
+ut line 341.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19]
+[20 <./traj-v-reg.png (PNG copy)>] [21]
+
+Package natbib Warning: Citation `abesser2012' on page 22 undefined on input li
+ne 397.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [22]
+
+Package natbib Warning: Citation `bello2005' on page 23 undefined on input line
+ 402.
+
+
+Package natbib Warning: Citation `dixon2006' on page 23 undefined on input line
+ 402.
+
+[23]
+
+Package natbib Warning: Citation `abesser2012' on page 24 undefined on input li
+ne 407.
+
+
+Overfull \hbox (14.24559pt too wide) in paragraph at lines 411--412
+\OT1/ptm/m/n/12 The hy-poth-e-sis of our first method is that ex-ploita-tion of
+ the lin-ear tra-jec-to-ries of log-inharmonicities
+ []
+
+
+Underfull \vbox (badness 2237) has occurred while \output is active []
+
+ [24]
+[25]
+
+Package natbib Warning: Citation `barbanchoi2012' on page 26 undefined on input
+ line 432.
+
+
+Package natbib Warning: Citation `kehling2014' on page 26 undefined on input li
+ne 432.
+
+
+Package natbib Warning: Citation `dittmar2013' on page 26 undefined on input li
+ne 432.
+
+
+Package natbib Warning: Citation `abesser2012' on page 26 undefined on input li
+ne 432.
+
+[26] <tuning-eg.png, id=582, 562.1pt x 425.59pt>
+File: tuning-eg.png Graphic file (type png)
+ <use tuning-eg.png>
+Package pdftex.def Info: tuning-eg.png used on input line 479.
+(pdftex.def)             Requested size: 421.57397pt x 319.1917pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [27]
+[28] [29 <./tuning-eg.png (PNG copy)>]
+<overview.png, id=608, 397.0032pt x 460.119pt>
+File: overview.png Graphic file (type png)
+ <use overview.png>
+Package pdftex.def Info: overview.png used on input line 491.
+(pdftex.def)             Requested size: 238.20375pt x 276.07353pt.
+
+<overviewMLE.png, id=609, 397.0032pt x 460.119pt>
+File: overviewMLE.png Graphic file (type png)
+ <use overviewMLE.png>
+Package pdftex.def Info: overviewMLE.png used on input line 498.
+(pdftex.def)             Requested size: 238.20375pt x 276.07353pt.
+
+[30 <./overview.png>] [31 <./overviewMLE.png>] [32
+
+]
+Chapter 4.
+
+Package natbib Warning: Citation `goto2003' on page 33 undefined on input line 
+509.
+
+
+Package natbib Warning: Citation `barbanchoi2012' on page 33 undefined on input
+ line 511.
+
+
+Package natbib Warning: Citation `barbanchoi2012' on page 33 undefined on input
+ line 515.
+
+[33]
+
+Package natbib Warning: Citation `barbanchoi2012' on page 34 undefined on input
+ line 519.
+
+
+Package natbib Warning: Citation `barbanchoi2012' on page 34 undefined on input
+ line 519.
+
+[34]
+Overfull \hbox (9.80432pt too wide) in paragraph at lines 527--572
+ [] 
+ []
+
+
+Package natbib Warning: Citation `barbanchoi2012' on page 35 undefined on input
+ line 572.
+
+
+Package natbib Warning: Citation `barbanchoi2012' on page 35 undefined on input
+ line 572.
+
+[35] [36]
+Overfull \hbox (9.80432pt too wide) in paragraph at lines 670--710
+ [] 
+ []
+
+
+Package natbib Warning: Citation `barbanchoi2012' on page 37 undefined on input
+ line 758.
+
+
+Underfull \vbox (badness 1577) has occurred while \output is active []
+
+ [37]
+[38] [39]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [40]
+[41] [42]
+Chapter 5.
+[43
+
+] [44] <regs3by3.png, id=698, 768.8725pt x 655.44875pt>
+File: regs3by3.png Graphic file (type png)
+ <use regs3by3.png>
+Package pdftex.def Info: regs3by3.png used on input line 943.
+(pdftex.def)             Requested size: 499.7612pt x 426.03664pt.
+
+Overfull \hbox (39.03996pt too wide) in paragraph at lines 943--944
+ [][] 
+ []
+
+<traj-compare-cg.png, id=706, 513.92pt x 655.44875pt>
+File: traj-compare-cg.png Graphic file (type png)
+
+<use traj-compare-cg.png>
+Package pdftex.def Info: traj-compare-cg.png used on input line 953.
+(pdftex.def)             Requested size: 385.43904pt x 491.58536pt.
+
+<traj-compare-ag.png, id=707, 533.995pt x 655.44875pt>
+File: traj-compare-ag.png Graphic file (type png)
+
+<use traj-compare-ag.png>
+Package pdftex.def Info: traj-compare-ag.png used on input line 960.
+(pdftex.def)             Requested size: 400.49527pt x 491.58536pt.
+
+<traj-compare-eg.png, id=708, 537.00626pt x 655.44875pt>
+File: traj-compare-eg.png Graphic file (type png)
+
+<use traj-compare-eg.png>
+Package pdftex.def Info: traj-compare-eg.png used on input line 967.
+(pdftex.def)             Requested size: 402.75371pt x 491.58536pt.
+ [45] [46 <./regs3by3.png (PNG copy)>] [47 <./traj-compare-cg.png (PNG copy)>] 
+[48 <./traj-compare-ag.png (PNG copy)>] [49 <./traj-compare-eg.png (PNG copy)>]
+ <ag-meas-var.png, id=735, 724.7075pt x 655.44875pt>
+File: ag-meas-var.png Graphic file (type png)
+
+<use ag-meas-var.png>
+Package pdftex.def Info: ag-meas-var.png used on input line 1005.
+(pdftex.def)             Requested size: 471.05429pt x 426.03664pt.
+
+Overfull \hbox (10.33305pt too wide) in paragraph at lines 1005--1006
+ [][] 
+ []
+
+<eg-meas-var.png, id=736, 724.7075pt x 655.44875pt>
+File: eg-meas-var.png Graphic file (type png)
+ <use eg-meas-var.png>
+Package pdftex.def Info: eg-meas-var.png used on input line 1012.
+(pdftex.def)             Requested size: 471.05429pt x 426.03664pt.
+
+Overfull \hbox (10.33305pt too wide) in paragraph at lines 1012--1013
+ [][] 
+ []
+
+<best-worst-r2.png, id=738, 624.3325pt x 655.44875pt>
+File: best-worst-r2.png Graphic file (type png)
+ <use best-worst-r2.png>
+Package pdftex.def Info: best-worst-r2.png used on input line 1021.
+(pdftex.def)             Requested size: 468.24823pt x 491.58536pt.
+
+Overfull \hbox (7.527pt too wide) in paragraph at lines 1021--1022
+ [][] 
+ []
+
+<eg1-string-dyn.png, id=740, 624.3325pt x 655.44875pt>
+File: eg1-string-dyn.png Graphic file (type png)
+
+<use eg1-string-dyn.png>
+Package pdftex.def Info: eg1-string-dyn.png used on input line 1031.
+(pdftex.def)             Requested size: 468.24823pt x 491.58536pt.
+
+Overfull \hbox (7.527pt too wide) in paragraph at lines 1031--1032
+ [][] 
+ []
+
+
+Underfull \vbox (badness 5681) has occurred while \output is active []
+
+ [50]
+[51 <./ag-meas-var.png (PNG copy)>] [52 <./eg-meas-var.png (PNG copy)>]
+[53 <./best-worst-r2.png (PNG copy)>] [54] [55 <./eg1-string-dyn.png (PNG copy)
+>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [56]
+Underfull \vbox (badness 4726) has occurred while \output is active []
+
+ [57]
+<eg-params.png, id=790, 773.89125pt x 360.34625pt>
+File: eg-params.png Graphic file (type png)
+ <use eg-params.png>
+Package pdftex.def Info: eg-params.png used on input line 1086.
+(pdftex.def)             Requested size: 464.33833pt x 216.20941pt.
+
+Overfull \hbox (3.6171pt too wide) in paragraph at lines 1086--1087
+ [][] 
+ []
+
+[58 <./eg-params.png (PNG copy)>]
+<eg-params-od.png, id=800, 542.025pt x 251.94125pt>
+File: eg-params-od.png Graphic file (type png)
+ <use eg-params-od.png>
+Package pdftex.def Info: eg-params-od.png used on input line 1101.
+(pdftex.def)             Requested size: 325.2175pt x 151.16591pt.
+
+[59]
+
+Package natbib Warning: Citation `barbanchoi2012' on page 60 undefined on input
+ line 1109.
+
+
+Package natbib Warning: Citation `abesser2012' on page 60 undefined on input li
+ne 1109.
+
+
+Package natbib Warning: Citation `dittmar2013' on page 60 undefined on input li
+ne 1109.
+
+
+Package natbib Warning: Citation `kehling2014' on page 60 undefined on input li
+ne 1109.
+
+
+Package natbib Warning: Citation `yazawa2013' on page 60 undefined on input lin
+e 1109.
+
+[60 <./eg-params-od.png (PNG copy)>] [61] [62]
+<p-correct-res.png, id=819, 847.165pt x 655.44875pt>
+File: p-correct-res.png Graphic file (type png)
+ <use p-correct-res.png>
+Package pdftex.def Info: p-correct-res.png used on input line 1124.
+(pdftex.def)             Requested size: 847.16292pt x 655.44714pt.
+
+[63] [64 <./p-correct-res.png (PNG copy)>]
+Chapter 6.
+
+Package natbib Warning: Citation `barbanchoi2012' on page 65 undefined on input
+ line 1147.
+
+
+Underfull \vbox (badness 3158) has occurred while \output is active []
+
+ [65
+
+]
+[66] [67] [68
+
+]
+No file final.bbl.
+
+Package natbib Warning: There were undefined citations.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1178.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1178.
+(./final.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1178.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1178.
+
+Package rerunfilecheck Info: File `final.out' has not changed.
+(rerunfilecheck)             Checksum: 3E5C0EEF91D3BF2B73BCAC8590D570B8;2376.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1178.
+ ) 
+Here is how much of TeX's memory you used:
+ 8229 strings out of 493089
+ 116916 string characters out of 6134842
+ 270842 words of memory out of 5000000
+ 11380 multiletter control sequences out of 15000+600000
+ 24709 words of font info for 55 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 37i,10n,39p,2355b,360s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texl
+ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texli
+ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texliv
+e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/
+2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/20
+15/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2015/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist
+/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
+e1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/tim
+es/utmri8a.pfb>
+Output written on final.pdf (82 pages, 926639 bytes).
+PDF statistics:
+ 939 PDF objects out of 1000 (max. 8388607)
+ 803 compressed objects within 9 object streams
+ 184 named destinations out of 1000 (max. 500000)
+ 362 words of extra memory for PDF output out of 10000 (max. 10000000)
+

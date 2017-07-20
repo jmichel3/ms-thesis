@@ -1,0 +1,32 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}Previous Work}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Automatic Tablature Transcription}{5}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Graph Search Methods}{5}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Supervised Learning Solutions}{6}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Multimedia Approaches}{6}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}The Partial Coincidence Tally (PCT) Method}{6}{subsection.2.1.4}
+\contentsline {section}{\numberline {2.2}Inharmonicity Motivation}{7}{section.2.2}
+\contentsline {section}{\numberline {2.3}Inharmonicity Estimation}{8}{section.2.3}
+\contentsline {chapter}{\numberline {3}Proposed Transcription Methods}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Inharmonicity Trajectories}{11}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Motivation}{11}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Inharmonicity Estimation}{14}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Log-inharmonicity}{15}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Learning Inharmonicity Trajectories}{19}{subsection.3.1.4}
+\contentsline {subsection}{\numberline {3.1.5}String Classification}{21}{subsection.3.1.5}
+\contentsline {subsection}{\numberline {3.1.6}Tablature Conversion and Refinement}{23}{subsection.3.1.6}
+\contentsline {section}{\numberline {3.2}Baseline Bayesian Classifier}{24}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Motivation}{24}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Inharmonicity Estimation}{24}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Fretboard-Position Inharmonicity Distributions}{25}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Fretboard Position Classification}{25}{subsection.3.2.4}
+\contentsline {section}{\numberline {3.3}Tuning Compensation Feature}{26}{section.3.3}
+\contentsline {section}{\numberline {3.4}System Overviews}{28}{section.3.4}
+\contentsline {chapter}{\numberline {4}Experiments and Results}{33}{chapter.4}
+\contentsline {section}{\numberline {4.1}RWC Evaluation}{33}{section.4.1}
+\contentsline {section}{\numberline {4.2}Tuning Compensation}{40}{section.4.2}
+\contentsline {chapter}{\numberline {5}Discussion}{43}{chapter.5}
+\contentsline {section}{\numberline {5.1}Analysis}{43}{section.5.1}
+\contentsline {section}{\numberline {5.2}Limitations}{60}{section.5.2}
+\contentsline {section}{\numberline {5.3}Future Work}{61}{section.5.3}
+\contentsline {chapter}{\numberline {6}Summary}{65}{chapter.6}
